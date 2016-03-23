@@ -6,11 +6,13 @@
 
 html, 
 body, 
-#content,
+#main,
 .all {
     height: 100%;
     width: 100%;
     overflow: hidden;
+    position: absolute;
+    transition: opacity 0.5s ease-in;
 }
 
 header {
@@ -187,4 +189,35 @@ time span:last-child {
 	font-size: 25px;
 	margin: 23px 0 0;
 	text-align: center;
+}
+
+
+
+.fade-enter {
+  opacity: 0.01;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 2000ms ease-in 3000ms;
+}
+
+.fade-appear {
+  opacity: 0.01;
+}
+
+.fade-appear.fade-appear-active {
+  opacity: 1;
+  transition: opacity 2000ms ease-in;
+}
+
+.fade-leave {
+	visibility: hidden;
+	width: 0;
+	height: 0;
+  	opacity: 1;
+}
+
+.fade-leave.fade-leave-active {
+  opacity: 0.01;
 }
