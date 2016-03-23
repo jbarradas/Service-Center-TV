@@ -1,0 +1,223 @@
+*, 
+*:before, 
+*:after {
+	box-sizing: border-box;
+}
+
+html, 
+body, 
+#main,
+.all {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    transition: opacity 0.5s ease-in;
+}
+
+header {
+	height: 25%;
+	margin-bottom: 15px;
+}
+
+main {
+	height: 75%;
+	padding: 0 25px;
+	
+}
+
+#prjLogo {
+    float: left;
+    max-width: 20%;
+    max-height: 80%;
+}
+
+#logo {
+    max-width: 20%;
+    max-height: 80%;
+    float: right;
+}
+
+time {
+    width: 50%;
+    margin: 0 auto;
+    display: block;
+    font-size: 30px;
+	padding: 1%;
+	background-color: #3D4F59;
+	color: #ED9436;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+	text-align: center;
+}
+ 
+time span:last-child {
+	margin-left: 85px;
+}
+
+.bar {
+	background-color: rgb(61, 79, 89);
+	height: 20%;
+	clear: both;
+	color: rgb(255, 255, 255);
+	font-size: 2vw;
+	padding: 0 0.5%;
+	margin: 0;
+}
+
+.bar ul{
+	margin: 0 0 5px;
+}
+
+.bar li {
+    display: inline-block;
+    width: 33%;
+}
+
+.bar li:last-child {
+	text-align: right;
+}
+
+
+.abouttheproject h2, .team h2{
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	text-align: center;
+	background-color: #464646;
+	color: #FFFFFF ;
+	padding: 0;
+	font-size: 2.2vw;
+	margin: 0;
+
+}
+
+.abouttheproject ul{
+	padding: 15px;
+	background-color: #B9B9B9;
+	margin: 0;
+	height: 200px;
+}
+.abouttheproject ul label, .projectStatus ul label{
+	color: #5E5E5E;
+	font-weight: bold;
+}
+
+.abouttheproject ul li, .projectStatus ul li{
+	padding: 5px;
+	color: #5E5E5E;
+	margin-left: 35px;
+}
+
+.boxcol-1-3{
+	width: 25%;
+	display: inline-flex;
+	height: 112px;
+	text-align: center;
+}
+
+.perfilname{
+	margin: 0 auto;
+	width: 75%;
+	display: block;
+}
+
+.box{
+	border: 1px dashed #464646;
+	padding: 5px 0 0 20px;
+	border-top: none;
+}
+
+.box1{
+	padding: 5px 0 0;
+	border-top: none;
+}
+
+.mainGrid {
+ 	width: 100%;
+}
+
+.col-1-3 {
+  width: 	 30%;
+  display: inline-block;
+  float: left;
+}
+
+.col-2-3 {
+  width: 70%;
+  display: inline-block;
+  padding-left: 10px;
+
+}
+
+.row {
+	display: inline-block;
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+.projectStatus h2{
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	text-align: center;
+	background-color: #EF8803;
+	color: #FFFFFF ;
+	padding: 0;
+	font-size: 2.2vw;
+	margin: 0;
+
+}
+
+.projectStatus ul{
+	padding: 15px;
+	background-color: #B9B9B9;
+	margin: 0;
+	height: 200px;
+	float: left;
+}
+
+.col-1-2 {
+	display: inline-block;
+	width: 50%;
+	float: left;
+	padding: 5px 5px 0 0;
+}
+
+.status{
+	width: 101%;
+}
+.statusText {
+	font-size: 25px;
+	margin: 23px 0 0;
+	text-align: center;
+}
+
+
+
+.fade-enter {
+  opacity: 0.01;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 2000ms ease-in 3000ms;
+}
+
+.fade-appear {
+  opacity: 0.01;
+}
+
+.fade-appear.fade-appear-active {
+  opacity: 1;
+  transition: opacity 2000ms ease-in;
+}
+
+.fade-leave {
+	visibility: hidden;
+	width: 0;
+	height: 0;
+  	opacity: 1;
+}
+
+.fade-leave.fade-leave-active {
+  opacity: 0.01;
+}

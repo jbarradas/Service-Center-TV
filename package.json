@@ -1,0 +1,31 @@
+{
+  "name": "service-center-tv",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bundle.js",
+  "scripts": {
+    "build": "browserify -t reactify js/app.js -o js/bundle.js",
+    "watch": "watchify -t reactify js/app.js -o js/bundle.js"  
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jbarradas/Service-Center-TV.git"
+  },
+  "author": "João Barradas & André Saraiva - GFI PT",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jbarradas/Service-Center-TV/issues"
+  },
+  "homepage": "https://github.com/jbarradas/Service-Center-TV#readme",
+  "dependencies": {
+    "intl": "^1.1.0",
+    "react": "^0.14.7",
+    "react-addons-css-transition-group": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "react-intl": "^2.0.0-rc-1",
+    "watchify": "^3.7.0"
+  },
+  "devDependencies": {
+    "reactify": "^1.1.1"
+  }
+}
