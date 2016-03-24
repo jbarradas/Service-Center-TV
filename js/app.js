@@ -303,37 +303,54 @@ var ProjectSTATUS = React.createClass({
 
 
 var All = React.createClass({
-    
-    getInitialState: function() {
-        return {fading: false};
+        
+    getDefaultProps: function(){
+        console.log('getDefaultProps fired');
     },
 
-   
-    componentDidMount: function() {
-        this.setState({ fading: true });
-        console.log('helooooooo');
-
-
+    getInitialState: function () { 
+        console.log('getInitialState fired'); 
+      return { fading: true };
     },
 
-    componentDidAppear: function() {
-        setTimeout(this.setState({fading: true}), 2000);
-        if (this.state.fading === true) {
-            React.unmountComponentAtNode(document.getElementById('all'));
-        }
+    componentWillMount: function () { 
+        console.log('componentWillMount fired');
     },
 
-    
-  componentWillUnmount() {
-    console.log("Did Unmount");
-   },
+    componentDidMount: function () {
+        console.log('componentDidMount fired'); 
+    },
 
+    componentWillReceiveProps: function (newProps) { 
+        console.log('componentWillReceiveProps fired');
+        return{fading: { fading: true }
+        };
+    },
+
+    shouldComponentUpdate: function (newProps, newState) { 
+        console.log('shouldComponentUpdate fired'); 
+        return true;
+    },
+
+    componentWillUpdate: function (nextProps,nextState) {
+        console.log('componentWillUpdate fired');
+    },
+
+    componentDidUpdate: function () {
+        console.log('componentDidUpdate fired'); 
+    },
+
+    componentWillUnmount: function () {
+        console.log('componentWillUnmount fired'); 
+    },
+
+     
 
     render: function() {
         var child;
 
-        if(!this.state.fading){
-
+        if(this.state.fading){
+            console.log('Fading true');
             child = (<div className="all">
                         <Header />
                         <Main />
@@ -341,7 +358,7 @@ var All = React.createClass({
         }else{
 
             child = null;
-            console.log('elseeee');
+            console.log('Fading false');
         }
         return (
             <ReactCSSTransitionGroup 
