@@ -3,6 +3,11 @@ var ReactDOM = require('react-dom');
 var ReactIntl = require('react-intl');
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
+// PRINT DATE AND TIME USING react-intl (FormatJS)
+var IntlProvider  = ReactIntl.IntlProvider;
+var FormattedDate = ReactIntl.FormattedDate;
+var FormattedTime = ReactIntl.FormattedTime;
+
 
 
 var testDB = [
@@ -146,10 +151,7 @@ var ProjectLogo = React.createClass({
     }
 });
 
-// PRINT DATE AND TIME USING react-intl (FormatJS)
-var IntlProvider  = ReactIntl.IntlProvider;
-var FormattedDate = ReactIntl.FormattedDate;
-var FormattedTime = ReactIntl.FormattedTime;
+
 
 var Dates = React.createClass({
     render: function () {
@@ -301,49 +303,63 @@ var ProjectSTATUS = React.createClass({
 
 
 var All = React.createClass({
+    
     getInitialState: function() {
-        return {
-            fading: false
-        };
+        return {fading: false};
+    },
+
+   
+    componentDidMount: function() {
+        this.setState({ fading: true });
+        console.log('helooooooo');
+
+
     },
 
     componentDidAppear: function() {
-        setTimeout(this.setState({fading: true}), 4000);
+        setTimeout(this.setState({fading: true}), 2000);
         if (this.state.fading === true) {
             React.unmountComponentAtNode(document.getElementById('all'));
         }
     },
 
-    componentWillLeave: function() {
-        if (this.state.fading === true) {
-            return true;
-        }
-    },
     
+  componentWillUnmount() {
+    console.log("Did Unmount");
+   },
+
+
     render: function() {
+        var child;
+
+        if(!this.state.fading){
+
+            child = (<div className="all">
+                        <Header />
+                        <Main />
+                    </div>);
+        }else{
+
+            child = null;
+            console.log('elseeee');
+        }
         return (
             <ReactCSSTransitionGroup 
                 transitionName="fade" 
-                transitionAppear={true} 
-                transitionAppearTimeout={2000}
-                transitionEnterTimeout={2000} 
-                transitionLeaveTimeout={400}
+                transitionEnterTimeout={500} 
+                transitionLeaveTimeout={300}
                 component="div">
-            <div className="all">
-                    <Header />
-                    <Main />
-                  </div>
-                  </ReactCSSTransitionGroup>
-          
-
+                    {child}
+            </ReactCSSTransitionGroup>
         );
+
     }
 });
 
 
 
 // RENDER TO VIRTUAL DOM
-setInterval(function() {
+//setInterval(function() {
   ReactDOM.render(
     
             <IntlProvider >
@@ -352,6 +368,6 @@ setInterval(function() {
             document.getElementById('main')
    
   );
-}, 500);
+//}, 500);
 
 

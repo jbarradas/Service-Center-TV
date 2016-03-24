@@ -4,6 +4,11 @@ var ReactDOM = require('react-dom');
 var ReactIntl = require('react-intl');
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
+// PRINT DATE AND TIME USING react-intl (FormatJS)
+var IntlProvider  = ReactIntl.IntlProvider;
+var FormattedDate = ReactIntl.FormattedDate;
+var FormattedTime = ReactIntl.FormattedTime;
+
 
 
 var testDB = [
@@ -147,10 +152,7 @@ var ProjectLogo = React.createClass({displayName: "ProjectLogo",
     }
 });
 
-// PRINT DATE AND TIME USING react-intl (FormatJS)
-var IntlProvider  = ReactIntl.IntlProvider;
-var FormattedDate = ReactIntl.FormattedDate;
-var FormattedTime = ReactIntl.FormattedTime;
+
 
 var Dates = React.createClass({displayName: "Dates",
     render: function () {
@@ -302,49 +304,63 @@ var ProjectSTATUS = React.createClass({displayName: "ProjectSTATUS",
 
 
 var All = React.createClass({displayName: "All",
+    
     getInitialState: function() {
-        return {
-            fading: false
-        };
+        return {fading: false};
+    },
+
+   
+    componentDidMount: function() {
+        this.setState({ fading: true });
+        console.log('helooooooo');
+
+
     },
 
     componentDidAppear: function() {
-        setTimeout(this.setState({fading: true}), 4000);
+        setTimeout(this.setState({fading: true}), 2000);
         if (this.state.fading === true) {
             React.unmountComponentAtNode(document.getElementById('all'));
         }
     },
 
-    componentWillLeave: function() {
-        if (this.state.fading === true) {
-            return true;
-        }
-    },
     
+  componentWillUnmount() {
+    console.log("Did Unmount");
+   },
+
+
     render: function() {
+        var child;
+
+        if(!this.state.fading){
+
+            child = (React.createElement("div", {className: "all"}, 
+                        React.createElement(Header, null), 
+                        React.createElement(Main, null)
+                    ));
+        }else{
+
+            child = null;
+            console.log('elseeee');
+        }
         return (
             React.createElement(ReactCSSTransitionGroup, {
                 transitionName: "fade", 
-                transitionAppear: true, 
-                transitionAppearTimeout: 2000, 
-                transitionEnterTimeout: 2000, 
-                transitionLeaveTimeout: 400, 
+                transitionEnterTimeout: 500, 
+                transitionLeaveTimeout: 300, 
                 component: "div"}, 
-            React.createElement("div", {className: "all"}, 
-                    React.createElement(Header, null), 
-                    React.createElement(Main, null)
-                  )
-                  )
-          
-
+                    child
+            )
         );
+
     }
 });
 
 
 
 // RENDER TO VIRTUAL DOM
-setInterval(function() {
+//setInterval(function() {
   ReactDOM.render(
     
             React.createElement(IntlProvider, null, 
@@ -353,7 +369,7 @@ setInterval(function() {
             document.getElementById('main')
    
   );
-}, 500);
+//}, 500);
 },{"react":187,"react-addons-css-transition-group":51,"react-dom":52,"react-intl":53}],2:[function(require,module,exports){
 
 },{}],3:[function(require,module,exports){
