@@ -304,37 +304,54 @@ var ProjectSTATUS = React.createClass({displayName: "ProjectSTATUS",
 
 
 var All = React.createClass({displayName: "All",
-    
-    getInitialState: function() {
-        return {fading: false};
+        
+    getDefaultProps: function(){
+        console.log('getDefaultProps fired');
     },
 
-   
-    componentDidMount: function() {
-        this.setState({ fading: true });
-        console.log('helooooooo');
-
-
+    getInitialState: function () { 
+        console.log('getInitialState fired'); 
+      return { fading: true };
     },
 
-    componentDidAppear: function() {
-        setTimeout(this.setState({fading: true}), 2000);
-        if (this.state.fading === true) {
-            React.unmountComponentAtNode(document.getElementById('all'));
-        }
+    componentWillMount: function () { 
+        console.log('componentWillMount fired');
     },
 
-    
-  componentWillUnmount() {
-    console.log("Did Unmount");
-   },
+    componentDidMount: function () {
+        console.log('componentDidMount fired'); 
+    },
 
+    componentWillReceiveProps: function (newProps) { 
+        console.log('componentWillReceiveProps fired');
+        return{fading: { fading: true }
+        };
+    },
+
+    shouldComponentUpdate: function (newProps, newState) { 
+        console.log('shouldComponentUpdate fired'); 
+        return true;
+    },
+
+    componentWillUpdate: function (nextProps,nextState) {
+        console.log('componentWillUpdate fired');
+    },
+
+    componentDidUpdate: function () {
+        console.log('componentDidUpdate fired'); 
+    },
+
+    componentWillUnmount: function () {
+        console.log('componentWillUnmount fired'); 
+    },
+
+     
 
     render: function() {
         var child;
 
-        if(!this.state.fading){
-
+        if(this.state.fading){
+            console.log('Fading true');
             child = (React.createElement("div", {className: "all"}, 
                         React.createElement(Header, null), 
                         React.createElement(Main, null)
@@ -342,7 +359,7 @@ var All = React.createClass({displayName: "All",
         }else{
 
             child = null;
-            console.log('elseeee');
+            console.log('Fading false');
         }
         return (
             React.createElement(ReactCSSTransitionGroup, {
