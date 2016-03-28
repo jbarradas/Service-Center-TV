@@ -3,11 +3,11 @@ var ReactDOM = require('react-dom');
 var ReactIntl = require('react-intl');
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
+var local = require('react-intl/locale-data/pt');
 // PRINT DATE AND TIME USING react-intl (FormatJS)
 var IntlProvider  = ReactIntl.IntlProvider;
 var FormattedDate = ReactIntl.FormattedDate;
 var FormattedTime = ReactIntl.FormattedTime;
-
 
 
 var testDB = [
@@ -152,7 +152,7 @@ var ProjectLogo = React.createClass({
 });
 
 
-
+// PRINT DATE AND TIME
 var Dates = React.createClass({
     render: function () {
         return (
@@ -167,6 +167,7 @@ var Dates = React.createClass({
 });
 
 var Time = React.createClass({
+
     render: function () {
         return (
                 <FormattedTime 
@@ -270,36 +271,40 @@ var Team = React.createClass({
 
 //PROJECT STATUS BOX
 var ProjectSTATUS = React.createClass({
-
     render: function() {
-        return (
+    	var issuesrisks = (<li>{this.props.projects[0].about.issuesrisks.one}</li>);
+    	var keydiscussionitms = (<li>{this.props.projects[0].about.keydiscussionitms}</li>);
+    
 
-            <section className = "projectStatus">
-                <h2>PROJECT STATUS</h2>
-                <section className="row">
-                    <div className="col-1-2">
-                        <div className="content">
-                            <ul>
-                                <label>ISSUES/RISKS</label>
-                                    <li>{this.props.projects[0].about.issuesrisks.one}</li>
-                                    <li>{this.props.projects[0].about.issuesrisks.two}</li>
-                                <label>KEY DISCUSSION ITEMS</label>
-                                    <li>{this.props.projects[0].about.keydiscussionitms}</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="col-1-2">
-                        <div className="content">
-                            <img className="status" src={this.props.projects[0].status.img}/>
-                            <h5 className="statusText">{this.props.projects[0].status.percent}</h5>
-                        </div>
-                    </div>
-                </section>
-            </section>
-            );
+        return (
+        		<section className = "projectStatus">
+                	<h2>PROJECT STATUS</h2>
+               			<section className="row">
+                    		<div className="col-1-2">
+                        		<div className="projectStatus" >
+                            		<ul>
+                                		<label>ISSUES/RISKS</label>
+                                    		<ReactCSSTransitionGroup transitionName="scroll" transitionAppear={true} component="div">
+                    							{issuesrisks}
+            								</ReactCSSTransitionGroup>
+                                		<label>KEY DISCUSSION ITEMS</label>
+                                    		<ReactCSSTransitionGroup transitionName="scroll" transitionAppear={true} component="div">
+                    							{keydiscussionitms}
+            								</ReactCSSTransitionGroup>
+                            		</ul>
+                        		</div>
+                    		</div>
+                    		<div className="col-1-2">
+                        		<div className="content">
+                            		<img className="status" src={this.props.projects[0].status.img}/>
+                            		<h5 className="statusText">{this.props.projects[0].status.percent}</h5>
+
+                        		</div>
+                    		</div>
+                		</section>
+            	</section>);
     }
 });
-
 
 
 var All = React.createClass({
@@ -310,7 +315,7 @@ var All = React.createClass({
 
     getInitialState: function () { 
         console.log('getInitialState fired'); 
-      return { fading: true };
+      	return { fading: true };
     },
 
     componentWillMount: function () { 
@@ -323,8 +328,7 @@ var All = React.createClass({
 
     componentWillReceiveProps: function (newProps) { 
         console.log('componentWillReceiveProps fired');
-        return{fading: { fading: true }
-        };
+        this.setState({fading: false});
     },
 
     shouldComponentUpdate: function (newProps, newState) { 
@@ -336,7 +340,7 @@ var All = React.createClass({
         console.log('componentWillUpdate fired');
     },
 
-    componentDidUpdate: function () {
+    componentDidUpdate: function (prevProps,prevState) {
         console.log('componentDidUpdate fired'); 
     },
 
@@ -344,28 +348,30 @@ var All = React.createClass({
         console.log('componentWillUnmount fired'); 
     },
 
-     
-
     render: function() {
         var child;
 
         if(this.state.fading){
+            
             console.log('Fading true');
             child = (<div className="all">
                         <Header />
                         <Main />
                     </div>);
+
         }else{
 
             child = null;
             console.log('Fading false');
         }
+        
         return (
             <ReactCSSTransitionGroup 
                 transitionName="fade" 
-                transitionEnterTimeout={500} 
-                transitionLeaveTimeout={300}
-                component="div">
+                transitionAppear={true}
+                transitionEnterTimeout={5000} 
+                transitionLeaveTimeout={20000}
+                component="all">
                     {child}
             </ReactCSSTransitionGroup>
         );
@@ -376,7 +382,7 @@ var All = React.createClass({
 
 
 // RENDER TO VIRTUAL DOM
-//setInterval(function() {
+setInterval(function() {
   ReactDOM.render(
     
             <IntlProvider >
@@ -385,6 +391,6 @@ var All = React.createClass({
             document.getElementById('main')
    
   );
-//}, 500);
+}, 500);
 
 
