@@ -22,27 +22,11 @@ var Header = React.createClass({
     }
 });
 
-var Main = React.createClass({
+// PRINT COMPANY LOGO
+var ProjectLogo = React.createClass({
     render: function() {
         return (
-            <main>
-                <section className="mainGrid">
-                    <div className="leftCol">
-                        <div className="col-1-3">
-                            <AboutTheProject projects={DataBase} pos={this.props.pos} />
-                        </div>
-                        <div className="col-1-3">
-                            <Team projects={DataBase} pos={this.props.pos} />
-                        </div>
-                    </div>
-
-                    <div className="rigthCol">
-                        <ProjectStatus projects={DataBase} pos={this.props.pos} />
-                        
-                        
-                    </div>
-                </section>
-            </main>
+            <img id="prjLogo" src="img/logo-company-hub.png" />
         );
     }
 });
@@ -52,15 +36,6 @@ var GFIlogo = React.createClass({
     render: function() {
         return (
             <img id="logo" src={this.props.imageSrc} key={this.props.imageSrc} />
-        );
-    }
-});
-
-// PRINT COMPANY LOGO
-var ProjectLogo = React.createClass({
-    render: function() {
-        return (
-            <img id="prjLogo" src="img/logo-company-hub.png" />
         );
     }
 });
@@ -107,8 +82,6 @@ var Time = React.createClass({
     }
 });
 
-
-
 // PROJECT BAR
 var ProjectBar = React.createClass({
 
@@ -124,6 +97,32 @@ var ProjectBar = React.createClass({
         );
     }
 });
+
+var Main = React.createClass({
+    render: function() {
+        return (
+            <main>
+                <section className="mainGrid">
+                    <div className="leftCol">
+                        <div id="about" className="col-1-3">
+                            <AboutTheProject projects={DataBase} pos={this.props.pos} />
+                        </div>
+                        <div id="team" className="col-1-3">
+                            <Team projects={DataBase} pos={this.props.pos} />
+                        </div>
+                    </div>
+
+                    <div className="rigthCol">
+                        <ProjectStatus projects={DataBase} pos={this.props.pos} />
+                        
+                        
+                    </div>
+                </section>
+            </main>
+        );
+    }
+});
+
 
 //ABOUT THE PROJECT BOX
 var AboutTheProject = React.createClass({
@@ -200,13 +199,13 @@ var ProjectStatus = React.createClass({
 
     render: function() {
         return (
-            <section className = "projectStatus">
+            <section className="projectStatus">
                 <h2>PROJECT STATUS</h2>
-                    <div className="col-1-2">
+                    <div id="issues" className="col-1-2">
                         <IssueRisks projects={DataBase} pos={this.props.pos} />
                         <KeyDiscussionItems projects={DataBase} pos={this.props.pos} />
                     </div>
-                    <div className="col-1-2">
+                    <div id="status" className="col-1-2">
                         <Status projects={DataBase} pos={this.props.pos} />
                     </div>
                 </section>
@@ -255,8 +254,7 @@ var Status = React.createClass({
                 <img className="imgstatus" src={this.props.projects[this.props.pos].status.img} />
                 <h5 className="statusText">{this.props.projects[this.props.pos].status.percent}</h5>
             </div>
-               
-            );
+        );
     }
 
 });
