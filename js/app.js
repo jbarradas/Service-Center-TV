@@ -53,7 +53,7 @@ var testDB = [
         },
         status:{
             percent: "Ongoing Product",
-            img: "img/status/status.jpg"
+            img: "img/status/state-yellow.png"
         }
     },
     {
@@ -91,7 +91,7 @@ var testDB = [
         },
         status:{
             percent: "DONE",
-            img: "img/status/status.jpg"
+            img: "img/status/state-green.png"
         }
     }
 ]
@@ -118,19 +118,19 @@ var Main = React.createClass({
         return (
             <main>
                 <section className="mainGrid">
-                    <div className="row">
+                    <div className="leftCol">
                         <div className="col-1-3">
-                            <AboutTheProject projects={testDB} pos={this.props.pos}/>
+                            <AboutTheProject projects={testDB} pos={this.props.pos} />
                         </div>
-                        <div className="col-2-3">
-                            <ProjectSTATUS projects={testDB} pos={this.props.pos}/>
-                            
+                        <div className="col-1-3">
+                            <Team projects={testDB} pos={this.props.pos} />
                         </div>
                     </div>
-                    <div className="row">
-                        <div className="col-1-3">
-                            <Team projects={testDB} pos={this.props.pos}/>
-                        </div>   
+
+                    <div className="rigthCol">
+                        <ProjectStatus projects={testDB} pos={this.props.pos} />
+                        
+                        
                     </div>
                 </section>
             </main>
@@ -287,38 +287,70 @@ var Team = React.createClass({
   }
 });
 
-//PROJECT STATUS BOX
-var ProjectSTATUS = React.createClass({
+var ProjectStatus = React.createClass({
 
     render: function() {
         return (
-
             <section className = "projectStatus">
                 <h2>PROJECT STATUS</h2>
-                <section className="row">
                     <div className="col-1-2">
-                        <div className="content">
-                            <ul>
-                                <label>ISSUES/RISKS</label>
-                                    <li>{this.props.projects[this.props.pos].about.issuesrisks.one}</li>
-                                    <li>{this.props.projects[this.props.pos].about.issuesrisks.two}</li>
-                                <label>KEY DISCUSSION ITEMS</label>
-                                    <li>{this.props.projects[this.props.pos].about.keydiscussionitms}</li>
-                            </ul>
-                        </div>
+                        <IssueRisks projects={testDB} pos={this.props.pos} />
+                        <KeyDiscussionItems projects={testDB} pos={this.props.pos} />
                     </div>
                     <div className="col-1-2">
-                        <div className="content">
-                            <img className="status" src={this.props.projects[this.props.pos].status.img}/>
-                            <h5 className="statusText">{this.props.projects[this.props.pos].status.percent}</h5>
-                        </div>
+                        <Status projects={testDB} pos={this.props.pos} />
                     </div>
                 </section>
-            </section>
             );
     }
 });
 
+
+//PROJECT STATUS BOX
+var IssueRisks = React.createClass({
+
+    render: function() {
+        return (  
+            <div className="content1">
+                <ul>
+                    <label>ISSUES/RISKS</label>
+                    <li>{this.props.projects[this.props.pos].about.issuesrisks.one}</li>
+                    <li>{this.props.projects[this.props.pos].about.issuesrisks.two}</li>
+                </ul>
+            </div>
+                    
+               
+            );
+    }
+});
+
+var KeyDiscussionItems = React.createClass({
+    render: function(){
+        return(
+            <div className="content1">
+                <ul>
+                    <label>KEY DISCUSSION ITEMS</label>
+                    <li>{this.props.projects[this.props.pos].about.keydiscussionitms}</li>
+                </ul>
+            </div>
+                    
+            );
+    }
+});
+
+var Status = React.createClass({
+
+    render: function(){
+        return(
+            <div className="content">
+                <img className="imgstatus" src={this.props.projects[this.props.pos].status.img} />
+                <h5 className="statusText">{this.props.projects[this.props.pos].status.percent}</h5>
+            </div>
+               
+            );
+    }
+
+});
 
 
 var All = React.createClass({
