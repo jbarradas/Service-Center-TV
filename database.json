@@ -1,0 +1,216 @@
+[
+    {
+        id: 1,
+        name: "Company Hub",
+        costumer: "GFI Informatique",
+        country: "France",
+        team: {
+            total: 6,
+            people: {
+                people1: {
+                    name: "Vitor Pereira",
+                    foto: "img/FotosPerfil/VitorPereira.png"
+                },
+                people2: {
+                    name: "Pedro Conde",
+                    foto: "img/FotosPerfil/PedroConde.png"
+                },
+                people3: {
+                    name: "Rui Almeida",
+                    foto: "img/FotosPerfil/RuiAlmeida.png"
+                },
+                people4: {
+                    name: "Tiago Flores",
+                    foto: "img/FotosPerfil/TiagoFlores.png"
+                },
+                people5: {
+                    name: "Ivo Ventura",
+                    foto: "img/FotosPerfil/IvoVentura.png"
+                },
+                people6: {
+                    name: "Hugo Antunes",
+                    foto: "img/FotosPerfil/HugoAntunes.png"
+                }
+            }
+        },
+        info: {
+            objective: "Mobile multi-platform portal to display and interact with data from enterprise systems",
+            focus: "Push Notifications and External Auth."
+        },
+        about: {
+            issuesrisks: {
+                            one: "Not enough mobile phones o fully test all circunstances",
+                            two: "One man short on Android"
+            },
+            keydiscussionitms: "Planning of industrialization and support must be defined"
+        },
+        status:{
+            percent: "Ongoing Product",
+            img: "img/status/state-yellow.png"
+        }
+    },
+    {
+        id: 2,
+        name: "MOCCA+",
+        costumer: "Crédit Agricole",
+        country: "France",
+        team: {
+            total: 3,
+            people: {
+                people1: {
+                    name: "Luis Alves",
+                    foto: ""                    
+                },
+                people2: {
+                    name: "Ana Lopes",
+                    foto: ""
+                },
+                people3: {
+                    name: "Jorge Graça",
+                    foto: ""
+                }
+            }
+        },
+        info: {
+            objective: "Technical migration from Vignette to Sharepoint 2013.",
+            focus: "Migration of 60 intranets"
+        },
+        about: {
+            issuesrisks: {
+                            one: "Sharepoint 2013 variations",
+                            two: "Sharepoint 2013 variations"
+            },
+            keydiscussionitms: "Number of pages migrated: 15975"
+        },
+        status:{
+            percent: "DONE",
+            img: "img/status/state-green.png"
+        }
+    },
+    {
+        id: 3,
+        name: "Toyota One",
+        costumer: "Toyota",
+        country: "Belgium",
+        team: {
+            total: 5,
+            people: {
+                people1: {
+                    name: "Laura Costa",
+                    foto: ""                    
+                },
+                people2: {
+                    name: "Ricardo Jafe",
+                    foto: ""
+                },
+                people3: {
+                    name: "Liliana Gouveia",
+                    foto: ""
+                },
+                people4: {
+                    name: "Rute Henriques",
+                    foto: ""
+                },
+                people5: {
+                    name: "Carla Silva",
+                    foto: ""
+                }
+            }
+        },
+        info: {
+            objective: "Quality Assurance of T1 Websites",
+            focus: "Toyota Dealer Finder Regression Testing\nKnowledge Graph & Rich Snippets (SEO)\nTitle and Description quality KPIs (SEO)"
+        },
+        about: {
+            issuesrisks: {
+                            one: "3 Open issues",
+                            two: "Used Cars Platform\nSEO in merchandise platform"
+            },
+            keydiscussionitms: "User Cars Platform\nSEO in merchandise platform"
+        },
+        status:{
+            percent: "19% Complete",
+            img: "img/status/state-green.png"
+        }
+    },
+    {
+        id: 4,
+        name: "Pégase 3",
+        costumer: "GFI Informatique",
+        country: "France",
+        team: {
+            total: 4,
+            people: {
+                people1: {
+                    name: "Luís Gouveia",
+                    foto: ""                    
+                },
+                people2: {
+                    name: "Jorge Gonçalves",
+                    foto: ""
+                },
+                people3: {
+                    name: "César Lourenço",
+                    foto: ""
+                },
+                people4: {
+                    name: "Jorge Santos",
+                    foto: ""
+                }
+            }
+        },
+        info: {
+            objective: "Improve last sprint's (Facture) performance",
+            focus: "The new sprint: <em>Encaissement & Paiement<em>"
+        },
+        about: {
+            issuesrisks: {
+                            one: "Most of the new tasks are completely different from its predecessors"
+            },
+            keydiscussionitms: "Double-click issue"
+        },
+        status:{
+            percent: "30% Complete",
+            img: "img/status/state-green.png"
+        }
+    },
+    ,
+    {
+        id: 5,
+        name: "Connect Élu",
+        costumer: "GFI Informatique",
+        country: "France",
+        team: {
+            total: 3,
+            people: {
+                people1: {
+                    name: "Vítor Pereira",
+                    foto: ""                    
+                },
+                people2: {
+                    name: "Ricardo Frango",
+                    foto: ""
+                },
+                people3: {
+                    name: "Tiago Flores",
+                    foto: ""
+                }
+            }
+        },
+        info: {
+            objective: "Mobile solution for Local Government representatives / City Halls",
+            focus: "Giving access to Documents and Dossiers \n Digitally Sign Documents"
+        },
+        about: {
+            issuesrisks: {
+                            one: "Only one developer per platform"
+            },
+            keydiscussionitms: "Possible development of a smartphone version"
+        },
+        status:{
+            percent: "85% Complete",
+            img: "img/status/state-green.png"
+        }
+    }
+
+]
