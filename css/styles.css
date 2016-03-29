@@ -134,25 +134,38 @@ time span:last-child {
 
 .mainGrid {
  	width: 100%;
+ 	display: inline-flex;
+ 	height: 100%;
 }
 
 .col-1-3 {
-  width: 	 30%;
+  width: 100%;
   display: inline-block;
-  float: left;
+  margin-top: 10px;
 }
 
 .col-2-3 {
-  width: 70%;
+  width: 100%;
   display: inline-block;
   padding-left: 10px;
 
 }
 
-.row {
-	display: inline-block;
-	width: 100%;
-	margin-bottom: 10px;
+.projectStatus {
+    height: 100%;
+}
+
+
+
+.leftCol {
+	width: 40%;
+}
+
+.rigthCol{
+	width: 60%;
+	height: 100%;
+	padding: 0 0 0 5px;
+	margin-top: 10px;
 }
 
 .projectStatus h2{
@@ -169,25 +182,30 @@ time span:last-child {
 
 .projectStatus ul{
 	padding: 15px;
-	background-color: #B9B9B9;
 	margin: 0;
-	height: 200px;
 }
 
 .col-1-2 {
-	display: inline-block;
+	
 	width: 50%;
-	float: left;
+	height: 100%;
+	display: inline-block;
 	padding: 5px 5px 0 0;
 }
 
-.status{
-	width: 101%;
+.content1 {
+	margin-bottom: 10px;
+	height: 41%;
+	background-color: #b9b9b9;
+}
+
+.imgstatus{
+	width: 50px;
 }
 .statusText {
 	font-size: 25px;
 	margin: 23px 0 0;
-	text-align: center;
+	text-align: right;
 }
 
 /* Fade animation */

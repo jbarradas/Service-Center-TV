@@ -54,7 +54,7 @@ var testDB = [
         },
         status:{
             percent: "Ongoing Product",
-            img: "img/status/status.jpg"
+            img: "img/status/state-yellow.png"
         }
     },
     {
@@ -92,7 +92,7 @@ var testDB = [
         },
         status:{
             percent: "DONE",
-            img: "img/status/status.jpg"
+            img: "img/status/state-green.png"
         }
     }
 ]
@@ -119,19 +119,19 @@ var Main = React.createClass({displayName: "Main",
         return (
             React.createElement("main", null, 
                 React.createElement("section", {className: "mainGrid"}, 
-                    React.createElement("div", {className: "row"}, 
+                    React.createElement("div", {className: "leftCol"}, 
                         React.createElement("div", {className: "col-1-3"}, 
                             React.createElement(AboutTheProject, {projects: testDB, pos: this.props.pos})
                         ), 
-                        React.createElement("div", {className: "col-2-3"}, 
-                            React.createElement(ProjectSTATUS, {projects: testDB, pos: this.props.pos})
-                            
-                        )
-                    ), 
-                    React.createElement("div", {className: "row"}, 
                         React.createElement("div", {className: "col-1-3"}, 
                             React.createElement(Team, {projects: testDB, pos: this.props.pos})
                         )
+                    ), 
+
+                    React.createElement("div", {className: "rigthCol"}, 
+                        React.createElement(ProjectStatus, {projects: testDB, pos: this.props.pos})
+                        
+                        
                     )
                 )
             )
@@ -288,38 +288,70 @@ var Team = React.createClass({displayName: "Team",
   }
 });
 
-//PROJECT STATUS BOX
-var ProjectSTATUS = React.createClass({displayName: "ProjectSTATUS",
+var ProjectStatus = React.createClass({displayName: "ProjectStatus",
 
     render: function() {
         return (
-
             React.createElement("section", {className: "projectStatus"}, 
                 React.createElement("h2", null, "PROJECT STATUS"), 
-                React.createElement("section", {className: "row"}, 
                     React.createElement("div", {className: "col-1-2"}, 
-                        React.createElement("div", {className: "content"}, 
-                            React.createElement("ul", null, 
-                                React.createElement("label", null, "ISSUES/RISKS"), 
-                                    React.createElement("li", null, this.props.projects[this.props.pos].about.issuesrisks.one), 
-                                    React.createElement("li", null, this.props.projects[this.props.pos].about.issuesrisks.two), 
-                                React.createElement("label", null, "KEY DISCUSSION ITEMS"), 
-                                    React.createElement("li", null, this.props.projects[this.props.pos].about.keydiscussionitms)
-                            )
-                        )
+                        React.createElement(IssueRisks, {projects: testDB, pos: this.props.pos}), 
+                        React.createElement(KeyDiscussionItems, {projects: testDB, pos: this.props.pos})
                     ), 
                     React.createElement("div", {className: "col-1-2"}, 
-                        React.createElement("div", {className: "content"}, 
-                            React.createElement("img", {className: "status", src: this.props.projects[this.props.pos].status.img}), 
-                            React.createElement("h5", {className: "statusText"}, this.props.projects[this.props.pos].status.percent)
-                        )
+                        React.createElement(Status, {projects: testDB, pos: this.props.pos})
                     )
                 )
-            )
             );
     }
 });
 
+
+//PROJECT STATUS BOX
+var IssueRisks = React.createClass({displayName: "IssueRisks",
+
+    render: function() {
+        return (  
+            React.createElement("div", {className: "content1"}, 
+                React.createElement("ul", null, 
+                    React.createElement("label", null, "ISSUES/RISKS"), 
+                    React.createElement("li", null, this.props.projects[this.props.pos].about.issuesrisks.one), 
+                    React.createElement("li", null, this.props.projects[this.props.pos].about.issuesrisks.two)
+                )
+            )
+                    
+               
+            );
+    }
+});
+
+var KeyDiscussionItems = React.createClass({displayName: "KeyDiscussionItems",
+    render: function(){
+        return(
+            React.createElement("div", {className: "content1"}, 
+                React.createElement("ul", null, 
+                    React.createElement("label", null, "KEY DISCUSSION ITEMS"), 
+                    React.createElement("li", null, this.props.projects[this.props.pos].about.keydiscussionitms)
+                )
+            )
+                    
+            );
+    }
+});
+
+var Status = React.createClass({displayName: "Status",
+
+    render: function(){
+        return(
+            React.createElement("div", {className: "content"}, 
+                React.createElement("img", {className: "imgstatus", src: this.props.projects[this.props.pos].status.img}), 
+                React.createElement("h5", {className: "statusText"}, this.props.projects[this.props.pos].status.percent)
+            )
+               
+            );
+    }
+
+});
 
 
 var All = React.createClass({displayName: "All",
