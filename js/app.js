@@ -2,99 +2,10 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var ReactIntl = require('react-intl');
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
+var DataBase = require('../database.json');
 
 
 
-var testDB = [
-    {
-        id: 1,
-        name: "Company Hub",
-        costumer: "GFI Informatique",
-        country: "France",
-        team: {
-            total: 6,
-            people: {
-                people1: {
-                    name: "Vitor Pereira",
-                    foto: "img/FotosPerfil/VitorPereira.png"
-                },
-                people2: {
-                    name: "Pedro Conde",
-                    foto: "img/FotosPerfil/PedroConde.png"
-                },
-                people3: {
-                    name: "Rui Almeida",
-                    foto: "img/FotosPerfil/RuiAlmeida.png"
-                },
-                people4: {
-                    name: "Tiago Flores",
-                    foto: "img/FotosPerfil/TiagoFlores.png"
-                },
-                people5: {
-                    name: "Ivo Ventura",
-                    foto: "img/FotosPerfil/IvoVentura.png"
-                },
-                people6: {
-                    name: "Hugo Antunes",
-                    foto: "img/FotosPerfil/HugoAntunes.png"
-                }
-            }
-        },
-        info: {
-            objective: "Mobile multi-platform portal to display and interact with data from enterprise systems",
-            focus: "Push Notifications and External Auth."
-        },
-        about: {
-            issuesrisks: {
-                            one: "Not enough mobile phones o fully test all circunstances",
-                            two: "One man short on Android"
-            },
-            keydiscussionitms: "Planning of industrialization and support must be defined"
-        },
-        status:{
-            percent: "Ongoing Product",
-            img: "img/status/status.jpg"
-        }
-    },
-    {
-        id: 2,
-        name: "MOCCA+",
-        costumer: "Crédit Agricole",
-        country: "France",
-        team: {
-            total: 3,
-            people: {
-                people1: {
-                name: "Luis Alves",
-                foto: ""                    
-                },
-                people2: {
-                name: "Ana Lopes",
-                foto: ""
-                },
-                people3: {
-                    name: "Jorge Graça",
-                    foto: ""
-                }
-            }
-        },
-        info: {
-            objective: "Technical migration from Vignette to Sharepoint 2013.",
-            focus: "Migration of 60 intranets"
-        },
-        about: {
-            issuesrisks: {
-                            one: "issues risks one",
-                            two: "issues risks two"
-            },
-            keydiscussionitms: "keydiscussionitms"
-        },
-        status:{
-            percent: "DONE",
-            img: "img/status/status.jpg"
-        }
-    }
-]
 
 // HEADER SECTION
 var Header = React.createClass({
@@ -107,7 +18,7 @@ var Header = React.createClass({
                     <Dates />
                     <Time />
                 </time>
-                <ProjectBar projects={testDB} pos={this.props.pos} />
+                <ProjectBar projects={DataBase} pos={this.props.pos} />
             </header>
         );
     }
@@ -120,16 +31,16 @@ var Main = React.createClass({
                 <section className="mainGrid">
                     <div className="row">
                         <div className="col-1-3">
-                            <AboutTheProject projects={testDB} pos={this.props.pos}/>
+                            <AboutTheProject projects={DataBase} pos={this.props.pos}/>
                         </div>
                         <div className="col-2-3">
-                            <ProjectSTATUS projects={testDB} pos={this.props.pos}/>
+                            <ProjectSTATUS projects={DataBase} pos={this.props.pos}/>
                             
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-1-3">
-                            <Team projects={testDB} pos={this.props.pos}/>
+                            <Team projects={DataBase} pos={this.props.pos}/>
                         </div>   
                     </div>
                 </section>
@@ -339,7 +250,7 @@ var All = React.createClass({
     componentDidMount: function () {
         setInterval(function() {
             this.setState({position: this.getPositions()});
-        }.bind(this), 2000);
+        }.bind(this), 1000);
     },
     
     render: function() {
@@ -362,7 +273,7 @@ var All = React.createClass({
   ReactDOM.render(
     
             <IntlProvider>
-                <All db={testDB} />
+                <All db={DataBase} />
             </IntlProvider>,
             document.getElementById('main')
    
