@@ -3,11 +3,6 @@ var ReactDOM = require('react-dom');
 var ReactIntl = require('react-intl');
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
-var local = require('react-intl/locale-data/pt');
-// PRINT DATE AND TIME USING react-intl (FormatJS)
-var IntlProvider  = ReactIntl.IntlProvider;
-var FormattedDate = ReactIntl.FormattedDate;
-var FormattedTime = ReactIntl.FormattedTime;
 
 
 var testDB = [
@@ -86,8 +81,18 @@ var testDB = [
         info: {
             objective: "Technical migration from Vignette to Sharepoint 2013.",
             focus: "Migration of 60 intranets"
+        },
+        about: {
+            issuesrisks: {
+                            one: "issues risks one",
+                            two: "issues risks two"
+            },
+            keydiscussionitms: "keydiscussionitms"
+        },
+        status:{
+            percent: "DONE",
+            img: "img/status/status.jpg"
         }
-
     }
 ]
 
@@ -102,7 +107,7 @@ var Header = React.createClass({
                     <Dates />
                     <Time />
                 </time>
-                <ProjectBar projects={testDB} />
+                <ProjectBar projects={testDB} pos={this.props.pos} />
             </header>
         );
     }
@@ -115,16 +120,16 @@ var Main = React.createClass({
                 <section className="mainGrid">
                     <div className="row">
                         <div className="col-1-3">
-                            <AboutTheProject projects={testDB} />
+                            <AboutTheProject projects={testDB} pos={this.props.pos}/>
                         </div>
                         <div className="col-2-3">
-                            <ProjectSTATUS projects={testDB}/>
+                            <ProjectSTATUS projects={testDB} pos={this.props.pos}/>
                             
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-1-3">
-                            <Team projects={testDB} />
+                            <Team projects={testDB} pos={this.props.pos}/>
                         </div>   
                     </div>
                 </section>
@@ -151,8 +156,11 @@ var ProjectLogo = React.createClass({
     }
 });
 
+// PRINT DATE AND TIME USING react-intl (FormatJS)
+var IntlProvider  = ReactIntl.IntlProvider;
+var FormattedDate = ReactIntl.FormattedDate;
+var FormattedTime = ReactIntl.FormattedTime;
 
-// PRINT DATE AND TIME
 var Dates = React.createClass({
     render: function () {
         return (
@@ -167,6 +175,16 @@ var Dates = React.createClass({
 });
 
 var Time = React.createClass({
+
+    getInitialState: function () {
+         return {smthing: 0}; 
+    },
+
+    componentDidMount: function () {
+        setInterval(function() {
+            this.setState({smthing: 1});
+        }.bind(this), 500);
+    },
 
     render: function () {
         return (
@@ -189,9 +207,9 @@ var ProjectBar = React.createClass({
         return (
             <div className="bar">
                 <ul>
-                    <li>Project: {this.props.projects[0].name} </li>
-                    <li>Costumer: {this.props.projects[0].costumer} </li>
-                    <li>Country: {this.props.projects[0].country} </li>
+                    <li>Project: {this.props.projects[this.props.pos].name} </li>
+                    <li>Costumer: {this.props.projects[this.props.pos].costumer} </li>
+                    <li>Country: {this.props.projects[this.props.pos].country} </li>
                 </ul>
             </div>
         );
@@ -208,9 +226,9 @@ var AboutTheProject = React.createClass({
         <section className="box1">
         <ul>
             <label>OBJECTIVE</label>
-            <li>{this.props.projects[0].info.objective}</li>
+            <li>{this.props.projects[this.props.pos].info.objective}</li>
             <label>MAIN FOCUS</label>
-            <li>{this.props.projects[0].info.focus}</li>
+            <li>{this.props.projects[this.props.pos].info.focus}</li>
         </ul>
         </section>
 
@@ -271,126 +289,81 @@ var Team = React.createClass({
 
 //PROJECT STATUS BOX
 var ProjectSTATUS = React.createClass({
+
     render: function() {
-    	var issuesrisks = (<li>{this.props.projects[0].about.issuesrisks.one}</li>);
-    	var keydiscussionitms = (<li>{this.props.projects[0].about.keydiscussionitms}</li>);
-    
-
         return (
-        		<section className = "projectStatus">
-                	<h2>PROJECT STATUS</h2>
-               			<section className="row">
-                    		<div className="col-1-2">
-                        		<div className="projectStatus" >
-                            		<ul>
-                                		<label>ISSUES/RISKS</label>
-                                    		<ReactCSSTransitionGroup transitionName="scroll" transitionAppear={true} component="div">
-                    							{issuesrisks}
-            								</ReactCSSTransitionGroup>
-                                		<label>KEY DISCUSSION ITEMS</label>
-                                    		<ReactCSSTransitionGroup transitionName="scroll" transitionAppear={true} component="div">
-                    							{keydiscussionitms}
-            								</ReactCSSTransitionGroup>
-                            		</ul>
-                        		</div>
-                    		</div>
-                    		<div className="col-1-2">
-                        		<div className="content">
-                            		<img className="status" src={this.props.projects[0].status.img}/>
-                            		<h5 className="statusText">{this.props.projects[0].status.percent}</h5>
 
-                        		</div>
-                    		</div>
-                		</section>
-            	</section>);
+            <section className = "projectStatus">
+                <h2>PROJECT STATUS</h2>
+                <section className="row">
+                    <div className="col-1-2">
+                        <div className="content">
+                            <ul>
+                                <label>ISSUES/RISKS</label>
+                                    <li>{this.props.projects[this.props.pos].about.issuesrisks.one}</li>
+                                    <li>{this.props.projects[this.props.pos].about.issuesrisks.two}</li>
+                                <label>KEY DISCUSSION ITEMS</label>
+                                    <li>{this.props.projects[this.props.pos].about.keydiscussionitms}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div className="col-1-2">
+                        <div className="content">
+                            <img className="status" src={this.props.projects[this.props.pos].status.img}/>
+                            <h5 className="statusText">{this.props.projects[this.props.pos].status.percent}</h5>
+                        </div>
+                    </div>
+                </section>
+            </section>
+            );
     }
 });
 
 
+
 var All = React.createClass({
-        
-    getDefaultProps: function(){
-        console.log('getDefaultProps fired');
+    
+    getPositions: function () {
+        if (this.state.position < this.props.db.length-1) {
+            return (this.state.position)+1;
+        } else {
+            return 0;
+        }
+
     },
 
-    getInitialState: function () { 
-        console.log('getInitialState fired'); 
-      	return { fading: true };
-    },
-
-    componentWillMount: function () { 
-        console.log('componentWillMount fired');
+    getInitialState: function () {
+        return {position: 0};    
     },
 
     componentDidMount: function () {
-        console.log('componentDidMount fired'); 
+        setInterval(function() {
+            this.setState({position: this.getPositions()});
+        }.bind(this), 2000);
     },
-
-    componentWillReceiveProps: function (newProps) { 
-        console.log('componentWillReceiveProps fired');
-        this.setState({fading: false});
-    },
-
-    shouldComponentUpdate: function (newProps, newState) { 
-        console.log('shouldComponentUpdate fired'); 
-        return true;
-    },
-
-    componentWillUpdate: function (nextProps,nextState) {
-        console.log('componentWillUpdate fired');
-    },
-
-    componentDidUpdate: function (prevProps,prevState) {
-        console.log('componentDidUpdate fired'); 
-    },
-
-    componentWillUnmount: function () {
-        console.log('componentWillUnmount fired'); 
-    },
-
+    
     render: function() {
-        var child;
-
-        if(this.state.fading){
-            
-            console.log('Fading true');
-            child = (<div className="all">
-                        <Header />
-                        <Main />
-                    </div>);
-
-        }else{
-
-            child = null;
-            console.log('Fading false');
-        }
-        
         return (
-            <ReactCSSTransitionGroup 
-                transitionName="fade" 
-                transitionAppear={true}
-                transitionEnterTimeout={5000} 
-                transitionLeaveTimeout={20000}
-                component="all">
-                    {child}
-            </ReactCSSTransitionGroup>
-        );
+            
+            <div className="all">
+                    <Header pos={this.state.position} />
+                    <Main pos={this.state.position} />
+            </div>
+                  
+          
 
+        );
     }
 });
 
 
 
 // RENDER TO VIRTUAL DOM
-setInterval(function() {
   ReactDOM.render(
     
-            <IntlProvider >
-                <All />
+            <IntlProvider>
+                <All db={testDB} />
             </IntlProvider>,
             document.getElementById('main')
    
   );
-}, 500);
-
-
