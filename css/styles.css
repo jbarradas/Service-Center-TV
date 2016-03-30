@@ -50,7 +50,7 @@ time {
 }
  
 time span:last-child {
-	margin-left: 85px;
+	border-right: 5px solid #fff;
 }
 
 .bar {
@@ -208,16 +208,17 @@ time span:last-child {
 }
 
 #status {
-	float: right;
+	height: 54.9%;
 }
 
 .col-1-2 {
-	height: 47%;
-	padding: 5px 0 0;
+	height: 39.5%;
+	width: 100%;
+	padding: 0.7% 0 0;
 }
 
 .content1 {
-	height: 83.4%;
+	height: 100%;
 	background-color: #b9b9b9;
 	display: inline-block;
 	width: 50%;
@@ -228,13 +229,21 @@ time span:last-child {
 	border-right: 5px solid #fff;
 }
 
+.statusContent {
+	height: 100%;
+	width: 100%;
+	float: left;
+}
+
 .imgstatus{
-	width: 50px;
+	height: 65%;
+	margin: 0 auto;
+	display: block;
 }
 .statusText {
-	font-size: 25px;
-	margin: 23px 0 0;
-	text-align: right;
+	font-size: 5vh;
+	margin: 4% 0 7.2%;
+	text-align: center;
 }
 
 /* Fade animation */
