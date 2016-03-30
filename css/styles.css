@@ -50,7 +50,7 @@ time {
 }
  
 time span:last-child {
-	border-right: 5px solid #fff;
+	margin-left: 85px;
 }
 
 .bar {
