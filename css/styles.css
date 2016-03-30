@@ -14,6 +14,11 @@ body,
     position: absolute;
 }
 
+.leave {
+	animation-name: fade;
+    animation-duration: 2000ms;
+}
+
 header {
 	height: 25%;
 }
@@ -94,10 +99,11 @@ time span:last-child {
 }
 
 .abouttheproject ul{
-	padding: 15px;
+	padding: 3.2%;
 	background-color: #B9B9B9;
 	margin: 0;
 	height: 100%;
+	font-size: 2.2vh;
 }
 .abouttheproject ul label, .projectStatus ul label{
 	color: #5E5E5E;
@@ -248,23 +254,14 @@ time span:last-child {
 
 /* Fade animation */
 
-.fade-enter {
-  opacity: 0.01;
+@keyframes fade {
+   0% {opacity: 1;}
+   50% {opacity: 0;}
+   100% {opacity: 1;}
 }
 
-.fade-enter.fade-enter-active {
-  opacity: 1;
-  transition: opacity 500ms ease-in;
-}
+/* -----------*/ 
 
-.fade-leave {
-  opacity: 1;
-}
-
-.fade-leave.fade-leave-active {
-  opacity: 0.01;
-  transition: opacity 300ms ease-in;
-}
 
 
 /*SCROLL ANIMATION

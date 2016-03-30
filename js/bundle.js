@@ -137,6 +137,16 @@ var ReactIntl = require('react-intl');
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 var DataBase = require('../database.json');
 
+var addLeaveClass = function () {
+    var x = document.getElementById('all');
+    x.className = "all leave";
+};
+
+var removeLeaveClass = function () {
+    var x = document.getElementById('all');
+    x.className = "all";
+};
+
 
 // HEADER SECTION
 var Header = React.createClass({displayName: "Header",
@@ -159,7 +169,9 @@ var Header = React.createClass({displayName: "Header",
 var ProjectLogo = React.createClass({displayName: "ProjectLogo",
     render: function() {
         return (
-            React.createElement("img", {id: "prjLogo", src: this.props.projects[this.props.pos].logo})
+            React.createElement(ReactCSSTransitionGroup, {transitionName: "fade", transitionEnterTimeout: 500, transitionLeaveTimeout: 300}, 
+                React.createElement("img", {id: "prjLogo", src: this.props.projects[this.props.pos].logo})
+            )
         );
     }
 });
@@ -168,7 +180,7 @@ var ProjectLogo = React.createClass({displayName: "ProjectLogo",
 var GFIlogo = React.createClass({displayName: "GFIlogo",
     render: function() {
         return (
-            React.createElement("img", {id: "logo", src: this.props.imageSrc, key: this.props.imageSrc})
+                React.createElement("img", {id: "logo", src: this.props.imageSrc, key: this.props.imageSrc})
         );
     }
 });
@@ -267,9 +279,13 @@ var AboutTheProject = React.createClass({displayName: "AboutTheProject",
         React.createElement("section", {className: "box1"}, 
         React.createElement("ul", null, 
             React.createElement("label", null, "OBJECTIVE"), 
-            this.props.projects[this.props.pos].info.objective.map(function(item){return React.createElement("li", {key: item}, item);}), 
+            this.props.projects[this.props.pos].info.objective.map(function(item){
+                return React.createElement("li", {key: item}, item);
+            }), 
             React.createElement("label", null, "MAIN FOCUS"), 
-            this.props.projects[this.props.pos].info.focus.map(function(item){return React.createElement("li", {key: item}, item);})
+            this.props.projects[this.props.pos].info.focus.map(function(item){
+                return React.createElement("li", {key: item}, item);
+            })
         )
         )
 
@@ -361,7 +377,6 @@ var Status = React.createClass({displayName: "Status",
 
 });
 
-
 var All = React.createClass({displayName: "All",
     
     getPositions: function () {
@@ -377,19 +392,32 @@ var All = React.createClass({displayName: "All",
         return {position: 0};    
     },
 
+    componentWillMount: function () {
+        setTimeout(function() {
+            addLeaveClass();
+        }.bind(this), 4000);
+    },
+
     componentDidMount: function () {
         setInterval(function() {
             this.setState({position: this.getPositions()});
-        }.bind(this), 2000);
+        }.bind(this), 5000);
+    },
+
+    componentDidUpdate: function () {
+        setTimeout(function() {
+            removeLeaveClass();
+        }.bind(this), 1000);
+        setTimeout(function() {
+            addLeaveClass();
+        }.bind(this), 4000);
     },
     
     render: function() {
         return (
-            React.createElement(ReactCSSTransitionGroup, {transitionName: "fade", transitionEnterTimeout: 500, transitionLeaveTimeout: 300}, 
-            React.createElement("div", {className: "all"}, 
+            React.createElement("div", {className: "all", id: "all"}, 
                     React.createElement(Header, {pos: this.state.position, key: "header"}), 
                     React.createElement(Main, {pos: this.state.position, key: "main"})
-            )
             )      
           
 
