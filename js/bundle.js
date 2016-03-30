@@ -240,27 +240,11 @@ var Header = React.createClass({displayName: "Header",
     }
 });
 
-var Main = React.createClass({displayName: "Main",
+// PRINT COMPANY LOGO
+var ProjectLogo = React.createClass({displayName: "ProjectLogo",
     render: function() {
         return (
-            React.createElement("main", null, 
-                React.createElement("section", {className: "mainGrid"}, 
-                    React.createElement("div", {className: "leftCol"}, 
-                        React.createElement("div", {className: "col-1-3"}, 
-                            React.createElement(AboutTheProject, {projects: DataBase, pos: this.props.pos})
-                        ), 
-                        React.createElement("div", {className: "col-1-3"}, 
-                            React.createElement(Team, {projects: DataBase, pos: this.props.pos})
-                        )
-                    ), 
-
-                    React.createElement("div", {className: "rigthCol"}, 
-                        React.createElement(ProjectStatus, {projects: DataBase, pos: this.props.pos})
-                        
-                        
-                    )
-                )
-            )
+            React.createElement("img", {id: "prjLogo", src: "img/logo-company-hub.png"})
         );
     }
 });
@@ -270,15 +254,6 @@ var GFIlogo = React.createClass({displayName: "GFIlogo",
     render: function() {
         return (
             React.createElement("img", {id: "logo", src: this.props.imageSrc, key: this.props.imageSrc})
-        );
-    }
-});
-
-// PRINT COMPANY LOGO
-var ProjectLogo = React.createClass({displayName: "ProjectLogo",
-    render: function() {
-        return (
-            React.createElement("img", {id: "prjLogo", src: "img/logo-company-hub.png"})
         );
     }
 });
@@ -325,8 +300,6 @@ var Time = React.createClass({displayName: "Time",
     }
 });
 
-
-
 // PROJECT BAR
 var ProjectBar = React.createClass({displayName: "ProjectBar",
 
@@ -342,6 +315,32 @@ var ProjectBar = React.createClass({displayName: "ProjectBar",
         );
     }
 });
+
+var Main = React.createClass({displayName: "Main",
+    render: function() {
+        return (
+            React.createElement("main", null, 
+                React.createElement("section", {className: "mainGrid"}, 
+                    React.createElement("div", {className: "leftCol"}, 
+                        React.createElement("div", {id: "about", className: "col-1-3"}, 
+                            React.createElement(AboutTheProject, {projects: DataBase, pos: this.props.pos})
+                        ), 
+                        React.createElement("div", {id: "team", className: "col-1-3"}, 
+                            React.createElement(Team, {projects: DataBase, pos: this.props.pos})
+                        )
+                    ), 
+
+                    React.createElement("div", {className: "rigthCol"}, 
+                        React.createElement(ProjectStatus, {projects: DataBase, pos: this.props.pos})
+                        
+                        
+                    )
+                )
+            )
+        );
+    }
+});
+
 
 //ABOUT THE PROJECT BOX
 var AboutTheProject = React.createClass({displayName: "AboutTheProject",
@@ -420,11 +419,11 @@ var ProjectStatus = React.createClass({displayName: "ProjectStatus",
         return (
             React.createElement("section", {className: "projectStatus"}, 
                 React.createElement("h2", null, "PROJECT STATUS"), 
-                    React.createElement("div", {className: "col-1-2"}, 
+                    React.createElement("div", {id: "issues", className: "col-1-2"}, 
                         React.createElement(IssueRisks, {projects: DataBase, pos: this.props.pos}), 
                         React.createElement(KeyDiscussionItems, {projects: DataBase, pos: this.props.pos})
                     ), 
-                    React.createElement("div", {className: "col-1-2"}, 
+                    React.createElement("div", {id: "status", className: "col-1-2"}, 
                         React.createElement(Status, {projects: DataBase, pos: this.props.pos})
                     )
                 )
@@ -473,8 +472,7 @@ var Status = React.createClass({displayName: "Status",
                 React.createElement("img", {className: "imgstatus", src: this.props.projects[this.props.pos].status.img}), 
                 React.createElement("h5", {className: "statusText"}, this.props.projects[this.props.pos].status.percent)
             )
-               
-            );
+        );
     }
 
 });
