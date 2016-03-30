@@ -468,9 +468,9 @@ var Status = React.createClass({displayName: "Status",
 
     render: function(){
         return(
-            React.createElement("div", {className: "content"}, 
-                React.createElement("img", {className: "imgstatus", src: this.props.projects[this.props.pos].status.img}), 
-                React.createElement("h5", {className: "statusText"}, this.props.projects[this.props.pos].status.percent)
+            React.createElement("div", {className: "statusContent"}, 
+                React.createElement("h5", {className: "statusText"}, this.props.projects[this.props.pos].status.percent), 
+                React.createElement("img", {className: "imgstatus", src: this.props.projects[this.props.pos].status.img})
             )
         );
     }

@@ -250,9 +250,9 @@ var Status = React.createClass({
 
     render: function(){
         return(
-            <div className="content">
-                <img className="imgstatus" src={this.props.projects[this.props.pos].status.img} />
+            <div className="statusContent">
                 <h5 className="statusText">{this.props.projects[this.props.pos].status.percent}</h5>
+                <img className="imgstatus" src={this.props.projects[this.props.pos].status.img} />
             </div>
         );
     }
