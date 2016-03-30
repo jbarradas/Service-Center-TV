@@ -4,6 +4,16 @@ var ReactIntl = require('react-intl');
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 var DataBase = require('../database.json');
 
+var addLeaveClass = function () {
+    var x = document.getElementById('all');
+    x.className = "all leave";
+};
+
+var removeLeaveClass = function () {
+    var x = document.getElementById('all');
+    x.className = "all";
+};
+
 
 // HEADER SECTION
 var Header = React.createClass({
@@ -26,7 +36,9 @@ var Header = React.createClass({
 var ProjectLogo = React.createClass({
     render: function() {
         return (
-            <img id="prjLogo" src={this.props.projects[this.props.pos].logo} />
+            <ReactCSSTransitionGroup transitionName="fade" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
+                <img id="prjLogo" src={this.props.projects[this.props.pos].logo} />
+            </ReactCSSTransitionGroup>
         );
     }
 });
@@ -35,7 +47,7 @@ var ProjectLogo = React.createClass({
 var GFIlogo = React.createClass({
     render: function() {
         return (
-            <img id="logo" src={this.props.imageSrc} key={this.props.imageSrc} />
+                <img id="logo" src={this.props.imageSrc} key={this.props.imageSrc} />
         );
     }
 });
@@ -134,9 +146,13 @@ var AboutTheProject = React.createClass({
         <section className="box1">
         <ul>
             <label>OBJECTIVE</label>
-            {this.props.projects[this.props.pos].info.objective.map(function(item){return <li key={item}>{item}</li>;})}
+            {this.props.projects[this.props.pos].info.objective.map(function(item){
+                return <li key={item}>{item}</li>;
+            })}
             <label>MAIN FOCUS</label>
-            {this.props.projects[this.props.pos].info.focus.map(function(item){return <li key={item}>{item}</li>;})}
+            {this.props.projects[this.props.pos].info.focus.map(function(item){
+                return <li key={item}>{item}</li>;
+            })}
         </ul>
         </section>
 
@@ -228,7 +244,6 @@ var Status = React.createClass({
 
 });
 
-
 var All = React.createClass({
     
     getPositions: function () {
@@ -244,20 +259,33 @@ var All = React.createClass({
         return {position: 0};    
     },
 
+    componentWillMount: function () {
+        setTimeout(function() {
+            addLeaveClass();
+        }.bind(this), 4000);
+    },
+
     componentDidMount: function () {
         setInterval(function() {
             this.setState({position: this.getPositions()});
-        }.bind(this), 2000);
+        }.bind(this), 5000);
+    },
+
+    componentDidUpdate: function () {
+        setTimeout(function() {
+            removeLeaveClass();
+        }.bind(this), 1000);
+        setTimeout(function() {
+            addLeaveClass();
+        }.bind(this), 4000);
     },
     
     render: function() {
         return (
-            <ReactCSSTransitionGroup transitionName="fade" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
-            <div className="all">
+            <div className="all" id="all">
                     <Header pos={this.state.position} key="header"/>
                     <Main pos={this.state.position} key="main"/>
-            </div>
-            </ReactCSSTransitionGroup>      
+            </div>      
           
 
         );
