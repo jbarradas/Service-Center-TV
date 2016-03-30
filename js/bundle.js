@@ -3,85 +3,48 @@ module.exports=[
     {
         id: 1,
         name: "Company Hub",
+        logo: "img/ProjectLogo/company_hub.png",
         costumer: "GFI Informatique",
         country: "France",
-        team: {
-            total: 6,
-            people: {
-                people1: {
-                    name: "Vitor Pereira",
-                    foto: "img/FotosPerfil/VitorPereira.png"
-                },
-                people2: {
-                    name: "Pedro Conde",
-                    foto: "img/FotosPerfil/PedroConde.png"
-                },
-                people3: {
-                    name: "Rui Almeida",
-                    foto: "img/FotosPerfil/RuiAlmeida.png"
-                },
-                people4: {
-                    name: "Tiago Flores",
-                    foto: "img/FotosPerfil/TiagoFlores.png"
-                },
-                people5: {
-                    name: "Ivo Ventura",
-                    foto: "img/FotosPerfil/IvoVentura.png"
-                },
-                people6: {
-                    name: "Hugo Antunes",
-                    foto: "img/FotosPerfil/HugoAntunes.png"
-                }
-            }
-        },
+        team: [["Vitor Pereira","img/FotosPerfil/VitorPereira.png"],
+                ["Pedro Conde","img/FotosPerfil/PedroConde.png"],
+                ["Rui Almeida","img/FotosPerfil/RuiAlmeida.png"],
+                ["Tiago Flores","img/FotosPerfil/TiagoFlores.png"],
+                ["Ivo Ventura","img/FotosPerfil/IvoVentura.png"],
+                ["Hugo Antunes","img/FotosPerfil/HugoAntunes.png"]],
         info: {
-            objective: "Mobile multi-platform portal to display and interact with data from enterprise systems",
-            focus: "Push Notifications and External Auth."
+            objective: ["Mobile multi-platform portal to display and interact with data from enterprise systems"],
+            focus: ["Push Notifications and External Auth."]
         },
         about: {
-            issuesrisks: {
-                            one: "Not enough mobile phones o fully test all circunstances",
-                            two: "One man short on Android"
-            },
-            keydiscussionitms: "Planning of industrialization and support must be defined"
+            issuesrisks: ["Not enough mobile phones o fully test all circunstances",
+                          "One man short on Android"],
+
+            keydiscussionitms: ["Planning of industrialization and support must be defined"]
         },
         status:{
             percent: "Ongoing Product",
-            img: "img/status/state-yellow.png"
+            img: "img/status/state-green.png"
         }
     },
     {
         id: 2,
         name: "MOCCA+",
+        logo: "img/ProjectLogo/crédit_agricole.png",
         costumer: "Crédit Agricole",
         country: "France",
-        team: {
-            total: 3,
-            people: {
-                people1: {
-                    name: "Luis Alves",
-                    foto: ""                    
-                },
-                people2: {
-                    name: "Ana Lopes",
-                    foto: ""
-                },
-                people3: {
-                    name: "Jorge Graça",
-                    foto: ""
-                }
-            }
-        },
+        team: [["Luis Alves","img/FotosPerfil/LuisAlves.png"],
+                ["Ana Lopes","img/FotosPerfil/AnaLopes.png"],
+                ["Jorge Graça","img/FotosPerfil/JorgeGraça.png"]],
+                
         info: {
-            objective: "Technical migration from Vignette to Sharepoint 2013.",
-            focus: "Migration of 60 intranets"
+            objective: ["Technical migration from Vignette to Sharepoint 2013."],
+            focus: ["Migration of 60 intranets",]
         },
         about: {
-            issuesrisks: {
-                            one: "Sharepoint 2013 variations",
-                            two: "Sharepoint 2013 variations"
-            },
-            keydiscussionitms: "Number of pages migrated: 15975"
+            issuesrisks: ["Sharepoint 2013 variations"],
+
+            keydiscussionitms: ["Number of pages migrated: 15975"]
         },
         status:{
             percent: "DONE",
@@ -91,122 +54,74 @@ module.exports=[
     {
         id: 3,
         name: "Toyota One",
+        logo: "img/ProjectLogo/toyota.png",
         costumer: "Toyota",
         country: "Belgium",
-        team: {
-            total: 5,
-            people: {
-                people1: {
-                    name: "Laura Costa",
-                    foto: ""                    
-                },
-                people2: {
-                    name: "Ricardo Jafe",
-                    foto: ""
-                },
-                people3: {
-                    name: "Liliana Gouveia",
-                    foto: ""
-                },
-                people4: {
-                    name: "Rute Henriques",
-                    foto: ""
-                },
-                people5: {
-                    name: "Carla Silva",
-                    foto: ""
-                }
-            }
-        },
+        team: [["Laura Costa","img/FotosPerfil/LauraCosta.png"],
+                ["Ricardo Jafe","img/FotosPerfil/RicardoJafe.png"],
+                ["Liliana Gouveia","img/FotosPerfil/LilianaGouveia.png"],
+                ["Rute Henriques","img/FotosPerfil/RuteHenriques.png"],
+                ["Carla Silva","img/FotosPerfil/CarlaSilva.png"]],
         info: {
-            objective: "Quality Assurance of T1 Websites",
-            focus: "Toyota Dealer Finder Regression Testing\nKnowledge Graph & Rich Snippets (SEO)\nTitle and Description quality KPIs (SEO)"
+            objective: ["Quality Assurance of T1 Websites"
+                        ,"High Search Engine Performance"],
+            focus: ["Toyota Dealer Finder Regression Testing",
+                    "Knowledge Graph & Rich Snippets (SEO)",
+                    "Title and Description quality KPIs (SEO)"]
         },
         about: {
-            issuesrisks: {
-                            one: "3 Open issues",
-                            two: "Used Cars Platform\nSEO in merchandise platform"
-            },
-            keydiscussionitms: "User Cars Platform\nSEO in merchandise platform"
+            issuesrisks: ["3 Open issues"],
+
+            keydiscussionitms: ["User Cars Platform"
+                                ,"SEO in merchandise platform"]
         },
         status:{
             percent: "19% Complete",
-            img: "img/status/state-green.png"
+            img: "img/status/state-yellow.png"
         }
     },
     {
         id: 4,
         name: "Pégase 3",
+        logo: "img/ProjectLogo/pégase3.png",
         costumer: "GFI Informatique",
         country: "France",
-        team: {
-            total: 4,
-            people: {
-                people1: {
-                    name: "Luís Gouveia",
-                    foto: ""                    
-                },
-                people2: {
-                    name: "Jorge Gonçalves",
-                    foto: ""
-                },
-                people3: {
-                    name: "César Lourenço",
-                    foto: ""
-                },
-                people4: {
-                    name: "Jorge Santos",
-                    foto: ""
-                }
-            }
-        },
+        team: [["Luís Gouveia","img/FotosPerfil/LuísGouveia.png"],
+                ["Jorge Gonçalves","img/FotosPerfil/JorgeGonçalves.png"],
+                ["César Lourenço","img/FotosPerfil/CésarLourenço.png"],
+                ["Jorge Santos","img/FotosPerfil/JorgeSantos.png"]],
         info: {
-            objective: "Improve last sprint's (Facture) performance",
-            focus: "The new sprint: <em>Encaissement & Paiement<em>"
-        },
-        about: {
-            issuesrisks: {
-                            one: "Most of the new tasks are completely different from its predecessors"
+            objective: ["Improve last sprint's (Facture) performance"],
+            focus: ["The new sprint: Encaissement & Paiement"]
             },
-            keydiscussionitms: "Double-click issue"
+        about: {
+            issuesrisks: ["Most of the new tasks are completely different from its predecessors"],
+
+            keydiscussionitms: ["Double-click issue"]
         },
         status:{
             percent: "30% Complete",
             img: "img/status/state-green.png"
         }
     },
-    ,
     {
         id: 5,
         name: "Connect Élu",
+        logo: "img/ProjectLogo/Connect_élu.png",
         costumer: "GFI Informatique",
         country: "France",
-        team: {
-            total: 3,
-            people: {
-                people1: {
-                    name: "Vítor Pereira",
-                    foto: ""                    
-                },
-                people2: {
-                    name: "Ricardo Frango",
-                    foto: ""
-                },
-                people3: {
-                    name: "Tiago Flores",
-                    foto: ""
-                }
-            }
-        },
+        team: [["Vitor Pereira","img/FotosPerfil/VitorPereira.png"],
+                ["Ricardo Frango","img/FotosPerfil/RicardoFrango.png"],
+                ["Tiago Flores","img/FotosPerfil/TiagoFlores.png"]],
         info: {
-            objective: "Mobile solution for Local Government representatives / City Halls",
-            focus: "Giving access to Documents and Dossiers \n Digitally Sign Documents"
+            objective: ["Mobile solution for Local Government representatives / City Halls"],
+            focus: ["Giving access to Documents and Dossiers"
+                    ,"Digitally Sign Documents"]
         },
         about: {
-            issuesrisks: {
-                            one: "Only one developer per platform"
-            },
-            keydiscussionitms: "Possible development of a smartphone version"
+            issuesrisks: ["Only one developer per platform"],
+           
+            keydiscussionitms: ["Possible development of a smartphone version"]
         },
         status:{
             percent: "85% Complete",
@@ -228,7 +143,7 @@ var Header = React.createClass({displayName: "Header",
     render: function() {
         return (
             React.createElement("header", null, 
-                React.createElement(ProjectLogo, null), 
+                React.createElement(ProjectLogo, {projects: DataBase, pos: this.props.pos}), 
                 React.createElement(GFIlogo, {imageSrc: "img/gfi.jpg"}), 
                 React.createElement("time", null, 
                     React.createElement(Dates, null), 
@@ -244,7 +159,7 @@ var Header = React.createClass({displayName: "Header",
 var ProjectLogo = React.createClass({displayName: "ProjectLogo",
     render: function() {
         return (
-            React.createElement("img", {id: "prjLogo", src: "img/logo-company-hub.png"})
+            React.createElement("img", {id: "prjLogo", src: this.props.projects[this.props.pos].logo})
         );
     }
 });
@@ -352,9 +267,9 @@ var AboutTheProject = React.createClass({displayName: "AboutTheProject",
         React.createElement("section", {className: "box1"}, 
         React.createElement("ul", null, 
             React.createElement("label", null, "OBJECTIVE"), 
-            React.createElement("li", null, this.props.projects[this.props.pos].info.objective), 
+            this.props.projects[this.props.pos].info.objective.map(function(item){return React.createElement("li", {key: item}, item);}), 
             React.createElement("label", null, "MAIN FOCUS"), 
-            React.createElement("li", null, this.props.projects[this.props.pos].info.focus)
+            this.props.projects[this.props.pos].info.focus.map(function(item){return React.createElement("li", {key: item}, item);})
         )
         )
 
@@ -371,42 +286,14 @@ var Team = React.createClass({displayName: "Team",
         React.createElement("section", {className: "team"}, 
             React.createElement("h2", null, "TEAM"), 
             React.createElement("section", {className: "box"}, 
-                React.createElement("div", {className: "boxcol-1-3"}, 
-                     React.createElement("div", {className: "content"}, 
-                         React.createElement("img", {className: "perfil", src: this.props.projects[0].team.people.people1.foto}), 
-                         React.createElement("h5", {className: "perfilname"}, " ", this.props.projects[0].team.people.people1.name)
-                    )
-                ), 
-                React.createElement("div", {className: "boxcol-1-3"}, 
-                    React.createElement("div", {className: "content"}, 
-                       React.createElement("img", {className: "perfil", src: this.props.projects[0].team.people.people2.foto}), 
-                       React.createElement("h5", {className: "perfilname"}, " ", this.props.projects[0].team.people.people2.name)
-                    )
-                ), 
-                React.createElement("div", {className: "boxcol-1-3"}, 
-                    React.createElement("div", {className: "content"}, 
-                       React.createElement("img", {className: "perfil", src: this.props.projects[0].team.people.people3.foto}), 
-                       React.createElement("h5", {className: "perfilname"}, " ", this.props.projects[0].team.people.people3.name)
-                   )
-                ), 
-                React.createElement("div", {className: "boxcol-1-3"}, 
-                    React.createElement("div", {className: "content"}, 
-                        React.createElement("img", {className: "perfil", src: this.props.projects[0].team.people.people4.foto}), 
-                        React.createElement("h5", {className: "perfilname"}, " ", this.props.projects[0].team.people.people4.name)
-                    )
-                ), 
-                React.createElement("div", {className: "boxcol-1-3"}, 
-                    React.createElement("div", {className: "content"}, 
-                        React.createElement("img", {className: "perfil", src: this.props.projects[0].team.people.people5.foto}), 
-                        React.createElement("h5", {className: "perfilname"}, " ", this.props.projects[0].team.people.people5.name)
-                    )
-                ), 
-                React.createElement("div", {className: "boxcol-1-3"}, 
-                    React.createElement("div", {className: "content"}, 
-                        React.createElement("img", {className: "perfil", src: this.props.projects[0].team.people.people6.foto}), 
-                        React.createElement("h5", {className: "perfilname"}, " ", this.props.projects[0].team.people.people6.name)
-                    )
-                )
+                this.props.projects[this.props.pos].team.map(function(item){
+                    return React.createElement("div", {className: "boxcol-1-3", key: item[0]}, 
+                                React.createElement("div", {className: "content"}, 
+                                        React.createElement("img", {className: "perfil", src: item[1]}), 
+                                        React.createElement("h5", {className: "perfilname"}, item[0])
+                                )
+                            );
+            })
             )
         )
     );
@@ -440,12 +327,9 @@ var IssueRisks = React.createClass({displayName: "IssueRisks",
             React.createElement("div", {className: "content1"}, 
                 React.createElement("ul", null, 
                     React.createElement("label", null, "ISSUES/RISKS"), 
-                    React.createElement("li", null, this.props.projects[this.props.pos].about.issuesrisks.one), 
-                    React.createElement("li", null, this.props.projects[this.props.pos].about.issuesrisks.two)
+                    this.props.projects[this.props.pos].about.issuesrisks.map(function(item){return React.createElement("li", {key: item}, item);})
                 )
-            )
-                    
-               
+            ) 
             );
     }
 });
@@ -456,7 +340,7 @@ var KeyDiscussionItems = React.createClass({displayName: "KeyDiscussionItems",
             React.createElement("div", {className: "content1"}, 
                 React.createElement("ul", null, 
                     React.createElement("label", null, "KEY DISCUSSION ITEMS"), 
-                    React.createElement("li", null, this.props.projects[this.props.pos].about.keydiscussionitms)
+                    this.props.projects[this.props.pos].about.keydiscussionitms.map(function(item){return React.createElement("li", {key: item}, item);})
                 )
             )
                     
@@ -468,9 +352,9 @@ var Status = React.createClass({displayName: "Status",
 
     render: function(){
         return(
-            React.createElement("div", {className: "content"}, 
-                React.createElement("img", {className: "imgstatus", src: this.props.projects[this.props.pos].status.img}), 
-                React.createElement("h5", {className: "statusText"}, this.props.projects[this.props.pos].status.percent)
+            React.createElement("div", {className: "statusContent"}, 
+                React.createElement("h5", {className: "statusText"}, this.props.projects[this.props.pos].status.percent), 
+                React.createElement("img", {className: "imgstatus", src: this.props.projects[this.props.pos].status.img})
             )
         );
     }
@@ -501,12 +385,12 @@ var All = React.createClass({displayName: "All",
     
     render: function() {
         return (
-            
+            React.createElement(ReactCSSTransitionGroup, {transitionName: "fade", transitionEnterTimeout: 500, transitionLeaveTimeout: 300}, 
             React.createElement("div", {className: "all"}, 
-                    React.createElement(Header, {pos: this.state.position}), 
-                    React.createElement(Main, {pos: this.state.position})
+                    React.createElement(Header, {pos: this.state.position, key: "header"}), 
+                    React.createElement(Main, {pos: this.state.position, key: "main"})
             )
-                  
+            )      
           
 
         );
@@ -517,11 +401,14 @@ var All = React.createClass({displayName: "All",
 
 // RENDER TO VIRTUAL DOM
   ReactDOM.render(
-    
+            
             React.createElement(IntlProvider, null, 
-                React.createElement(All, {db: DataBase})
+                
+                    React.createElement(All, {db: DataBase})
+
             ),
             document.getElementById('main')
+            
    
   );
 },{"../database.json":1,"react":188,"react-addons-css-transition-group":52,"react-dom":53,"react-intl":54}],3:[function(require,module,exports){
