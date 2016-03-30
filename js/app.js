@@ -10,7 +10,7 @@ var Header = React.createClass({
     render: function() {
         return (
             <header>
-                <ProjectLogo />
+                <ProjectLogo projects={DataBase} pos={this.props.pos}/>
                 <GFIlogo imageSrc="img/gfi.jpg" />
                 <time>
                     <Dates />
@@ -26,7 +26,7 @@ var Header = React.createClass({
 var ProjectLogo = React.createClass({
     render: function() {
         return (
-            <img id="prjLogo" src="img/logo-company-hub.png" />
+            <img id="prjLogo" src={this.props.projects[this.props.pos].logo} />
         );
     }
 });
@@ -134,9 +134,9 @@ var AboutTheProject = React.createClass({
         <section className="box1">
         <ul>
             <label>OBJECTIVE</label>
-            <li>{this.props.projects[this.props.pos].info.objective}</li>
+            {this.props.projects[this.props.pos].info.objective.map(function(item){return <li key={item}>{item}</li>;})}
             <label>MAIN FOCUS</label>
-            <li>{this.props.projects[this.props.pos].info.focus}</li>
+            {this.props.projects[this.props.pos].info.focus.map(function(item){return <li key={item}>{item}</li>;})}
         </ul>
         </section>
 
@@ -153,42 +153,14 @@ var Team = React.createClass({
         <section className="team">
             <h2>TEAM</h2>
             <section className="box">
-                <div className="boxcol-1-3">
-                     <div className="content">
-                         <img className="perfil" src={this.props.projects[0].team.people.people1.foto}/>
-                         <h5 className="perfilname"> {this.props.projects[0].team.people.people1.name}</h5>
-                    </div>
-                </div>
-                <div className="boxcol-1-3">
-                    <div className="content">
-                       <img className="perfil" src={this.props.projects[0].team.people.people2.foto}/>
-                       <h5 className="perfilname"> {this.props.projects[0].team.people.people2.name}</h5>
-                    </div>
-                </div>
-                <div className="boxcol-1-3">
-                    <div className="content">
-                       <img className="perfil" src={this.props.projects[0].team.people.people3.foto}/>
-                       <h5 className="perfilname"> {this.props.projects[0].team.people.people3.name}</h5>
-                   </div>
-                </div>
-                <div className="boxcol-1-3">
-                    <div className="content">
-                        <img className="perfil" src={this.props.projects[0].team.people.people4.foto}/>
-                        <h5 className="perfilname"> {this.props.projects[0].team.people.people4.name}</h5>
-                    </div>
-                </div>
-                <div className="boxcol-1-3">
-                    <div className="content">
-                        <img className="perfil" src={this.props.projects[0].team.people.people5.foto}/>
-                        <h5 className="perfilname"> {this.props.projects[0].team.people.people5.name}</h5>
-                    </div>
-                </div>
-                <div className="boxcol-1-3">
-                    <div className="content">
-                        <img className="perfil" src={this.props.projects[0].team.people.people6.foto}/>
-                        <h5 className="perfilname"> {this.props.projects[0].team.people.people6.name}</h5>
-                    </div>
-                </div>
+                {this.props.projects[this.props.pos].team.map(function(item){
+                    return <div className="boxcol-1-3" key={item[0]}>
+                                <div className="content">
+                                        <img className="perfil" src={item[1]} />
+                                        <h5 className="perfilname">{item[0]}</h5>
+                                </div>
+                            </div>;
+            })}
             </section>
         </section>
     );
@@ -222,12 +194,9 @@ var IssueRisks = React.createClass({
             <div className="content1">
                 <ul>
                     <label>ISSUES/RISKS</label>
-                    <li>{this.props.projects[this.props.pos].about.issuesrisks.one}</li>
-                    <li>{this.props.projects[this.props.pos].about.issuesrisks.two}</li>
+                    {this.props.projects[this.props.pos].about.issuesrisks.map(function(item){return <li key={item}>{item}</li>;})}
                 </ul>
-            </div>
-                    
-               
+            </div> 
             );
     }
 });
@@ -238,7 +207,7 @@ var KeyDiscussionItems = React.createClass({
             <div className="content1">
                 <ul>
                     <label>KEY DISCUSSION ITEMS</label>
-                    <li>{this.props.projects[this.props.pos].about.keydiscussionitms}</li>
+                    {this.props.projects[this.props.pos].about.keydiscussionitms.map(function(item){return <li key={item}>{item}</li>;})}
                 </ul>
             </div>
                     
@@ -283,12 +252,12 @@ var All = React.createClass({
     
     render: function() {
         return (
-            
+            <ReactCSSTransitionGroup transitionName="fade" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
             <div className="all">
-                    <Header pos={this.state.position} />
-                    <Main pos={this.state.position} />
+                    <Header pos={this.state.position} key="header"/>
+                    <Main pos={this.state.position} key="main"/>
             </div>
-                  
+            </ReactCSSTransitionGroup>      
           
 
         );
@@ -299,10 +268,13 @@ var All = React.createClass({
 
 // RENDER TO VIRTUAL DOM
   ReactDOM.render(
-    
+            
             <IntlProvider>
-                <All db={DataBase} />
+                
+                    <All db={DataBase} />
+
             </IntlProvider>,
             document.getElementById('main')
+            
    
   );

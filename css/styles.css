@@ -254,16 +254,7 @@ time span:last-child {
 
 .fade-enter.fade-enter-active {
   opacity: 1;
-  transition: opacity 5s ease-in;
-}
-
-.fade-appear {
-  opacity: 0.01;
-}
-
-.fade-appear.fade-appear-active {
-  opacity: 1;
-  transition: opacity 5s ease-in;
+  transition: opacity 500ms ease-in;
 }
 
 .fade-leave {
@@ -272,11 +263,11 @@ time span:last-child {
 
 .fade-leave.fade-leave-active {
   opacity: 0.01;
-  transition: opacity 5s ease-out 10s;
+  transition: opacity 300ms ease-in;
 }
 
 
-/*SCROLL ANIMATION*/
+/*SCROLL ANIMATION
 
 .scroll-appear {
   animation-duration: 5s;
@@ -293,4 +284,4 @@ time span:last-child {
     margin-left: 0%;
     width: 100%;
   }
-}
+}*/
