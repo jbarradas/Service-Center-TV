@@ -43,11 +43,13 @@ main {
 
 time {
     width: 50%;
+    height: 25%;
     margin: 0 auto;
     display: block;
-    font-size: 2.3vw;
-	padding: 1%;
-	background-color: #3D4F59;
+    font-size: 4vh;
+	padding: 0.4%;
+	background: url("../img/bar_blue.png") top repeat-x;
+	text-shadow: 0px -1px 0px #000e2e;
 	color: #ED9436;
 	border-bottom-left-radius: 20px;
 	border-bottom-right-radius: 20px;
@@ -59,7 +61,9 @@ time span:last-child {
 }
 
 .bar {
-	background-color: rgb(61, 79, 89);
+	background:url("../img/bar_blue.png") top repeat-x;
+	text-shadow:0px -1px 0px #000e2e;
+	border:1px solid #2a3844;
 	height: 20%;
 	clear: both;
 	color: rgb(255, 255, 255);
@@ -100,19 +104,19 @@ time span:last-child {
 
 .abouttheproject ul{
 	padding: 3.2%;
-	background-color: #B9B9B9;
+	background-color: #5A606E;
 	margin: 0;
 	height: 100%;
 	font-size: 2.2vh;
 }
 .abouttheproject ul label, .projectStatus ul label{
-	color: #5E5E5E;
+	color: white;
 	font-weight: bold;
 }
 
 .abouttheproject ul li, .projectStatus ul li{
 	padding: 5px;
-	color: #5E5E5E;
+	color: white;
 	margin-left: 35px;
 }
 
@@ -225,7 +229,7 @@ time span:last-child {
 
 .content1 {
 	height: 100%;
-	background-color: #b9b9b9;
+	background-color: #5A606E;
 	display: inline-block;
 	width: 50%;
 	float: left;
@@ -252,33 +256,63 @@ time span:last-child {
 	text-align: center;
 }
 
-/* Fade animation */
+/* Fade animation 
 
 @keyframes fade {
    0% {opacity: 1;}
    50% {opacity: 0;}
    100% {opacity: 1;}
-}
+}*/
 
 /* -----------*/ 
 
-
-
-/*SCROLL ANIMATION
-
-.scroll-appear {
-  animation-duration: 5s;
-  animation-name: slidein;
+.but-color-medium{
+	background:url("../img/but_color_med_transp.png") top repeat-x;
+	padding:6px 7px 8px 7px;
+	font-weight:bold;
 }
 
-@keyframes slidein {
-  from {
-    margin-left: 100%;
-    width: 300%; 
-  }
+.but-color-medium {	
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px 0 0;
+	padding:8px 10px 9px 7px;
+	color:white;
+}
 
-  to {
-    margin-left: 0%;
-    width: 100%;
-  }
-}*/
+.but-color-medium span.but-icon{	
+	height:16px;
+	width:20px;
+	float:left;
+	margin-right:5px;
+}
+
+.aboutbar {
+	background:url("../img/bar_blue.png") top repeat-x;
+	text-shadow:0px -1px 0px #000e2e;
+	border:1px solid #2a3844;
+}
+
+.aboutbar span.but-icon{
+	background:url("../img/icon_about.png") top no-repeat;
+}
+
+.teambar {
+	background:url("../img/bar_blue.png") top repeat-x;
+	text-shadow:0px -1px 0px #000e2e;
+	border:1px solid #2a3844;
+}
+
+.teambar span.but-icon{
+	background:url("../img/icon_team.png") top no-repeat;
+}
+
+.statusbar {
+	background:url("../img/bar_orage.png") top repeat-x;
+	text-shadow:0px -1px 0px #587600;
+	border:1px solid #b48f24;
+}
+
+.statusbar span.but-icon{
+	background:url("../img/icon_status.png") top no-repeat;
+}
