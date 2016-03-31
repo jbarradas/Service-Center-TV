@@ -14,7 +14,7 @@ body,
     position: absolute;
 }
 
-.leave {
+.fade {
 	animation-name: fade;
     animation-duration: 2000ms;
 }
@@ -124,30 +124,45 @@ time span:last-child {
 	height: 100%;
 }
 
+.content {
+    text-align: center;
+    background-image: url("../img/gallery_bg.png");
+    background-repeat: no-repeat;
+    background-size: 100% 72%;
+    width: 93%;
+    border-radius: 5%;
+}
+
+.perfil {
+    border-radius: 10% 5% 5% 5%;
+    padding-top: 7.7%;
+}
+
+
+
 .boxcol-1-3{
-	width: 25%;
+	width: 24.1%;
 	display: inline-flex;
-	height: 112px;
-	text-align: center;
+	padding: 1% 2% 0;
 }
 
 .perfilname{
 	margin: 0 auto;
-	width: 75%;
-	display: block;
+	width: 100%;
+	text-align: center;
+	padding: 0px 24%;
 }
 
 .box{
-	border: 1px dashed #464646;
-	padding: 5px 0 0 20px;
-	border-top: none;
-	height: 89%;
+	background-color: white;
+	padding: 0 5% 0;
+	height: 84%;
 }
 
 .box1{
 	padding: 5px 0 0;
 	border-top: none;
-	height: 87%;
+	height: 88%;
 }
 
 .mainGrid {
@@ -176,13 +191,11 @@ time span:last-child {
 	height: 45%;
 }
 
-#about h2 {
-	height: 13%;
-}
+
 
 #team {
 	height: 55%;
-	padding-top: 3%;
+	padding-top: 4%;
 }
 
 .leftCol {
@@ -198,18 +211,6 @@ time span:last-child {
 	padding-left: 0.9%;
 	display: inline-block;
 	float: right;
-}
-
-.projectStatus h2{
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
-	text-align: center;
-	background-color: #EF8803;
-	color: #FFFFFF ;
-	padding: 0;
-	font-size: 1.8vw;
-	margin: 0;
-	height: 5.6%;
 }
 
 .projectStatus ul{
@@ -256,13 +257,13 @@ time span:last-child {
 	text-align: center;
 }
 
-/* Fade animation 
+ /*Fade animation*/ 
 
 @keyframes fade {
    0% {opacity: 1;}
    50% {opacity: 0;}
    100% {opacity: 1;}
-}*/
+}
 
 /* -----------*/ 
 
