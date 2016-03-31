@@ -32,9 +32,15 @@
         logo: "img/ProjectLogo/crédit_agricole.png",
         costumer: "Crédit Agricole",
         country: "France",
-        team: [["Luis Alves","img/FotosPerfil/LuisAlves.png"],
-                ["Ana Lopes","img/FotosPerfil/AnaLopes.png"],
-                ["Jorge Graça","img/FotosPerfil/JorgeGraça.png"]],
+        team: [ ["Jorge Graça","img/FotosPerfil/JorgeGraça.png"],
+                ["António Pereira","img/FotosPerfil/AntónioPereira.png"],
+                ["Monique Pimentel","img/FotosPerfil/MoniquePimentel.png"],
+                ["André Silva","img/FotosPerfil/AndréSilva.png"],
+                ["Fábio Ferreira","img/FotosPerfil/FábioFerreira.png"],
+                ["André Saraiva","img/FotosPerfil/AndréSaraiva.png"],
+                ["João Barradas","img/FotosPerfil/JoãoBarradas.png"],
+                ["Mauro Cheganças","img/FotosPerfil/MauroCheganças.png"],
+                ["Cláudia Matos","img/FotosPerfil/CláudiaMatos.png"]],
                 
         info: {
             objective: ["Technical migration from Vignette to Sharepoint 2013."],
@@ -60,7 +66,8 @@
                 ["Ricardo Jafe","img/FotosPerfil/RicardoJafe.png"],
                 ["Liliana Gouveia","img/FotosPerfil/LilianaGouveia.png"],
                 ["Rute Henriques","img/FotosPerfil/RuteHenriques.png"],
-                ["Carla Silva","img/FotosPerfil/CarlaSilva.png"]],
+                ["Carla Silva","img/FotosPerfil/CarlaSilva.png"],
+                ["André Silva","img/FotosPerfil/AndréSilva.png"]],
         info: {
             objective: ["Quality Assurance of T1 Websites"
                         ,"High Search Engine Performance"],
@@ -111,7 +118,8 @@
         country: "France",
         team: [["Vitor Pereira","img/FotosPerfil/VitorPereira.png"],
                 ["Ricardo Frango","img/FotosPerfil/RicardoFrango.png"],
-                ["Tiago Flores","img/FotosPerfil/TiagoFlores.png"]],
+                ["Tiago Flores","img/FotosPerfil/TiagoFlores.png"],
+                ["Mauro Cheganças","img/FotosPerfil/MauroCheganças.png"]],
         info: {
             objective: ["Mobile solution for Local Government representatives / City Halls"],
             focus: ["Giving access to Documents and Dossiers"
