@@ -33,9 +33,15 @@ module.exports=[
         logo: "img/ProjectLogo/crédit_agricole.png",
         costumer: "Crédit Agricole",
         country: "France",
-        team: [["Luis Alves","img/FotosPerfil/LuisAlves.png"],
-                ["Ana Lopes","img/FotosPerfil/AnaLopes.png"],
-                ["Jorge Graça","img/FotosPerfil/JorgeGraça.png"]],
+        team: [ ["Jorge Graça","img/FotosPerfil/JorgeGraça.png"],
+                ["António Pereira","img/FotosPerfil/AntónioPereira.png"],
+                ["Monique Pimentel","img/FotosPerfil/MoniquePimentel.png"],
+                ["André Silva","img/FotosPerfil/AndréSilva.png"],
+                ["Fábio Ferreira","img/FotosPerfil/FábioFerreira.png"],
+                ["André Saraiva","img/FotosPerfil/AndréSaraiva.png"],
+                ["João Barradas","img/FotosPerfil/JoãoBarradas.png"],
+                ["Mauro Cheganças","img/FotosPerfil/MauroCheganças.png"],
+                ["Cláudia Matos","img/FotosPerfil/CláudiaMatos.png"]],
                 
         info: {
             objective: ["Technical migration from Vignette to Sharepoint 2013."],
@@ -61,7 +67,8 @@ module.exports=[
                 ["Ricardo Jafe","img/FotosPerfil/RicardoJafe.png"],
                 ["Liliana Gouveia","img/FotosPerfil/LilianaGouveia.png"],
                 ["Rute Henriques","img/FotosPerfil/RuteHenriques.png"],
-                ["Carla Silva","img/FotosPerfil/CarlaSilva.png"]],
+                ["Carla Silva","img/FotosPerfil/CarlaSilva.png"],
+                ["André Silva","img/FotosPerfil/AndréSilva.png"]],
         info: {
             objective: ["Quality Assurance of T1 Websites"
                         ,"High Search Engine Performance"],
@@ -112,7 +119,8 @@ module.exports=[
         country: "France",
         team: [["Vitor Pereira","img/FotosPerfil/VitorPereira.png"],
                 ["Ricardo Frango","img/FotosPerfil/RicardoFrango.png"],
-                ["Tiago Flores","img/FotosPerfil/TiagoFlores.png"]],
+                ["Tiago Flores","img/FotosPerfil/TiagoFlores.png"],
+                ["Mauro Cheganças","img/FotosPerfil/MauroCheganças.png"]],
         info: {
             objective: ["Mobile solution for Local Government representatives / City Halls"],
             focus: ["Giving access to Documents and Dossiers"
@@ -275,7 +283,11 @@ var AboutTheProject = React.createClass({displayName: "AboutTheProject",
   render: function() {
     return (
       React.createElement("section", {className: "abouttheproject"}, 
-        React.createElement("h2", null, "ABOUT THE PROJECT"), 
+        React.createElement("div", {className: "buttons-color"}, 
+            React.createElement("div", {className: "but-color-medium aboutbar"}, 
+                React.createElement("span", {className: "but-icon"}), "ABOUT THE PROJECT"
+            )
+        ), 
         React.createElement("section", {className: "box1"}, 
         React.createElement("ul", null, 
             React.createElement("label", null, "OBJECTIVE"), 
@@ -300,7 +312,11 @@ var Team = React.createClass({displayName: "Team",
   render: function() {
     return (
         React.createElement("section", {className: "team"}, 
-            React.createElement("h2", null, "TEAM"), 
+            React.createElement("div", {className: "buttons-color"}, 
+                React.createElement("div", {className: "but-color-medium teambar"}, 
+                    React.createElement("span", {className: "but-icon"}), "TEAM"
+                )
+            ), 
             React.createElement("section", {className: "box"}, 
                 this.props.projects[this.props.pos].team.map(function(item){
                     return React.createElement("div", {className: "boxcol-1-3", key: item[0]}, 
@@ -321,7 +337,11 @@ var ProjectStatus = React.createClass({displayName: "ProjectStatus",
     render: function() {
         return (
             React.createElement("section", {className: "projectStatus"}, 
-                React.createElement("h2", null, "PROJECT STATUS"), 
+                React.createElement("div", {className: "buttons-color"}, 
+                    React.createElement("div", {className: "but-color-medium  statusbar"}, 
+                        React.createElement("span", {className: "but-icon"}), "PROJECT STATUS"
+                    )
+                ), 
                     React.createElement("div", {id: "issues", className: "col-1-2"}, 
                         React.createElement(IssueRisks, {projects: DataBase, pos: this.props.pos}), 
                         React.createElement(KeyDiscussionItems, {projects: DataBase, pos: this.props.pos})

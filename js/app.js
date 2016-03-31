@@ -142,7 +142,11 @@ var AboutTheProject = React.createClass({
   render: function() {
     return (
       <section className="abouttheproject">
-        <h2>ABOUT THE PROJECT</h2>
+        <div className="buttons-color">
+            <div className="but-color-medium aboutbar">
+                <span className="but-icon"></span>ABOUT THE PROJECT
+            </div>
+        </div>
         <section className="box1">
         <ul>
             <label>OBJECTIVE</label>
@@ -167,7 +171,11 @@ var Team = React.createClass({
   render: function() {
     return (
         <section className="team">
-            <h2>TEAM</h2>
+            <div className="buttons-color">
+                <div className="but-color-medium teambar">
+                    <span className="but-icon"></span>TEAM
+                </div>
+            </div>
             <section className="box">
                 {this.props.projects[this.props.pos].team.map(function(item){
                     return <div className="boxcol-1-3" key={item[0]}>
@@ -188,7 +196,11 @@ var ProjectStatus = React.createClass({
     render: function() {
         return (
             <section className="projectStatus">
-                <h2>PROJECT STATUS</h2>
+                <div className="buttons-color">
+                    <div className="but-color-medium  statusbar">
+                        <span className="but-icon"></span>PROJECT STATUS
+                    </div>
+                </div>
                     <div id="issues" className="col-1-2">
                         <IssueRisks projects={DataBase} pos={this.props.pos} />
                         <KeyDiscussionItems projects={DataBase} pos={this.props.pos} />
