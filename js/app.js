@@ -97,7 +97,7 @@ var ProjectBar = React.createClass({
                 <ul>
                     <li>Project: {this.props.projects[this.props.page].name} </li>
                     <li>Costumer: {this.props.projects[this.props.page].costumer} </li>
-                    <li>Country: {this.props.projects[this.props.page].country} </li>
+                    <li> <img id="flag" src={this.props.projects[this.props.page].country[0]} /> {this.props.projects[this.props.page].country[1]} </li>
                 </ul>
             </div>
         );
