@@ -3,142 +3,137 @@ var ReactDOM = require('react-dom');
 var ReactIntl = require('react-intl');
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 var DataBase = require('../database.json');
-
-var addLeaveClass = function () {
-    var x = document.getElementById('all');
-    x.className = "all leave";
-};
-
-var removeLeaveClass = function () {
-    var x = document.getElementById('all');
-    x.className = "all";
-};
+var IntlProvider = ReactIntl.IntlProvider;
 
 
-// HEADER SECTION
+/*----------------------------*
+*                             *
+*       HEADER SECTION        *
+*                             *
+*----------------------------*/
+
+// HEADER COMPONENT (Calls: ProjectLogo, GFILogo, Time/Date, ProjectBar)
 var Header = React.createClass({
     render: function() {
         return (
             <header>
-                <ProjectLogo projects={DataBase} pos={this.props.pos}/>
+                <ProjectLogo projects={DataBase} page={this.props.page}/>
                 <GFIlogo imageSrc="img/gfi.jpg" />
                 <time>
                     <Dates />
                     <Time />
                 </time>
-                <ProjectBar projects={DataBase} pos={this.props.pos} />
+                <ProjectBar projects={DataBase} page={this.props.page} />
             </header>
         );
     }
 });
 
-// PRINT COMPANY LOGO
+// PRINT PROJECT LOGO
 var ProjectLogo = React.createClass({
     render: function() {
         return (
-            <ReactCSSTransitionGroup transitionName="fade" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
-                <img id="prjLogo" src={this.props.projects[this.props.pos].logo} />
-            </ReactCSSTransitionGroup>
+            <img id="prjLogo" src={this.props.projects[this.props.page].logo} />
         );
     }
 });
 
-// PRINT LOGO
+// PRINT GFI LOGO
 var GFIlogo = React.createClass({
     render: function() {
         return (
-                <img id="logo" src={this.props.imageSrc} key={this.props.imageSrc} />
+            <img id="logo" src={this.props.imageSrc} key={this.props.imageSrc} />
         );
     }
 });
 
-// PRINT DATE AND TIME USING react-intl (FormatJS)
-var IntlProvider  = ReactIntl.IntlProvider;
-var FormattedDate = ReactIntl.FormattedDate;
-var FormattedTime = ReactIntl.FormattedTime;
-
-var Dates = React.createClass({
-    render: function () {
-        return (
-                <FormattedDate
-                    value={new Date()}
-                    weekday="long"
-                    day="numeric"
-                    month="long"
-                    year="numeric" /> 
-        );
-    }
-});
-
+// PRINT TIME AND DATE USING react-intl (FormatJS)
 var Time = React.createClass({
 
     getInitialState: function () {
-         return {smthing: 0}; 
+         return {clock: 0}; 
     },
 
     componentDidMount: function () {
         setInterval(function() {
-            this.setState({smthing: 1});
+            this.setState({clock: 1});
         }.bind(this), 500);
     },
 
     render: function () {
+        var FormattedTime = ReactIntl.FormattedTime;
+        
         return (
-                <FormattedTime 
-                    value={new Date()}
-                    hour="numeric"
-                    minute="numeric"
-                    second="numeric"
-                />
+            <FormattedTime 
+                value={new Date()}
+                hour="numeric"
+                minute="numeric"
+                second="numeric"
+            />
         );
     }
 });
 
-// PROJECT BAR
-var ProjectBar = React.createClass({
+var Dates = React.createClass({
+    render: function () {
+        var FormattedDate = ReactIntl.FormattedDate;
+        
+        return (
+            <FormattedDate
+                value={new Date()}
+                weekday="long"
+                day="numeric"
+                month="long"
+                year="numeric" /> 
+        );
+    }
+});
 
+// PROJECT INFO BAR (Name, Costumer, Country)
+var ProjectBar = React.createClass({
     render: function() {
         return (
             <div className="bar">
                 <ul>
-                    <li>Project: {this.props.projects[this.props.pos].name} </li>
-                    <li>Costumer: {this.props.projects[this.props.pos].costumer} </li>
-                    <li>Country: {this.props.projects[this.props.pos].country} </li>
+                    <li>Project: {this.props.projects[this.props.page].name} </li>
+                    <li>Costumer: {this.props.projects[this.props.page].costumer} </li>
+                    <li>Country: {this.props.projects[this.props.page].country} </li>
                 </ul>
             </div>
         );
     }
 });
 
+
+/*----------------------------*
+*                             *
+*        MAIN SECTION         *
+*                             *
+*----------------------------*/
+
+// MAIN COMPONENT (Calls: )
 var Main = React.createClass({
     render: function() {
         return (
-            <main>
-                <section className="mainGrid">
+            <main className="mainGrid">
                     <div className="leftCol">
                         <div id="about" className="col-1-3">
-                            <AboutTheProject projects={DataBase} pos={this.props.pos} />
+                            <AboutTheProject projects={DataBase} page={this.props.page} />
                         </div>
                         <div id="team" className="col-1-3">
-                            <Team projects={DataBase} pos={this.props.pos} />
+                            <Team projects={DataBase} page={this.props.page} />
                         </div>
                     </div>
-
                     <div className="rigthCol">
-                        <ProjectStatus projects={DataBase} pos={this.props.pos} />
-                        
-                        
+                        <ProjectStatus projects={DataBase} page={this.props.page} />
                     </div>
-                </section>
             </main>
         );
     }
 });
 
-
-//ABOUT THE PROJECT BOX
+// ABOUT THE PROJECT BOX (Objectives + Main focuses)
 var AboutTheProject = React.createClass({
-  
   render: function() {
     return (
       <section className="abouttheproject">
@@ -148,26 +143,24 @@ var AboutTheProject = React.createClass({
             </div>
         </div>
         <section className="box1">
-        <ul>
-            <label>OBJECTIVE</label>
-            {this.props.projects[this.props.pos].info.objective.map(function(item){
-                return <li key={item}>{item}</li>;
-            })}
-            <label>MAIN FOCUS</label>
-            {this.props.projects[this.props.pos].info.focus.map(function(item){
-                return <li key={item}>{item}</li>;
-            })}
-        </ul>
+            <ul>
+                <label>OBJECTIVE</label>
+                {this.props.projects[this.props.page].info.objective.map(function(item){
+                    return <li key={item}>{item}</li>;
+                })}
+                <label>MAIN FOCUS</label>
+                {this.props.projects[this.props.page].info.focus.map(function(item){
+                    return <li key={item}>{item}</li>;
+                })}
+            </ul>
         </section>
-
       </section>
     );
   }
 });
 
-//TEAM
+// PRINT TEAM MEMBERS (Profile Photos)
 var Team = React.createClass({
-  
   render: function() {
     return (
         <section className="team">
@@ -177,22 +170,22 @@ var Team = React.createClass({
                 </div>
             </div>
             <section className="box">
-                {this.props.projects[this.props.pos].team.map(function(item){
-                    return <div className="boxcol-1-3" key={item[0]}>
+                {this.props.projects[this.props.page].team.map(function(item){
+                    return <div className="boxcol-1-3" key={item[0]} >
                                 <div className="content">
                                         <img className="perfil" src={item[1]} />
-                                        <h5 className="perfilname">{item[0]}</h5>
+                                        <h5 className="perfilname"> {item[0]} </h5>
                                 </div>
                             </div>;
-            })}
+                })}
             </section>
         </section>
     );
   }
 });
 
+// PROJECT STATUS BOX (Issues/Risks + Key Discussion Items + Status Meter)
 var ProjectStatus = React.createClass({
-
     render: function() {
         return (
             <section className="projectStatus">
@@ -202,119 +195,124 @@ var ProjectStatus = React.createClass({
                     </div>
                 </div>
                     <div id="issues" className="col-1-2">
-                        <IssueRisks projects={DataBase} pos={this.props.pos} />
-                        <KeyDiscussionItems projects={DataBase} pos={this.props.pos} />
+                        <IssueRisks projects={DataBase} page={this.props.page} />
+                        <KeyDiscussionItems projects={DataBase} page={this.props.page} />
                     </div>
                     <div id="status" className="col-1-2">
-                        <Status projects={DataBase} pos={this.props.pos} />
+                        <Status projects={DataBase} page={this.props.page} />
                     </div>
                 </section>
             );
     }
 });
 
-
-//PROJECT STATUS BOX
+// PRINT ISSUES AND RISKS
 var IssueRisks = React.createClass({
-
     render: function() {
         return (  
             <div className="content1">
                 <ul>
                     <label>ISSUES/RISKS</label>
-                    {this.props.projects[this.props.pos].about.issuesrisks.map(function(item){return <li key={item}>{item}</li>;})}
+                    {this.props.projects[this.props.page].about.issuesrisks.map(function(item){
+                        return <li key={item}>{item}</li>;
+                    })}
                 </ul>
             </div> 
-            );
+        );
     }
 });
 
+// PRINT KEY DISCUSSION ITEMS
 var KeyDiscussionItems = React.createClass({
     render: function(){
         return(
             <div className="content1">
                 <ul>
                     <label>KEY DISCUSSION ITEMS</label>
-                    {this.props.projects[this.props.pos].about.keydiscussionitms.map(function(item){return <li key={item}>{item}</li>;})}
+                    {this.props.projects[this.props.page].about.keydiscussionitms.map(function(item){return <li key={item}>{item}</li>;})}
                 </ul>
-            </div>
-                    
-            );
+            </div>   
+        );
     }
 });
 
+// PRINT STATUS METER
 var Status = React.createClass({
-
     render: function(){
         return(
             <div className="statusContent">
-                <h5 className="statusText">{this.props.projects[this.props.pos].status.percent}</h5>
-                <img className="imgstatus" src={this.props.projects[this.props.pos].status.img} />
+                <h5 className="statusText">{this.props.projects[this.props.page].status.percent}</h5>
+                <img className="imgstatus" src={this.props.projects[this.props.page].status.img} />
             </div>
         );
     }
-
 });
 
+
+/*----------------------------*
+*                             *
+*     FULL PAGE SECTION       *
+*                             *
+*----------------------------*/
+
+// FULL PAGE CONTAINER (Calls: Header + Main Components)
 var All = React.createClass({
-    
-    getPositions: function () {
-        if (this.state.position < this.props.db.length-1) {
-            return (this.state.position)+1;
+
+    getPages: function () {
+        if (this.state.page < this.props.db.length-1) {
+            return (this.state.page)+1;
         } else {
             return 0;
         }
+    },
 
+    addFadeClass: function () {
+        document.getElementById('all').className = "all fade";
+    },
+
+    removeFadeClass: function () {
+        document.getElementById('all').className = "all";
     },
 
     getInitialState: function () {
-        return {position: 0};    
+        return {page: 0};    
     },
 
     componentWillMount: function () {
         setTimeout(function() {
-            addLeaveClass();
+            this.addFadeClass();
         }.bind(this), 4000);
     },
 
     componentDidMount: function () {
         setInterval(function() {
-            this.setState({position: this.getPositions()});
+            this.setState({page: this.getPages()});
         }.bind(this), 5000);
     },
 
     componentDidUpdate: function () {
         setTimeout(function() {
-            removeLeaveClass();
+            this.removeFadeClass();
         }.bind(this), 1000);
         setTimeout(function() {
-            addLeaveClass();
+            this.addFadeClass();
         }.bind(this), 4000);
     },
     
     render: function() {
         return (
             <div className="all" id="all">
-                    <Header pos={this.state.position} key="header"/>
-                    <Main pos={this.state.position} key="main"/>
-            </div>      
-          
-
+                <Header page={this.state.page} key="header"/>
+                <Main page={this.state.page} key="main"/>
+            </div>
         );
     }
 });
 
-
-
 // RENDER TO VIRTUAL DOM
-  ReactDOM.render(
-            
-            <IntlProvider>
-                
-                    <All db={DataBase} />
-
-            </IntlProvider>,
-            document.getElementById('main')
-            
-   
-  );
+ReactDOM.render(
+    <IntlProvider>
+        <All db={DataBase} />
+    </IntlProvider>,
+    document.getElementById('main')
+);
