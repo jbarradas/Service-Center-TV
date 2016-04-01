@@ -5,7 +5,7 @@ module.exports=[
         name: "Company Hub",
         logo: "img/ProjectLogo/company_hub.png",
         costumer: "GFI Informatique",
-        country: "France",
+        country: ["img/flags/fr.svg","FR"],
         team: [["Vitor Pereira","img/FotosPerfil/VitorPereira.png"],
                 ["Pedro Conde","img/FotosPerfil/PedroConde.png"],
                 ["Rui Almeida","img/FotosPerfil/RuiAlmeida.png"],
@@ -32,7 +32,7 @@ module.exports=[
         name: "MOCCA+",
         logo: "img/ProjectLogo/crédit_agricole.png",
         costumer: "Crédit Agricole",
-        country: "France",
+        country: ["img/flags/fr.svg","FR"],
         team: [ ["Jorge Graça","img/FotosPerfil/JorgeGraça.png"],
                 ["António Pereira","img/FotosPerfil/AntónioPereira.png"],
                 ["Monique Pimentel","img/FotosPerfil/MoniquePimentel.png"],
@@ -62,7 +62,7 @@ module.exports=[
         name: "Toyota One",
         logo: "img/ProjectLogo/toyota.png",
         costumer: "Toyota",
-        country: "Belgium",
+        country: ["img/flags/be.svg","BE"],
         team: [["Laura Costa","img/FotosPerfil/LauraCosta.png"],
                 ["Ricardo Jafe","img/FotosPerfil/RicardoJafe.png"],
                 ["Liliana Gouveia","img/FotosPerfil/LilianaGouveia.png"],
@@ -92,7 +92,7 @@ module.exports=[
         name: "Pégase 3",
         logo: "img/ProjectLogo/pégase3.png",
         costumer: "GFI Informatique",
-        country: "France",
+        country: ["img/flags/fr.svg","FR"],
         team: [["Luís Gouveia","img/FotosPerfil/LuísGouveia.png"],
                 ["Jorge Gonçalves","img/FotosPerfil/JorgeGonçalves.png"],
                 ["César Lourenço","img/FotosPerfil/CésarLourenço.png"],
@@ -116,7 +116,7 @@ module.exports=[
         name: "Connect Élu",
         logo: "img/ProjectLogo/Connect_élu.png",
         costumer: "GFI Informatique",
-        country: "France",
+        country: ["img/flags/fr.svg","FR"],
         team: [["Vitor Pereira","img/FotosPerfil/VitorPereira.png"],
                 ["Ricardo Frango","img/FotosPerfil/RicardoFrango.png"],
                 ["Tiago Flores","img/FotosPerfil/TiagoFlores.png"],
@@ -245,7 +245,7 @@ var ProjectBar = React.createClass({displayName: "ProjectBar",
                 React.createElement("ul", null, 
                     React.createElement("li", null, "Project: ", this.props.projects[this.props.page].name, " "), 
                     React.createElement("li", null, "Costumer: ", this.props.projects[this.props.page].costumer, " "), 
-                    React.createElement("li", null, "Country: ", this.props.projects[this.props.page].country, " ")
+                    React.createElement("li", null, " ", React.createElement("img", {id: "flag", src: this.props.projects[this.props.page].country[0]}), " ", this.props.projects[this.props.page].country[1], " ")
                 )
             )
         );
