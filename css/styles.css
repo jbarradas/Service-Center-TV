@@ -14,7 +14,7 @@ body,
     position: absolute;
 }
 
-.fade {
+.fade2 {
 	animation-name: fade;
     animation-duration: 2000ms;
 }
@@ -306,4 +306,29 @@ time span:last-child {
 
 .statusbar span.but-icon{
 	background:url("../img/icon_status.png") top no-repeat;
+}
+
+
+@media screen and (min-width: 320px) {
+    #all {
+        background-color: lightgreen;
+    }
+}
+
+@media screen and (min-width: 480px) {
+    #all {
+        background-color: yellow;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    #all {
+        background-color: red;
+    }
+}
+
+@media screen and (max-width: 1044px) and (min-width: 769px) {
+    #all {
+        background-color: pink;
+    }
 }
