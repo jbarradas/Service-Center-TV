@@ -146,6 +146,13 @@ var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 var DataBase = require('../database.json');
 var IntlProvider = ReactIntl.IntlProvider;
 
+var onresize = function() 
+{
+   var width = window.innerWidth
+   || document.documentElement.clientWidth
+   || document.body.clientWidth;
+   console.log(width);
+}
 
 /*----------------------------*
 *                             *
@@ -428,7 +435,7 @@ var All = React.createClass({displayName: "All",
     componentDidMount: function () {
         setInterval(function() {
             this.setState({page: this.getPages()});
-        }.bind(this), 5000);
+        }.bind(this), 500);
     },
 
     componentDidUpdate: function () {
@@ -444,7 +451,8 @@ var All = React.createClass({displayName: "All",
         return (
             React.createElement("div", {className: "all", id: "all"}, 
                 React.createElement(Header, {page: this.state.page, key: "header"}), 
-                React.createElement(Main, {page: this.state.page, key: "main"})
+                React.createElement(Main, {page: this.state.page, key: "main"}), 
+                onresize()
             )
         );
     }
