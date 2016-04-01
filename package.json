@@ -5,7 +5,7 @@
   "main": "bundle.js",
   "scripts": {
     "build": "browserify -t reactify js/app.js -o js/bundle.js",
-    "watch": "watchify -t reactify js/app.js -o js/bundle.js"  
+    "watch": "watchify -t reactify js/app.js -o js/bundle.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
     "react-addons-css-transition-group": "^0.14.7",
     "react-dom": "^0.14.7",
     "react-intl": "^2.0.0-rc-1",
+    "react-responsive": "^1.1.1",
     "watchify": "^3.7.0"
   },
   "devDependencies": {
