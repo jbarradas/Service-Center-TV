@@ -144,142 +144,144 @@ var ReactDOM = require('react-dom');
 var ReactIntl = require('react-intl');
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 var DataBase = require('../database.json');
+var IntlProvider = ReactIntl.IntlProvider;
 
-var addLeaveClass = function () {
-    var x = document.getElementById('all');
-    x.className = "all leave";
-};
+var onresize = function() 
+{
+   var width = window.innerWidth
+   || document.documentElement.clientWidth
+   || document.body.clientWidth;
+   console.log(width);
+}
 
-var removeLeaveClass = function () {
-    var x = document.getElementById('all');
-    x.className = "all";
-};
+/*----------------------------*
+*                             *
+*       HEADER SECTION        *
+*                             *
+*----------------------------*/
 
-
-// HEADER SECTION
+// HEADER COMPONENT (Calls: ProjectLogo, GFILogo, Time/Date, ProjectBar)
 var Header = React.createClass({displayName: "Header",
     render: function() {
         return (
             React.createElement("header", null, 
-                React.createElement(ProjectLogo, {projects: DataBase, pos: this.props.pos}), 
+                React.createElement(ProjectLogo, {projects: DataBase, page: this.props.page}), 
                 React.createElement(GFIlogo, {imageSrc: "img/gfi.jpg"}), 
                 React.createElement("time", null, 
                     React.createElement(Dates, null), 
                     React.createElement(Time, null)
                 ), 
-                React.createElement(ProjectBar, {projects: DataBase, pos: this.props.pos})
+                React.createElement(ProjectBar, {projects: DataBase, page: this.props.page})
             )
         );
     }
 });
 
-// PRINT COMPANY LOGO
+// PRINT PROJECT LOGO
 var ProjectLogo = React.createClass({displayName: "ProjectLogo",
     render: function() {
         return (
-            React.createElement(ReactCSSTransitionGroup, {transitionName: "fade", transitionEnterTimeout: 500, transitionLeaveTimeout: 300}, 
-                React.createElement("img", {id: "prjLogo", src: this.props.projects[this.props.pos].logo})
-            )
+            React.createElement("img", {id: "prjLogo", src: this.props.projects[this.props.page].logo})
         );
     }
 });
 
-// PRINT LOGO
+// PRINT GFI LOGO
 var GFIlogo = React.createClass({displayName: "GFIlogo",
     render: function() {
         return (
-                React.createElement("img", {id: "logo", src: this.props.imageSrc, key: this.props.imageSrc})
+            React.createElement("img", {id: "logo", src: this.props.imageSrc, key: this.props.imageSrc})
         );
     }
 });
 
-// PRINT DATE AND TIME USING react-intl (FormatJS)
-var IntlProvider  = ReactIntl.IntlProvider;
-var FormattedDate = ReactIntl.FormattedDate;
-var FormattedTime = ReactIntl.FormattedTime;
-
-var Dates = React.createClass({displayName: "Dates",
-    render: function () {
-        return (
-                React.createElement(FormattedDate, {
-                    value: new Date(), 
-                    weekday: "long", 
-                    day: "numeric", 
-                    month: "long", 
-                    year: "numeric"}) 
-        );
-    }
-});
-
+// PRINT TIME AND DATE USING react-intl (FormatJS)
 var Time = React.createClass({displayName: "Time",
 
     getInitialState: function () {
-         return {smthing: 0}; 
+         return {clock: 0}; 
     },
 
     componentDidMount: function () {
         setInterval(function() {
-            this.setState({smthing: 1});
+            this.setState({clock: 1});
         }.bind(this), 500);
     },
 
     render: function () {
+        var FormattedTime = ReactIntl.FormattedTime;
+        
         return (
-                React.createElement(FormattedTime, {
-                    value: new Date(), 
-                    hour: "numeric", 
-                    minute: "numeric", 
-                    second: "numeric"}
-                )
+            React.createElement(FormattedTime, {
+                value: new Date(), 
+                hour: "numeric", 
+                minute: "numeric", 
+                second: "numeric"}
+            )
         );
     }
 });
 
-// PROJECT BAR
-var ProjectBar = React.createClass({displayName: "ProjectBar",
+var Dates = React.createClass({displayName: "Dates",
+    render: function () {
+        var FormattedDate = ReactIntl.FormattedDate;
+        
+        return (
+            React.createElement(FormattedDate, {
+                value: new Date(), 
+                weekday: "long", 
+                day: "numeric", 
+                month: "long", 
+                year: "numeric"}) 
+        );
+    }
+});
 
+// PROJECT INFO BAR (Name, Costumer, Country)
+var ProjectBar = React.createClass({displayName: "ProjectBar",
     render: function() {
         return (
             React.createElement("div", {className: "bar"}, 
                 React.createElement("ul", null, 
-                    React.createElement("li", null, "Project: ", this.props.projects[this.props.pos].name, " "), 
-                    React.createElement("li", null, "Costumer: ", this.props.projects[this.props.pos].costumer, " "), 
-                    React.createElement("li", null, "Country: ", this.props.projects[this.props.pos].country, " ")
+                    React.createElement("li", null, "Project: ", this.props.projects[this.props.page].name, " "), 
+                    React.createElement("li", null, "Costumer: ", this.props.projects[this.props.page].costumer, " "), 
+                    React.createElement("li", null, "Country: ", this.props.projects[this.props.page].country, " ")
                 )
             )
         );
     }
 });
 
+
+/*----------------------------*
+*                             *
+*        MAIN SECTION         *
+*                             *
+*----------------------------*/
+
+// MAIN COMPONENT (Calls: )
 var Main = React.createClass({displayName: "Main",
     render: function() {
         return (
-            React.createElement("main", null, 
-                React.createElement("section", {className: "mainGrid"}, 
+            React.createElement("main", {className: "mainGrid"}, 
                     React.createElement("div", {className: "leftCol"}, 
                         React.createElement("div", {id: "about", className: "col-1-3"}, 
-                            React.createElement(AboutTheProject, {projects: DataBase, pos: this.props.pos})
+                            React.createElement(AboutTheProject, {projects: DataBase, page: this.props.page})
                         ), 
                         React.createElement("div", {id: "team", className: "col-1-3"}, 
-                            React.createElement(Team, {projects: DataBase, pos: this.props.pos})
+                            React.createElement(Team, {projects: DataBase, page: this.props.page})
                         )
                     ), 
-
                     React.createElement("div", {className: "rigthCol"}, 
-                        React.createElement(ProjectStatus, {projects: DataBase, pos: this.props.pos})
-                        
-                        
+                        React.createElement(ProjectStatus, {projects: DataBase, page: this.props.page})
                     )
-                )
             )
         );
     }
 });
 
-
-//ABOUT THE PROJECT BOX
+// ABOUT THE PROJECT BOX (Objectives + Main focuses)
 var AboutTheProject = React.createClass({displayName: "AboutTheProject",
-  
   render: function() {
     return (
       React.createElement("section", {className: "abouttheproject"}, 
@@ -289,26 +291,24 @@ var AboutTheProject = React.createClass({displayName: "AboutTheProject",
             )
         ), 
         React.createElement("section", {className: "box1"}, 
-        React.createElement("ul", null, 
-            React.createElement("label", null, "OBJECTIVE"), 
-            this.props.projects[this.props.pos].info.objective.map(function(item){
-                return React.createElement("li", {key: item}, item);
-            }), 
-            React.createElement("label", null, "MAIN FOCUS"), 
-            this.props.projects[this.props.pos].info.focus.map(function(item){
-                return React.createElement("li", {key: item}, item);
-            })
+            React.createElement("ul", null, 
+                React.createElement("label", null, "OBJECTIVE"), 
+                this.props.projects[this.props.page].info.objective.map(function(item){
+                    return React.createElement("li", {key: item}, item);
+                }), 
+                React.createElement("label", null, "MAIN FOCUS"), 
+                this.props.projects[this.props.page].info.focus.map(function(item){
+                    return React.createElement("li", {key: item}, item);
+                })
+            )
         )
-        )
-
       )
     );
   }
 });
 
-//TEAM
+// PRINT TEAM MEMBERS (Profile Photos)
 var Team = React.createClass({displayName: "Team",
-  
   render: function() {
     return (
         React.createElement("section", {className: "team"}, 
@@ -318,22 +318,22 @@ var Team = React.createClass({displayName: "Team",
                 )
             ), 
             React.createElement("section", {className: "box"}, 
-                this.props.projects[this.props.pos].team.map(function(item){
+                this.props.projects[this.props.page].team.map(function(item){
                     return React.createElement("div", {className: "boxcol-1-3", key: item[0]}, 
                                 React.createElement("div", {className: "content"}, 
                                         React.createElement("img", {className: "perfil", src: item[1]}), 
-                                        React.createElement("h5", {className: "perfilname"}, item[0])
+                                        React.createElement("h5", {className: "perfilname"}, " ", item[0], " ")
                                 )
                             );
-            })
+                })
             )
         )
     );
   }
 });
 
+// PROJECT STATUS BOX (Issues/Risks + Key Discussion Items + Status Meter)
 var ProjectStatus = React.createClass({displayName: "ProjectStatus",
-
     render: function() {
         return (
             React.createElement("section", {className: "projectStatus"}, 
@@ -343,122 +343,128 @@ var ProjectStatus = React.createClass({displayName: "ProjectStatus",
                     )
                 ), 
                     React.createElement("div", {id: "issues", className: "col-1-2"}, 
-                        React.createElement(IssueRisks, {projects: DataBase, pos: this.props.pos}), 
-                        React.createElement(KeyDiscussionItems, {projects: DataBase, pos: this.props.pos})
+                        React.createElement(IssueRisks, {projects: DataBase, page: this.props.page}), 
+                        React.createElement(KeyDiscussionItems, {projects: DataBase, page: this.props.page})
                     ), 
                     React.createElement("div", {id: "status", className: "col-1-2"}, 
-                        React.createElement(Status, {projects: DataBase, pos: this.props.pos})
+                        React.createElement(Status, {projects: DataBase, page: this.props.page})
                     )
                 )
             );
     }
 });
 
-
-//PROJECT STATUS BOX
+// PRINT ISSUES AND RISKS
 var IssueRisks = React.createClass({displayName: "IssueRisks",
-
     render: function() {
         return (  
             React.createElement("div", {className: "content1"}, 
                 React.createElement("ul", null, 
                     React.createElement("label", null, "ISSUES/RISKS"), 
-                    this.props.projects[this.props.pos].about.issuesrisks.map(function(item){return React.createElement("li", {key: item}, item);})
+                    this.props.projects[this.props.page].about.issuesrisks.map(function(item){
+                        return React.createElement("li", {key: item}, item);
+                    })
                 )
             ) 
-            );
+        );
     }
 });
 
+// PRINT KEY DISCUSSION ITEMS
 var KeyDiscussionItems = React.createClass({displayName: "KeyDiscussionItems",
     render: function(){
         return(
             React.createElement("div", {className: "content1"}, 
                 React.createElement("ul", null, 
                     React.createElement("label", null, "KEY DISCUSSION ITEMS"), 
-                    this.props.projects[this.props.pos].about.keydiscussionitms.map(function(item){return React.createElement("li", {key: item}, item);})
+                    this.props.projects[this.props.page].about.keydiscussionitms.map(function(item){return React.createElement("li", {key: item}, item);})
                 )
-            )
-                    
-            );
+            )   
+        );
     }
 });
 
+// PRINT STATUS METER
 var Status = React.createClass({displayName: "Status",
-
     render: function(){
         return(
             React.createElement("div", {className: "statusContent"}, 
-                React.createElement("h5", {className: "statusText"}, this.props.projects[this.props.pos].status.percent), 
-                React.createElement("img", {className: "imgstatus", src: this.props.projects[this.props.pos].status.img})
+                React.createElement("h5", {className: "statusText"}, this.props.projects[this.props.page].status.percent), 
+                React.createElement("img", {className: "imgstatus", src: this.props.projects[this.props.page].status.img})
             )
         );
     }
-
 });
 
+
+/*----------------------------*
+*                             *
+*     FULL PAGE SECTION       *
+*                             *
+*----------------------------*/
+
+// FULL PAGE CONTAINER (Calls: Header + Main Components)
 var All = React.createClass({displayName: "All",
-    
-    getPositions: function () {
-        if (this.state.position < this.props.db.length-1) {
-            return (this.state.position)+1;
+
+    getPages: function () {
+        if (this.state.page < this.props.db.length-1) {
+            return (this.state.page)+1;
         } else {
             return 0;
         }
+    },
 
+    addFadeClass: function () {
+        document.getElementById('all').className = "all fade";
+    },
+
+    removeFadeClass: function () {
+        document.getElementById('all').className = "all";
     },
 
     getInitialState: function () {
-        return {position: 0};    
+        return {page: 0};    
     },
 
     componentWillMount: function () {
         setTimeout(function() {
-            addLeaveClass();
+            this.addFadeClass();
         }.bind(this), 4000);
     },
 
     componentDidMount: function () {
         setInterval(function() {
-            this.setState({position: this.getPositions()});
-        }.bind(this), 5000);
+            this.setState({page: this.getPages()});
+        }.bind(this), 500);
     },
 
     componentDidUpdate: function () {
         setTimeout(function() {
-            removeLeaveClass();
+            this.removeFadeClass();
         }.bind(this), 1000);
         setTimeout(function() {
-            addLeaveClass();
+            this.addFadeClass();
         }.bind(this), 4000);
     },
     
     render: function() {
         return (
             React.createElement("div", {className: "all", id: "all"}, 
-                    React.createElement(Header, {pos: this.state.position, key: "header"}), 
-                    React.createElement(Main, {pos: this.state.position, key: "main"})
-            )      
-          
-
+                React.createElement(Header, {page: this.state.page, key: "header"}), 
+                React.createElement(Main, {page: this.state.page, key: "main"}), 
+                onresize()
+            )
         );
     }
 });
 
-
-
 // RENDER TO VIRTUAL DOM
-  ReactDOM.render(
-            
-            React.createElement(IntlProvider, null, 
-                
-                    React.createElement(All, {db: DataBase})
-
-            ),
-            document.getElementById('main')
-            
-   
-  );
+ReactDOM.render(
+    React.createElement(IntlProvider, null, 
+        React.createElement(All, {db: DataBase})
+    ),
+    document.getElementById('main')
+);
 },{"../database.json":1,"react":188,"react-addons-css-transition-group":52,"react-dom":53,"react-intl":54}],3:[function(require,module,exports){
 
 },{}],4:[function(require,module,exports){
