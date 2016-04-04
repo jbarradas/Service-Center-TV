@@ -265,17 +265,17 @@ var Main = React.createClass({displayName: "Main",
         return (
             React.createElement("main", {className: "mainGrid"}, 
             
-                        React.createElement("div", {className: "leftCol"}, 
+                        
                             React.createElement("div", {id: "about", className: "col-1-3"}, 
                                 React.createElement(AboutTheProject, {projects: DataBase, page: this.props.page})
                             ), 
                         React.createElement("div", {id: "team", className: "col-1-3"}, 
                             React.createElement(Team, {projects: DataBase, page: this.props.page})
-                        )
                         ), 
-                        React.createElement("div", {className: "rigthCol"}, 
+                        
+                        
                             React.createElement(ProjectStatus, {projects: DataBase, page: this.props.page})
-                        )
+                     
                
         )
         );

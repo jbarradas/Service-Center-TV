@@ -124,17 +124,17 @@ var Main = React.createClass({
         return (
             <main className="mainGrid">
             
-                        <div className="leftCol">
+                        
                             <div id="about" className="col-1-3">
                                 <AboutTheProject projects={DataBase} page={this.props.page} />
                             </div>
                         <div id="team" className="col-1-3">
                             <Team projects={DataBase} page={this.props.page} />
                         </div>
-                        </div>
-                        <div className="rigthCol">
+                        
+                        
                             <ProjectStatus projects={DataBase} page={this.props.page} />
-                        </div>
+                     
                
         </main>
         );
