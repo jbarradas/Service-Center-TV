@@ -166,7 +166,7 @@ var Header = React.createClass({displayName: "Header",
         return (
             React.createElement("header", null, 
                 React.createElement(ProjectLogo, {projects: DataBase, page: this.props.page}), 
-                React.createElement(GFIlogo, {imageSrc: "img/gfi.png"}), 
+                React.createElement(GFIlogo, {imageSrc: "img/gfi.svg"}), 
                 React.createElement("time", null, 
                     React.createElement(Dates, null), 
                     React.createElement(Time, null)
@@ -264,8 +264,8 @@ var Main = React.createClass({displayName: "Main",
     render: function() {
         return (
             React.createElement("main", {className: "mainGrid"}, 
-                React.createElement(AboutTheProject, {projects: DataBase, page: this.props.page}), 
-                React.createElement(ProjectStatus, {projects: DataBase, page: this.props.page}), 
+                React.createElement(About, {projects: DataBase, page: this.props.page}), 
+                React.createElement(Status, {projects: DataBase, page: this.props.page}), 
                 React.createElement(Team, {projects: DataBase, page: this.props.page})
             )
         );
@@ -273,14 +273,14 @@ var Main = React.createClass({displayName: "Main",
 });
 
 // ABOUT THE PROJECT BOX (Objectives + Main focuses)
-var AboutTheProject = React.createClass({displayName: "AboutTheProject",
+var About = React.createClass({displayName: "About",
   render: function() {
     return (
-        React.createElement("section", {className: "abouttheproject buttons-color"}, 
-            React.createElement("div", {className: "but-color-medium aboutbar"}, 
+        React.createElement("section", {className: "about buttons-color"}, 
+            React.createElement("div", {className: "title but-color-medium"}, 
                 React.createElement("span", {className: "but-icon"}), "ABOUT THE PROJECT"
             ), 
-            React.createElement("div", {className: "boxAbout"}, 
+            React.createElement("div", {className: "aboutContent"}, 
                 React.createElement("ul", null, 
                     React.createElement("label", null, "OBJECTIVE"), 
                     this.props.projects[this.props.page].info.objective.map(function(item){
@@ -298,14 +298,14 @@ var AboutTheProject = React.createClass({displayName: "AboutTheProject",
 });
 
 // PROJECT STATUS BOX (Issues/Risks + Key Discussion Items + Status Meter)
-var ProjectStatus = React.createClass({displayName: "ProjectStatus",
+var Status = React.createClass({displayName: "Status",
     render: function() {
         return (
-            React.createElement("section", {className: "projectStatus buttons-color"}, 
-                React.createElement("div", {className: "statusbar but-color-medium"}, 
+            React.createElement("section", {className: "status buttons-color"}, 
+                React.createElement("div", {className: "title but-color-medium"}, 
                     React.createElement("span", {className: "but-icon"}), "PROJECT STATUS"
                 ), 
-                React.createElement("div", {id: "status"}, 
+                React.createElement("div", {className: "statusContent"}, 
                     React.createElement(IssueRisks, {projects: DataBase, page: this.props.page}), 
                     React.createElement(KeyDiscussionItems, {projects: DataBase, page: this.props.page}), 
                     React.createElement(Progress, {projects: DataBase, page: this.props.page})
@@ -320,10 +320,10 @@ var Team = React.createClass({displayName: "Team",
     render: function() {
         return (
             React.createElement("section", {className: "team buttons-color"}, 
-                React.createElement("div", {className: "but-color-medium teambar"}, 
+                React.createElement("div", {className: "title but-color-medium"}, 
                     React.createElement("span", {className: "but-icon"}), "TEAM"
                 ), 
-                React.createElement("div", {className: "boxTeam"}, 
+                React.createElement("div", {className: "teamContent"}, 
                     this.props.projects[this.props.page].team.map(function(item){
                         return React.createElement("div", {key: item[0]}, 
                                             React.createElement("img", {className: "profilePic", src: item[1]}), 

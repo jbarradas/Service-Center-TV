@@ -1,3 +1,92 @@
+.about .title,
+.team .title {
+  background: url("../img/bar_orange.png") top repeat-x;
+  text-shadow: 0px -1px 0px #8A4C0D;
+  border: 1px solid #2a3844; }
 
+.status .title {
+  background: url("../img/bar_orange.png") top repeat-x;
+  text-shadow: 0px -1px 0px #000e2e;
+  border: 1px solid #2a3844; }
+
+.title span {
+  display: block;
+  height: 16px; }
+
+.but-icon {
+  width: 20px;
+  float: left;
+  margin-right: 1%; }
+
+.about .but-icon {
+  background: url("../img/icon_about.png") center no-repeat; }
+
+.status .but-icon {
+  background: url("../img/icon_status.png") center no-repeat; }
+
+.team .but-icon {
+  background: url("../img/icon_team.png") center no-repeat; }
+
+@media only screen and (min-width: 0px) and (max-width: 560px) {
+  html,
+  body,
+  #main,
+  #all {
+    width: 100%; }
+
+  header {
+    height: 70px;
+    background-color: #ccc; }
+    header #prjLogo,
+    header time {
+      display: none; }
+    header #logo {
+      width: 30%;
+      display: inline-block;
+      max-height: 100%; }
+    header .bar {
+      width: 70%;
+      display: inline-block;
+      color: #fff; }
+    header #flag {
+      width: 10%; }
+
+  .about {
+    background-color: #14477B;
+    color: #fff; }
+
+  .status {
+    background-color: #fff; }
+
+  .team {
+    background-color: #14477B;
+    color: #fff; }
+
+  .teamContent > div {
+    overflow: hidden; }
+
+  .title {
+    padding: 8px;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px; }
+
+  section {
+    padding: 25px; }
+
+  .aboutContent,
+  .teamContent {
+    background-color: #fff;
+    color: #14477B;
+    padding: 2%;
+    border-radius: 5px;
+    margin-top: 6px; }
+
+  .statusContent {
+    background-color: #14477B;
+    color: #fff;
+    padding: 2%;
+    border-radius: 5px;
+    margin-top: 6px; } }
 
 /*# sourceMappingURL=styles-small.css.map */
