@@ -4,7 +4,6 @@ var ReactIntl = require('react-intl');
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 var DataBase = require('../database.json');
 var IntlProvider = ReactIntl.IntlProvider;
-var MediaQuery = require('react-responsive');
 
 var onresize = function() 
 {
@@ -124,55 +123,19 @@ var Main = React.createClass({
     render: function() {
         return (
             <main className="mainGrid">
-            <MediaQuery query='(min-device-width: 1224px)'>
-                
-                    
-                        <div className="leftCol">
+            
+                        
                             <div id="about" className="col-1-3">
                                 <AboutTheProject projects={DataBase} page={this.props.page} />
                             </div>
                         <div id="team" className="col-1-3">
                             <Team projects={DataBase} page={this.props.page} />
                         </div>
-                        </div>
-                        <div className="rigthCol">
+                        
+                        
                             <ProjectStatus projects={DataBase} page={this.props.page} />
-                        </div>
-                    
+                     
                
-            </MediaQuery>
-
-            <MediaQuery query='(max-device-width: 1224px)'>
-
-               
-                        <div className="leftCol">
-                            <div id="about" className="col-1-3">
-                                <AboutTheProject projects={DataBase} page={this.props.page} />
-                            </div>
-                            <div id="projectStatus" className="col-1-3">
-                                <ProjectStatus projects={DataBase} page={this.props.page} />
-                            </div>
-                        </div>
-                        <div className="rigthCol">
-                            <div id="team" className="col-1-3">
-                                <Team projects={DataBase} page={this.props.page} />
-                            </div>
-                        </div>
-                    
-
-            </MediaQuery>
-
-            <MediaQuery query='(orientation: portrait)'>
-                <div>You are portrait</div>
-            </MediaQuery>
-
-            <MediaQuery query='(orientation: landscape)'>
-                <div>You are landscape</div>
-            </MediaQuery>
-
-            <MediaQuery query='(min-resolution: 2dppx)'>
-                <div>You are retina</div>
-            </MediaQuery>
         </main>
         );
     }
