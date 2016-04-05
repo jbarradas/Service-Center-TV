@@ -285,7 +285,9 @@ var About = React.createClass({displayName: "About",
                     React.createElement("label", null, "OBJECTIVE"), 
                     this.props.projects[this.props.page].info.objective.map(function(item){
                         return React.createElement("li", {key: item}, item);
-                    }), 
+                    })
+                ), 
+                React.createElement("ul", null, 
                     React.createElement("label", null, "MAIN FOCUS"), 
                     this.props.projects[this.props.page].info.focus.map(function(item){
                         return React.createElement("li", {key: item}, item);

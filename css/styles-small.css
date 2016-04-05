@@ -1,3 +1,8 @@
+.title {
+  padding: 3%;
+  color: #fff;
+  font-weight: bold; }
+
 .about .title,
 .team .title {
   background: url("../img/bar_orange.png") top repeat-x;
@@ -54,6 +59,15 @@
   .about {
     background-color: #14477B;
     color: #fff; }
+    .about .aboutContent ul:first-child {
+      margin-bottom: 6%; }
+    .about .aboutContent li {
+      list-style: initial;
+      margin-left: 10%; }
+    .about .aboutContent label {
+      font-weight: bold;
+      margin-bottom: 2%;
+      display: block; }
 
   .status {
     background-color: #fff; }
@@ -61,32 +75,23 @@
   .team {
     background-color: #14477B;
     color: #fff; }
+    .team .teamContent .profilePic {
+      max-width: 95%; }
+    .team .teamContent .profileName {
+      padding: 0 13%;
+      margin: 0; }
 
   .teamContent > div {
-    overflow: hidden; }
-
-  .title {
-    padding: 8px;
-    color: #fff;
-    font-weight: bold;
-    border-radius: 5px; }
-
-  section {
-    padding: 25px; }
+    overflow: hidden;
+    display: inline-block;
+    width: 33%;
+    text-align: center; }
 
   .aboutContent,
   .teamContent {
-    background-color: #fff;
-    color: #14477B;
-    padding: 2%;
-    border-radius: 5px;
-    margin-top: 6px; }
+    padding: 5%; }
 
   .statusContent {
-    background-color: #14477B;
-    color: #fff;
-    padding: 2%;
-    border-radius: 5px;
-    margin-top: 6px; } }
+    padding: 5%; } }
 
 /*# sourceMappingURL=styles-small.css.map */
