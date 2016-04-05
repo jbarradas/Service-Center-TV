@@ -5,6 +5,13 @@ var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 var DataBase = require('../database.json');
 var IntlProvider = ReactIntl.IntlProvider;
 
+var onresize = function() 
+{
+   var width = window.innerWidth
+   || document.documentElement.clientWidth
+   || document.body.clientWidth;
+   console.log(width);
+}
 
 /*----------------------------*
 *                             *
@@ -18,7 +25,7 @@ var Header = React.createClass({
         return (
             <header>
                 <ProjectLogo projects={DataBase} page={this.props.page}/>
-                <GFIlogo imageSrc="img/gfi.jpg" />
+                <GFIlogo imageSrc="img/gfi.svg" />
                 <time>
                     <Dates />
                     <Time />
@@ -116,101 +123,86 @@ var Main = React.createClass({
     render: function() {
         return (
             <main className="mainGrid">
-                    <div className="leftCol">
-                        <div id="about" className="col-1-3">
-                            <AboutTheProject projects={DataBase} page={this.props.page} />
-                        </div>
-                        <div id="team" className="col-1-3">
-                            <Team projects={DataBase} page={this.props.page} />
-                        </div>
-                    </div>
-                    <div className="rigthCol">
-                        <ProjectStatus projects={DataBase} page={this.props.page} />
-                    </div>
+                <About projects={DataBase} page={this.props.page} />
+                <Status projects={DataBase} page={this.props.page} />
+                <Team projects={DataBase} page={this.props.page} />
             </main>
         );
     }
 });
 
 // ABOUT THE PROJECT BOX (Objectives + Main focuses)
-var AboutTheProject = React.createClass({
+var About = React.createClass({
   render: function() {
     return (
-      <section className="abouttheproject">
-        <div className="buttons-color">
-            <div className="but-color-medium aboutbar">
+        <section className="about buttons-color">
+            <div className="title but-color-medium">
                 <span className="but-icon"></span>ABOUT THE PROJECT
             </div>
-        </div>
-        <section className="box1">
-            <ul>
-                <label>OBJECTIVE</label>
-                {this.props.projects[this.props.page].info.objective.map(function(item){
-                    return <li key={item}>{item}</li>;
-                })}
-                <label>MAIN FOCUS</label>
-                {this.props.projects[this.props.page].info.focus.map(function(item){
-                    return <li key={item}>{item}</li>;
-                })}
-            </ul>
-        </section>
-      </section>
-    );
-  }
-});
-
-// PRINT TEAM MEMBERS (Profile Photos)
-var Team = React.createClass({
-  render: function() {
-    return (
-        <section className="team">
-            <div className="buttons-color">
-                <div className="but-color-medium teambar">
-                    <span className="but-icon"></span>TEAM
-                </div>
+            <div className="aboutContent">
+                <ul>
+                    <label>OBJECTIVE</label>
+                    {this.props.projects[this.props.page].info.objective.map(function(item){
+                        return <li key={item}>{item}</li>;
+                    })}
+                </ul>
+                <ul>
+                    <label>MAIN FOCUS</label>
+                    {this.props.projects[this.props.page].info.focus.map(function(item){
+                        return <li key={item}>{item}</li>;
+                    })}
+                </ul>
             </div>
-            <section className="box">
-                {this.props.projects[this.props.page].team.map(function(item){
-                    return <div className="boxcol-1-3" key={item[0]} >
-                                <div className="content">
-                                        <img className="perfil" src={item[1]} />
-                                        <h5 className="perfilname"> {item[0]} </h5>
-                                </div>
-                            </div>;
-                })}
-            </section>
         </section>
     );
   }
 });
 
 // PROJECT STATUS BOX (Issues/Risks + Key Discussion Items + Status Meter)
-var ProjectStatus = React.createClass({
+var Status = React.createClass({
     render: function() {
         return (
-            <section className="projectStatus">
-                <div className="buttons-color">
-                    <div className="but-color-medium  statusbar">
-                        <span className="but-icon"></span>PROJECT STATUS
-                    </div>
+            <section className="status buttons-color">
+                <div className="title but-color-medium">
+                    <span className="but-icon"></span>PROJECT STATUS
                 </div>
-                    <div id="issues" className="col-1-2">
-                        <IssueRisks projects={DataBase} page={this.props.page} />
-                        <KeyDiscussionItems projects={DataBase} page={this.props.page} />
-                    </div>
-                    <div id="status" className="col-1-2">
-                        <Status projects={DataBase} page={this.props.page} />
-                    </div>
-                </section>
-            );
+                <div className="statusContent">
+                    <IssueRisks projects={DataBase} page={this.props.page} />
+                    <KeyDiscussionItems projects={DataBase} page={this.props.page} />
+                    <Progress projects={DataBase} page={this.props.page} />
+                </div>
+            </section>
+        );
     }
 });
+
+// PRINT TEAM MEMBERS (Profile Photos)
+var Team = React.createClass({
+    render: function() {
+        return (
+            <section className="team buttons-color">
+                <div className="title but-color-medium">
+                    <span className="but-icon"></span>TEAM
+                </div>
+                <div className="teamContent">
+                    {this.props.projects[this.props.page].team.map(function(item){
+                        return <div key={item[0]} >
+                                    <img className="profilePic" src={item[1]} />
+                                    <h5 className="profileName"> {item[0]} </h5>
+                                </div>;
+                    })}
+                </div>
+            </section>
+        );
+    }
+});
+
 
 // PRINT ISSUES AND RISKS
 var IssueRisks = React.createClass({
     render: function() {
         return (  
-            <div className="content1">
+            <div className="issues">
                 <ul>
                     <label>ISSUES/RISKS</label>
                     {this.props.projects[this.props.page].about.issuesrisks.map(function(item){
@@ -226,7 +218,7 @@ var IssueRisks = React.createClass({
 var KeyDiscussionItems = React.createClass({
     render: function(){
         return(
-            <div className="content1">
+            <div className="keyItems">
                 <ul>
                     <label>KEY DISCUSSION ITEMS</label>
                     {this.props.projects[this.props.page].about.keydiscussionitms.map(function(item){return <li key={item}>{item}</li>;})}
@@ -237,17 +229,18 @@ var KeyDiscussionItems = React.createClass({
 });
 
 // PRINT STATUS METER
-var Status = React.createClass({
+var Progress = React.createClass({
     render: function(){
         return(
-            <div className="statusContent">
-                <h5 className="statusText">{this.props.projects[this.props.page].status.percent}</h5>
-                <img className="imgstatus" src={this.props.projects[this.props.page].status.img} />
+            <div className="progress">
+                
+                <img src={this.props.projects[this.props.page].status.img} />
             </div>
         );
     }
 });
 
+// <h5>{this.props.projects[this.props.page].status.percent}</h5> 
 
 /*----------------------------*
 *                             *
@@ -285,9 +278,9 @@ var All = React.createClass({
     },
 
     componentDidMount: function () {
-        setInterval(function() {
+        // setInterval(function() {
             this.setState({page: this.getPages()});
-        }.bind(this), 5000);
+       // }.bind(this), 500);
     },
 
     componentDidUpdate: function () {
@@ -304,6 +297,7 @@ var All = React.createClass({
             <div className="all" id="all">
                 <Header page={this.state.page} key="header"/>
                 <Main page={this.state.page} key="main"/>
+                {onresize()}
             </div>
         );
     }

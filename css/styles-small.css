@@ -1,0 +1,108 @@
+.title {
+  padding: 3%;
+  color: #fff;
+  font-weight: bold; }
+
+.about .title,
+.team .title {
+  background: url("../img/bar_orange.png") top repeat-x;
+  text-shadow: 0px -1px 0px #8A4C0D; }
+
+.status .title {
+  background: url("../img/bar_orange.png") top repeat-x;
+  text-shadow: 0px -1px 0px #8A4C0D; }
+
+.title span {
+  display: block;
+  height: 16px; }
+
+.but-icon {
+  width: 20px;
+  float: left;
+  margin-right: 1%; }
+
+.about .but-icon {
+  background: url("../img/icon_about.png") center no-repeat; }
+
+.status .but-icon {
+  background: url("../img/icon_status.png") center no-repeat; }
+
+.team .but-icon {
+  background: url("../img/icon_team.png") center no-repeat; }
+
+@media only screen and (min-width: 0px) and (max-width: 560px) {
+  html,
+  body,
+  #main,
+  #all {
+    width: 100%; }
+
+  header {
+    height: 70px;
+    background-color: #ccc;
+    padding: 1%; }
+    header #prjLogo,
+    header time {
+      display: none; }
+    header #logo {
+      max-width: 30%;
+      display: inline-block;
+      max-height: 100%;
+      margin-right: 3%;
+      float: left; }
+    header .bar {
+      width: 67%;
+      display: inline-block;
+      color: #fff; }
+    header #flag {
+      width: 10%; }
+
+  .about {
+    background-color: #14477B;
+    color: #fff; }
+    .about .aboutContent ul:first-child {
+      margin-bottom: 6%; }
+    .about .aboutContent li {
+      list-style: initial;
+      margin-left: 10%; }
+    .about .aboutContent label {
+      font-weight: bold;
+      margin-bottom: 2%;
+      display: block; }
+
+  .status {
+    background-color: #D8D8D8; }
+    .status label {
+      font-weight: bold; }
+    .status .issues {
+      margin-bottom: 6%; }
+    .status .keyItems {
+      margin-bottom: 4%; }
+    .status li {
+      list-style: initial;
+      margin-left: 10%; }
+
+  .team {
+    background-color: #14477B;
+    color: #fff; }
+    .team .teamContent .profilePic {
+      max-width: 95%; }
+    .team .teamContent .profileName {
+      padding: 0 13%;
+      margin: 0; }
+
+  .teamContent > div {
+    overflow: hidden;
+    display: inline-block;
+    width: 33%;
+    text-align: center; }
+
+  .aboutContent,
+  .teamContent {
+    padding: 5%; }
+
+  .statusContent {
+    padding: 5% 5% 0;
+    color: #584C4C; } }
+
+/*# sourceMappingURL=styles-small.css.map */

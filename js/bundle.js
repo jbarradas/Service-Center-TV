@@ -54,7 +54,7 @@ module.exports=[
         },
         status:{
             percent: "DONE",
-            img: "img/status/state-green.png"
+            img: "img/status/status10.svg"
         }
     },
     {
@@ -146,6 +146,13 @@ var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 var DataBase = require('../database.json');
 var IntlProvider = ReactIntl.IntlProvider;
 
+var onresize = function() 
+{
+   var width = window.innerWidth
+   || document.documentElement.clientWidth
+   || document.body.clientWidth;
+   console.log(width);
+}
 
 /*----------------------------*
 *                             *
@@ -159,7 +166,7 @@ var Header = React.createClass({displayName: "Header",
         return (
             React.createElement("header", null, 
                 React.createElement(ProjectLogo, {projects: DataBase, page: this.props.page}), 
-                React.createElement(GFIlogo, {imageSrc: "img/gfi.jpg"}), 
+                React.createElement(GFIlogo, {imageSrc: "img/gfi.svg"}), 
                 React.createElement("time", null, 
                     React.createElement(Dates, null), 
                     React.createElement(Time, null)
@@ -257,68 +264,35 @@ var Main = React.createClass({displayName: "Main",
     render: function() {
         return (
             React.createElement("main", {className: "mainGrid"}, 
-                    React.createElement("div", {className: "leftCol"}, 
-                        React.createElement("div", {id: "about", className: "col-1-3"}, 
-                            React.createElement(AboutTheProject, {projects: DataBase, page: this.props.page})
-                        ), 
-                        React.createElement("div", {id: "team", className: "col-1-3"}, 
-                            React.createElement(Team, {projects: DataBase, page: this.props.page})
-                        )
-                    ), 
-                    React.createElement("div", {className: "rigthCol"}, 
-                        React.createElement(ProjectStatus, {projects: DataBase, page: this.props.page})
-                    )
+                React.createElement(About, {projects: DataBase, page: this.props.page}), 
+                React.createElement(Status, {projects: DataBase, page: this.props.page}), 
+                React.createElement(Team, {projects: DataBase, page: this.props.page})
             )
         );
     }
 });
 
 // ABOUT THE PROJECT BOX (Objectives + Main focuses)
-var AboutTheProject = React.createClass({displayName: "AboutTheProject",
+var About = React.createClass({displayName: "About",
   render: function() {
     return (
-      React.createElement("section", {className: "abouttheproject"}, 
-        React.createElement("div", {className: "buttons-color"}, 
-            React.createElement("div", {className: "but-color-medium aboutbar"}, 
+        React.createElement("section", {className: "about buttons-color"}, 
+            React.createElement("div", {className: "title but-color-medium"}, 
                 React.createElement("span", {className: "but-icon"}), "ABOUT THE PROJECT"
-            )
-        ), 
-        React.createElement("section", {className: "box1"}, 
-            React.createElement("ul", null, 
-                React.createElement("label", null, "OBJECTIVE"), 
-                this.props.projects[this.props.page].info.objective.map(function(item){
-                    return React.createElement("li", {key: item}, item);
-                }), 
-                React.createElement("label", null, "MAIN FOCUS"), 
-                this.props.projects[this.props.page].info.focus.map(function(item){
-                    return React.createElement("li", {key: item}, item);
-                })
-            )
-        )
-      )
-    );
-  }
-});
-
-// PRINT TEAM MEMBERS (Profile Photos)
-var Team = React.createClass({displayName: "Team",
-  render: function() {
-    return (
-        React.createElement("section", {className: "team"}, 
-            React.createElement("div", {className: "buttons-color"}, 
-                React.createElement("div", {className: "but-color-medium teambar"}, 
-                    React.createElement("span", {className: "but-icon"}), "TEAM"
-                )
             ), 
-            React.createElement("section", {className: "box"}, 
-                this.props.projects[this.props.page].team.map(function(item){
-                    return React.createElement("div", {className: "boxcol-1-3", key: item[0]}, 
-                                React.createElement("div", {className: "content"}, 
-                                        React.createElement("img", {className: "perfil", src: item[1]}), 
-                                        React.createElement("h5", {className: "perfilname"}, " ", item[0], " ")
-                                )
-                            );
-                })
+            React.createElement("div", {className: "aboutContent"}, 
+                React.createElement("ul", null, 
+                    React.createElement("label", null, "OBJECTIVE"), 
+                    this.props.projects[this.props.page].info.objective.map(function(item){
+                        return React.createElement("li", {key: item}, item);
+                    })
+                ), 
+                React.createElement("ul", null, 
+                    React.createElement("label", null, "MAIN FOCUS"), 
+                    this.props.projects[this.props.page].info.focus.map(function(item){
+                        return React.createElement("li", {key: item}, item);
+                    })
+                )
             )
         )
     );
@@ -326,32 +300,50 @@ var Team = React.createClass({displayName: "Team",
 });
 
 // PROJECT STATUS BOX (Issues/Risks + Key Discussion Items + Status Meter)
-var ProjectStatus = React.createClass({displayName: "ProjectStatus",
+var Status = React.createClass({displayName: "Status",
     render: function() {
         return (
-            React.createElement("section", {className: "projectStatus"}, 
-                React.createElement("div", {className: "buttons-color"}, 
-                    React.createElement("div", {className: "but-color-medium  statusbar"}, 
-                        React.createElement("span", {className: "but-icon"}), "PROJECT STATUS"
-                    )
+            React.createElement("section", {className: "status buttons-color"}, 
+                React.createElement("div", {className: "title but-color-medium"}, 
+                    React.createElement("span", {className: "but-icon"}), "PROJECT STATUS"
                 ), 
-                    React.createElement("div", {id: "issues", className: "col-1-2"}, 
-                        React.createElement(IssueRisks, {projects: DataBase, page: this.props.page}), 
-                        React.createElement(KeyDiscussionItems, {projects: DataBase, page: this.props.page})
-                    ), 
-                    React.createElement("div", {id: "status", className: "col-1-2"}, 
-                        React.createElement(Status, {projects: DataBase, page: this.props.page})
-                    )
+                React.createElement("div", {className: "statusContent"}, 
+                    React.createElement(IssueRisks, {projects: DataBase, page: this.props.page}), 
+                    React.createElement(KeyDiscussionItems, {projects: DataBase, page: this.props.page}), 
+                    React.createElement(Progress, {projects: DataBase, page: this.props.page})
                 )
-            );
+            )
+        );
     }
 });
+
+// PRINT TEAM MEMBERS (Profile Photos)
+var Team = React.createClass({displayName: "Team",
+    render: function() {
+        return (
+            React.createElement("section", {className: "team buttons-color"}, 
+                React.createElement("div", {className: "title but-color-medium"}, 
+                    React.createElement("span", {className: "but-icon"}), "TEAM"
+                ), 
+                React.createElement("div", {className: "teamContent"}, 
+                    this.props.projects[this.props.page].team.map(function(item){
+                        return React.createElement("div", {key: item[0]}, 
+                                    React.createElement("img", {className: "profilePic", src: item[1]}), 
+                                    React.createElement("h5", {className: "profileName"}, " ", item[0], " ")
+                                );
+                    })
+                )
+            )
+        );
+    }
+});
+
 
 // PRINT ISSUES AND RISKS
 var IssueRisks = React.createClass({displayName: "IssueRisks",
     render: function() {
         return (  
-            React.createElement("div", {className: "content1"}, 
+            React.createElement("div", {className: "issues"}, 
                 React.createElement("ul", null, 
                     React.createElement("label", null, "ISSUES/RISKS"), 
                     this.props.projects[this.props.page].about.issuesrisks.map(function(item){
@@ -367,7 +359,7 @@ var IssueRisks = React.createClass({displayName: "IssueRisks",
 var KeyDiscussionItems = React.createClass({displayName: "KeyDiscussionItems",
     render: function(){
         return(
-            React.createElement("div", {className: "content1"}, 
+            React.createElement("div", {className: "keyItems"}, 
                 React.createElement("ul", null, 
                     React.createElement("label", null, "KEY DISCUSSION ITEMS"), 
                     this.props.projects[this.props.page].about.keydiscussionitms.map(function(item){return React.createElement("li", {key: item}, item);})
@@ -378,17 +370,18 @@ var KeyDiscussionItems = React.createClass({displayName: "KeyDiscussionItems",
 });
 
 // PRINT STATUS METER
-var Status = React.createClass({displayName: "Status",
+var Progress = React.createClass({displayName: "Progress",
     render: function(){
         return(
-            React.createElement("div", {className: "statusContent"}, 
-                React.createElement("h5", {className: "statusText"}, this.props.projects[this.props.page].status.percent), 
-                React.createElement("img", {className: "imgstatus", src: this.props.projects[this.props.page].status.img})
+            React.createElement("div", {className: "progress"}, 
+                
+                React.createElement("img", {src: this.props.projects[this.props.page].status.img})
             )
         );
     }
 });
 
+// <h5>{this.props.projects[this.props.page].status.percent}</h5> 
 
 /*----------------------------*
 *                             *
@@ -426,9 +419,9 @@ var All = React.createClass({displayName: "All",
     },
 
     componentDidMount: function () {
-        setInterval(function() {
+        // setInterval(function() {
             this.setState({page: this.getPages()});
-        }.bind(this), 5000);
+       // }.bind(this), 500);
     },
 
     componentDidUpdate: function () {
@@ -444,7 +437,8 @@ var All = React.createClass({displayName: "All",
         return (
             React.createElement("div", {className: "all", id: "all"}, 
                 React.createElement(Header, {page: this.state.page, key: "header"}), 
-                React.createElement(Main, {page: this.state.page, key: "main"})
+                React.createElement(Main, {page: this.state.page, key: "main"}), 
+                onresize()
             )
         );
     }

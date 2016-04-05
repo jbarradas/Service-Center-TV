@@ -10,8 +10,8 @@ body,
 .all {
     height: 100%;
     width: 100%;
-    overflow: hidden;
     position: absolute;
+
 }
 
 .fade2 {
@@ -20,13 +20,12 @@ body,
 }
 
 header {
-	height: 25%;
+	height: 135px;
 }
 
 main {
 	height: 75%;
 	padding: 0 25px;
-	
 }
 
 #prjLogo {
@@ -42,18 +41,7 @@ main {
 }
 
 time {
-    width: 50%;
-    height: 25%;
-    margin: 0 auto;
-    display: block;
-    font-size: 4vh;
-	padding: 0.4%;
-	background: url("../img/bar_blue.png") top repeat-x;
-	text-shadow: 0px -1px 0px #000e2e;
-	color: #ED9436;
-	border-bottom-left-radius: 20px;
-	border-bottom-right-radius: 20px;
-	text-align: center;
+    display: none;
 }
  
 time span:last-child {
@@ -107,7 +95,7 @@ time span:last-child {
 
 .abouttheproject ul li, .projectStatus ul li{
 	padding: 5px;
-	color: white;
+	color: #fff;
 	margin-left: 35px;
 }
 
@@ -117,7 +105,7 @@ time span:last-child {
 
 .content {
     text-align: center;
-    background-image: url("../img/gallery_bg.png");
+    
     background-repeat: no-repeat;
     background-size: 100% 72%;
     width: 93%;
@@ -132,8 +120,8 @@ time span:last-child {
 
 
 .boxcol-1-3{
-	width: 24.1%;
-	display: inline-flex;
+	width: 33%;
+	display: inline-block;
 	padding: 1% 2% 0;
 }
 
@@ -175,32 +163,20 @@ time span:last-child {
 
 .projectStatus {
     height: 100%;
+    width: 45%;
 }
 
 #about {
-	height: 45%;
+	height: 50%;
+	width: 45%;
+	margin-bottom: 25px;
 }
 
 
 
 #team {
-	height: 55%;
-	padding-top: 4%;
-}
-
-.leftCol {
-	width: 40%;
-	height: 100%;
-	display: inline-block;
-	float: left;
-}
-
-.rigthCol{
-	width: 60%;
-	height: 100%;
-	padding-left: 0.9%;
-	display: inline-block;
 	float: right;
+	width: 50%;
 }
 
 .projectStatus ul{
@@ -309,11 +285,7 @@ time span:last-child {
 }
 
 
-@media screen and (min-width: 320px) {
-    #all {
-        background-color: lightgreen;
-    }
-}
+
 
 @media screen and (min-width: 480px) {
     #all {
@@ -325,21 +297,8 @@ time span:last-child {
 	}
 	 
 	time {
-    	font-size: 100%;
-    	height: 30%;
+    	display: none;
 	}	
 
 
-}
-
-@media screen and (min-width: 768px) {
-    #all {
-        background-color: red;
-    }
-}
-
-@media screen and (max-width: 1044px) and (min-width: 769px) {
-    #all {
-        background-color: pink;
-    }
 }
