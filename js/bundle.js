@@ -54,7 +54,7 @@ module.exports=[
         },
         status:{
             percent: "DONE",
-            img: "img/status/state-green.png"
+            img: "img/status/status10.svg"
         }
     },
     {
@@ -328,8 +328,8 @@ var Team = React.createClass({displayName: "Team",
                 React.createElement("div", {className: "teamContent"}, 
                     this.props.projects[this.props.page].team.map(function(item){
                         return React.createElement("div", {key: item[0]}, 
-                                            React.createElement("img", {className: "profilePic", src: item[1]}), 
-                                            React.createElement("h5", {className: "profileName"}, " ", item[0], " ")
+                                    React.createElement("img", {className: "profilePic", src: item[1]}), 
+                                    React.createElement("h5", {className: "profileName"}, " ", item[0], " ")
                                 );
                     })
                 )
@@ -374,13 +374,14 @@ var Progress = React.createClass({displayName: "Progress",
     render: function(){
         return(
             React.createElement("div", {className: "progress"}, 
-                React.createElement("h5", null, this.props.projects[this.props.page].status.percent), 
+                
                 React.createElement("img", {src: this.props.projects[this.props.page].status.img})
             )
         );
     }
 });
 
+// <h5>{this.props.projects[this.props.page].status.percent}</h5> 
 
 /*----------------------------*
 *                             *

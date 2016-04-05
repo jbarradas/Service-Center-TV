@@ -10,13 +10,11 @@
 .team .title {
 	background: url('../img/bar_orange.png') top repeat-x;
 	text-shadow: 0px -1px 0px #8A4C0D;
-	border: 1px solid #2a3844;
 }
 
 .status .title {
 	background: url('../img/bar_orange.png') top repeat-x;
-	text-shadow: 0px -1px 0px #000e2e;
-	border: 1px solid #2a3844;
+	text-shadow: 0px -1px 0px #8A4C0D;
 }
 
 .title span {
@@ -57,6 +55,7 @@
 	header {
 		height: 70px;
 		background-color: #ccc;
+		padding: 1%;
 
 		#prjLogo,
 		time {
@@ -64,13 +63,15 @@
 		}
 
 		#logo {
-			width: 30%;
+			max-width: 30%;
 			display: inline-block;
 			max-height: 100%;
+			margin-right: 3%;
+			float: left;
 		}
 
 		.bar {
-			width: 70%;
+			width: 67%;
 			display: inline-block;
 			color: #fff;
 		}
@@ -103,7 +104,24 @@
 	}
 	
 	.status {
-    	background-color: #fff;
+    	background-color: #D8D8D8;
+
+    	label {
+    		font-weight: bold;
+    	}
+
+    	.issues {
+    		margin-bottom: 6%;
+    	}
+
+    	.keyItems {
+    		margin-bottom: 4%;
+    	}
+
+    	li {
+    		list-style: initial;
+    		margin-left: 10%;
+    	}
 	}
 
 	.team {
@@ -136,6 +154,7 @@
 	}
 
 	.statusContent {
-		padding: 5%;
+		padding: 5% 5% 0;
+		color: #584C4C;
 	}
 }

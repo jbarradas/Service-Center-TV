@@ -233,13 +233,14 @@ var Progress = React.createClass({
     render: function(){
         return(
             <div className="progress">
-                <h5>{this.props.projects[this.props.page].status.percent}</h5>
+                
                 <img src={this.props.projects[this.props.page].status.img} />
             </div>
         );
     }
 });
 
+// <h5>{this.props.projects[this.props.page].status.percent}</h5> 
 
 /*----------------------------*
 *                             *

@@ -6,13 +6,11 @@
 .about .title,
 .team .title {
   background: url("../img/bar_orange.png") top repeat-x;
-  text-shadow: 0px -1px 0px #8A4C0D;
-  border: 1px solid #2a3844; }
+  text-shadow: 0px -1px 0px #8A4C0D; }
 
 .status .title {
   background: url("../img/bar_orange.png") top repeat-x;
-  text-shadow: 0px -1px 0px #000e2e;
-  border: 1px solid #2a3844; }
+  text-shadow: 0px -1px 0px #8A4C0D; }
 
 .title span {
   display: block;
@@ -41,16 +39,19 @@
 
   header {
     height: 70px;
-    background-color: #ccc; }
+    background-color: #ccc;
+    padding: 1%; }
     header #prjLogo,
     header time {
       display: none; }
     header #logo {
-      width: 30%;
+      max-width: 30%;
       display: inline-block;
-      max-height: 100%; }
+      max-height: 100%;
+      margin-right: 3%;
+      float: left; }
     header .bar {
-      width: 70%;
+      width: 67%;
       display: inline-block;
       color: #fff; }
     header #flag {
@@ -70,7 +71,16 @@
       display: block; }
 
   .status {
-    background-color: #fff; }
+    background-color: #D8D8D8; }
+    .status label {
+      font-weight: bold; }
+    .status .issues {
+      margin-bottom: 6%; }
+    .status .keyItems {
+      margin-bottom: 4%; }
+    .status li {
+      list-style: initial;
+      margin-left: 10%; }
 
   .team {
     background-color: #14477B;
@@ -92,6 +102,7 @@
     padding: 5%; }
 
   .statusContent {
-    padding: 5%; } }
+    padding: 5% 5% 0;
+    color: #584C4C; } }
 
 /*# sourceMappingURL=styles-small.css.map */
