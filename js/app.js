@@ -25,7 +25,7 @@ var Header = React.createClass({
         return (
             <header>
                 <ProjectLogo projects={DataBase} page={this.props.page}/>
-                <GFIlogo imageSrc="img/gfi.png" />
+                <GFIlogo imageSrc="img/gfi.svg" />
                 <time>
                     <Dates />
                     <Time />
@@ -123,8 +123,8 @@ var Main = React.createClass({
     render: function() {
         return (
             <main className="mainGrid">
-                <AboutTheProject projects={DataBase} page={this.props.page} />
-                <ProjectStatus projects={DataBase} page={this.props.page} />
+                <About projects={DataBase} page={this.props.page} />
+                <Status projects={DataBase} page={this.props.page} />
                 <Team projects={DataBase} page={this.props.page} />
             </main>
         );
@@ -132,19 +132,21 @@ var Main = React.createClass({
 });
 
 // ABOUT THE PROJECT BOX (Objectives + Main focuses)
-var AboutTheProject = React.createClass({
+var About = React.createClass({
   render: function() {
     return (
-        <section className="abouttheproject buttons-color">
-            <div className="but-color-medium aboutbar">
+        <section className="about buttons-color">
+            <div className="title but-color-medium">
                 <span className="but-icon"></span>ABOUT THE PROJECT
             </div>
-            <div className="boxAbout">
+            <div className="aboutContent">
                 <ul>
                     <label>OBJECTIVE</label>
                     {this.props.projects[this.props.page].info.objective.map(function(item){
                         return <li key={item}>{item}</li>;
                     })}
+                </ul>
+                <ul>
                     <label>MAIN FOCUS</label>
                     {this.props.projects[this.props.page].info.focus.map(function(item){
                         return <li key={item}>{item}</li>;
@@ -157,14 +159,14 @@ var AboutTheProject = React.createClass({
 });
 
 // PROJECT STATUS BOX (Issues/Risks + Key Discussion Items + Status Meter)
-var ProjectStatus = React.createClass({
+var Status = React.createClass({
     render: function() {
         return (
-            <section className="projectStatus buttons-color">
-                <div className="statusbar but-color-medium">
+            <section className="status buttons-color">
+                <div className="title but-color-medium">
                     <span className="but-icon"></span>PROJECT STATUS
                 </div>
-                <div id="status">
+                <div className="statusContent">
                     <IssueRisks projects={DataBase} page={this.props.page} />
                     <KeyDiscussionItems projects={DataBase} page={this.props.page} />
                     <Progress projects={DataBase} page={this.props.page} />
@@ -179,14 +181,14 @@ var Team = React.createClass({
     render: function() {
         return (
             <section className="team buttons-color">
-                <div className="but-color-medium teambar">
+                <div className="title but-color-medium">
                     <span className="but-icon"></span>TEAM
                 </div>
-                <div className="boxTeam">
+                <div className="teamContent">
                     {this.props.projects[this.props.page].team.map(function(item){
                         return <div key={item[0]} >
-                                            <img className="profilePic" src={item[1]} />
-                                            <h5 className="profileName"> {item[0]} </h5>
+                                    <img className="profilePic" src={item[1]} />
+                                    <h5 className="profileName"> {item[0]} </h5>
                                 </div>;
                     })}
                 </div>
@@ -231,13 +233,14 @@ var Progress = React.createClass({
     render: function(){
         return(
             <div className="progress">
-                <h5>{this.props.projects[this.props.page].status.percent}</h5>
+                
                 <img src={this.props.projects[this.props.page].status.img} />
             </div>
         );
     }
 });
 
+// <h5>{this.props.projects[this.props.page].status.percent}</h5> 
 
 /*----------------------------*
 *                             *
