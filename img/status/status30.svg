@@ -3,14 +3,14 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="-65 325.9 480 142.1" style="enable-background:new -65 325.9 480 142.1;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:#7E8C8D;}
+	.st0{fill:#C2392B;}
 	.st1{fill:#EDEDED;}
-	.st2{fill:#AFBBBD;}
+	.st2{fill:#E8796B;}
 	.st3{fill:none;}
 	.st4{fill:#FFFFFF;}
-	.st5{font-family:WebFont;}
-	.st6{font-size:35px;}
-	.st7{fill:#92A3A4;}
+	.st5{font-family:'BradleyHandITC';}
+	.st6{font-size:34px;}
+	.st7{fill:#EE4D3F;}
 </style>
 <g id="XMLID_2_">
 	<g id="XMLID_12_">
@@ -712,7 +712,7 @@ AAAAAAAAAAAAAAAAAAAAAADADfx/AQYAU2MCAJuIr9wAAAAASUVORK5CYII=" transform="matrix(
 					</image>
 					<g id="XMLID_21_">
 						<g id="XMLID_36_">
-							<path id="XMLID_38_" class="st0" d="M-33,452.8c-6.5,0-11.7-6.3-11.7-14.1V355c-0.1-7.8,5.2-14.1,11.7-14.1h424.4
+							<path id="XMLID_37_" class="st0" d="M-33,452.8c-6.5,0-11.7-6.3-11.7-14.1V355c-0.1-7.8,5.2-14.1,11.7-14.1h424.4
 								c6.5,0,11.7,6.3,11.7,14.1v83.7c0,7.8-5.2,14.1-11.7,14.1C391.4,452.8-33,452.8-33,452.8z"/>
 						</g>
 					</g>
@@ -725,13 +725,17 @@ AAAAAAAAAAAAAAAAAAAAAADADfx/AQYAU2MCAJuIr9wAAAAASUVORK5CYII=" transform="matrix(
 			</g>
 		</g>
 	</g>
-	<path id="XMLID_9_" class="st2" d="M-38.8,396.9L-38.8,396.9c0-3.3,2.7-5.9,5.9-5.9h31.3c3.3,0,5.9,2.7,5.9,5.9l0,0
-		c0,3.3-2.7,5.9-5.9,5.9h-31.2C-36.1,402.9-38.8,400.2-38.8,396.9z"/>
+	<path id="XMLID_9_" class="st2" d="M-38.8,396.9L-38.8,396.9c0-3.3,2.7-5.9,5.9-5.9H73.4c3.3,0,5.9,2.7,5.9,5.9l0,0
+		c0,3.3-2.7,5.9-5.9,5.9H-32.8C-36.1,402.9-38.8,400.2-38.8,396.9z"/>
 </g>
 <g id="XMLID_1_">
-	<rect id="XMLID_57_" x="337.3" y="382.8" class="st3" width="61" height="48.3"/>
-	<text id="XMLID_56_" transform="matrix(1 0 0 1 337.2686 405.8248)" class="st4 st5 st6">10%</text>
+	<rect id="XMLID_73_" x="337.3" y="382.8" class="st3" width="61" height="48.3"/>
+	<text id="XMLID_72_" transform="matrix(1 0 0 1 337.2686 405.1656)" class="st4 st5 st6">30%</text>
 </g>
 <polygon id="XMLID_40_" class="st7" points="-6.6,402.9 -15.9,402.9 -10.9,391 -1.6,391 "/>
 <polygon id="XMLID_41_" class="st7" points="-24.8,402.9 -34.1,402.9 -29.1,391 -19.8,391 "/>
+<polygon id="XMLID_5_" class="st7" points="12,402.9 2.7,402.9 7.7,391 17,391 "/>
+<polygon id="XMLID_11_" class="st7" points="30.6,402.9 21.3,402.9 26.3,391 35.6,391 "/>
+<polygon id="XMLID_3_" class="st7" points="49.2,402.9 39.9,402.9 44.9,391 54.2,391 "/>
+<polygon id="XMLID_14_" class="st7" points="67.7,402.9 58.4,402.9 63.4,391 72.7,391 "/>
 </svg>

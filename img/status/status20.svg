@@ -3,14 +3,14 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="-65 325.9 480 142.1" style="enable-background:new -65 325.9 480 142.1;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:#7E8C8D;}
+	.st0{fill:#BFC3C6;}
 	.st1{fill:#EDEDED;}
-	.st2{fill:#AFBBBD;}
+	.st2{fill:#EDF2F1;}
 	.st3{fill:none;}
 	.st4{fill:#FFFFFF;}
-	.st5{font-family:WebFont;}
-	.st6{font-size:35px;}
-	.st7{fill:#92A3A4;}
+	.st5{font-family:'BradleyHandITC';}
+	.st6{font-size:34px;}
+	.st7{fill:#AFBBBD;}
 </style>
 <g id="XMLID_2_">
 	<g id="XMLID_12_">
@@ -711,8 +711,8 @@ o1cIS0KTAPUhnrtnC1UCGcDLBJ53EJaEJgHqUzyPuyt+2QB4gzb8zX7uUCM0CVCe02v+PYEL4EUD
 AAAAAAAAAAAAAAAAAAAAAADADfx/AQYAU2MCAJuIr9wAAAAASUVORK5CYII=" transform="matrix(-3.232618e-011 0.24 -0.24 -3.232618e-011 413.08 330.9)">
 					</image>
 					<g id="XMLID_21_">
-						<g id="XMLID_36_">
-							<path id="XMLID_38_" class="st0" d="M-33,452.8c-6.5,0-11.7-6.3-11.7-14.1V355c-0.1-7.8,5.2-14.1,11.7-14.1h424.4
+						<g id="XMLID_54_">
+							<path id="XMLID_55_" class="st0" d="M-33,452.8c-6.5,0-11.7-6.3-11.7-14.1V355c-0.1-7.8,5.2-14.1,11.7-14.1h424.4
 								c6.5,0,11.7,6.3,11.7,14.1v83.7c0,7.8-5.2,14.1-11.7,14.1C391.4,452.8-33,452.8-33,452.8z"/>
 						</g>
 					</g>
@@ -725,13 +725,15 @@ AAAAAAAAAAAAAAAAAAAAAADADfx/AQYAU2MCAJuIr9wAAAAASUVORK5CYII=" transform="matrix(
 			</g>
 		</g>
 	</g>
-	<path id="XMLID_9_" class="st2" d="M-38.8,396.9L-38.8,396.9c0-3.3,2.7-5.9,5.9-5.9h31.3c3.3,0,5.9,2.7,5.9,5.9l0,0
-		c0,3.3-2.7,5.9-5.9,5.9h-31.2C-36.1,402.9-38.8,400.2-38.8,396.9z"/>
+	<path id="XMLID_9_" class="st2" d="M-38.8,396.9L-38.8,396.9c0-3.3,2.7-5.9,5.9-5.9h68.3c3.3,0,5.9,2.7,5.9,5.9l0,0
+		c0,3.3-2.7,5.9-5.9,5.9h-68.2C-36.1,402.9-38.8,400.2-38.8,396.9z"/>
 </g>
 <g id="XMLID_1_">
-	<rect id="XMLID_57_" x="337.3" y="382.8" class="st3" width="61" height="48.3"/>
-	<text id="XMLID_56_" transform="matrix(1 0 0 1 337.2686 405.8248)" class="st4 st5 st6">10%</text>
+	<rect id="XMLID_52_" x="337.3" y="382.8" class="st3" width="61" height="48.3"/>
+	<text id="XMLID_50_" transform="matrix(1 0 0 1 337.2686 405.1656)" class="st4 st5 st6">20%</text>
 </g>
 <polygon id="XMLID_40_" class="st7" points="-6.6,402.9 -15.9,402.9 -10.9,391 -1.6,391 "/>
 <polygon id="XMLID_41_" class="st7" points="-24.8,402.9 -34.1,402.9 -29.1,391 -19.8,391 "/>
+<polygon id="XMLID_5_" class="st7" points="12,402.9 2.7,402.9 7.7,391 17,391 "/>
+<polygon id="XMLID_11_" class="st7" points="30.6,402.9 21.3,402.9 26.3,391 35.6,391 "/>
 </svg>

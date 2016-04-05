@@ -30,6 +30,11 @@
 .team .but-icon {
   background: url("../img/icon_team.png") center no-repeat; }
 
+.progress {
+  background: url("../img/status/status60.svg") no-repeat;
+  font-family: WebFont;
+  height: 200px; }
+
 @media only screen and (min-width: 0px) and (max-width: 560px) {
   html,
   body,
@@ -87,8 +92,8 @@
     color: #fff; }
     .team .teamContent .profilePic {
       max-width: 95%; }
-    .team .teamContent .profileName {
-      padding: 0 13%;
+    .team .teamContent .profileFirstName,
+    .team .teamContent .profileLastName {
       margin: 0; }
 
   .teamContent > div {

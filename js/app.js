@@ -186,9 +186,10 @@ var Team = React.createClass({
                 </div>
                 <div className="teamContent">
                     {this.props.projects[this.props.page].team.map(function(item){
-                        return <div key={item[0]} >
-                                    <img className="profilePic" src={item[1]} />
-                                    <h5 className="profileName"> {item[0]} </h5>
+                        return <div key={item[0]+item[1]} >
+                                    <img className="profilePic" src={item[2]} />
+                                    <h5 className="profileFirstName"> {item[0]} </h5>
+                                    <h5 className="profileLastName"> {item[1]} </h5>
                                 </div>;
                     })}
                 </div>
@@ -234,12 +235,13 @@ var Progress = React.createClass({
         return(
             <div className="progress">
                 
-                <img src={this.props.projects[this.props.page].status.img} />
+                
             </div>
         );
     }
 });
 
+// <object height="400" width="400" data={this.props.projects[this.props.page].status.img}> </object>
 // <h5>{this.props.projects[this.props.page].status.percent}</h5> 
 
 /*----------------------------*

@@ -40,6 +40,11 @@
 	background: url('../img/icon_team.png') center no-repeat;
 }
 
+.progress {
+	background: url('../img/status/status60.svg') no-repeat;
+	font-family: WebFont;
+	height: 200px;
+}
 
 @media only screen 
   and (min-width: 0px) 
@@ -133,8 +138,8 @@
 				max-width: 95%;
 			}
 
-			.profileName {
-				padding: 0 13%;
+			.profileFirstName,
+			.profileLastName {
 				margin: 0;
 			}
 		}
