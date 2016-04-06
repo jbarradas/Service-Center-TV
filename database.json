@@ -53,7 +53,7 @@
         },
         status:{
             percent: "DONE",
-            img: "img/status/status10.svg"
+            img: "../img/status/status10.svg"
         }
     },
     {

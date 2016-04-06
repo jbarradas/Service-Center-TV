@@ -235,13 +235,12 @@ var Progress = React.createClass({
         return(
             <div className="progress">
                 
-                
+                <object  height="400" width="400" data={this.props.projects[this.props.page].status.img}> </object>
             </div>
         );
     }
 });
 
-// <object height="400" width="400" data={this.props.projects[this.props.page].status.img}> </object>
 // <h5>{this.props.projects[this.props.page].status.percent}</h5> 
 
 /*----------------------------*

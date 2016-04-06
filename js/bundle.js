@@ -54,7 +54,7 @@ module.exports=[
         },
         status:{
             percent: "DONE",
-            img: "img/status/status10.svg"
+            img: "../img/status/status10.svg"
         }
     },
     {
@@ -374,15 +374,14 @@ var KeyDiscussionItems = React.createClass({displayName: "KeyDiscussionItems",
 var Progress = React.createClass({displayName: "Progress",
     render: function(){
         return(
-            React.createElement("div", {className: "progress"}
+            React.createElement("div", {className: "progress"}, 
                 
-                
+                React.createElement("object", {height: "400", width: "400", data: this.props.projects[this.props.page].status.img}, " ")
             )
         );
     }
 });
 
-// <object height="400" width="400" data={this.props.projects[this.props.page].status.img}> </object>
 // <h5>{this.props.projects[this.props.page].status.percent}</h5> 
 
 /*----------------------------*
