@@ -1,3 +1,43 @@
+html,
+body,
+#main,
+#all {
+  width: 100%; }
 
+header {
+  height: 70px;
+  background-color: #ccc;
+  padding: 1%; }
+  header #prjLogo,
+  header time {
+    display: none; }
+  header #logo {
+    max-width: 30%;
+    display: inline-block;
+    max-height: 100%;
+    margin-right: 3%;
+    float: left;
+    height: 100%; }
+    header #logo img {
+      max-width: 100%;
+      max-height: 100%; }
+  header .bar {
+    width: 67%;
+    display: inline-block;
+    color: #fff; }
+  header #flag {
+    width: 10%; }
+
+.about {
+  background-color: #cf0; }
+
+.status {
+  background-color: #c6F; }
+
+.teamContent > div {
+  overflow: hidden;
+  display: inline-block;
+  width: 33%;
+  text-align: center; }
 
 /*# sourceMappingURL=styles-large.css.map */

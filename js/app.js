@@ -49,7 +49,9 @@ var ProjectLogo = React.createClass({
 var GFIlogo = React.createClass({
     render: function() {
         return (
-            <img id="logo" src={this.props.imageSrc} key={this.props.imageSrc} />
+            <div id="logo">
+                <img src={this.props.imageSrc} key={this.props.imageSrc} />
+            </div>
         );
     }
 });

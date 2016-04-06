@@ -190,7 +190,9 @@ var ProjectLogo = React.createClass({displayName: "ProjectLogo",
 var GFIlogo = React.createClass({displayName: "GFIlogo",
     render: function() {
         return (
-            React.createElement("img", {id: "logo", src: this.props.imageSrc, key: this.props.imageSrc})
+            React.createElement("div", {id: "logo"}, 
+                React.createElement("img", {src: this.props.imageSrc, key: this.props.imageSrc})
+            )
         );
     }
 });

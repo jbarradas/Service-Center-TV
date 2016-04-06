@@ -44,11 +44,15 @@ header {
   header time {
     display: none; }
   header #logo {
+    height: 100%;
     max-width: 30%;
-    display: inline-block;
     max-height: 100%;
+    display: inline-block;
     margin-right: 3%;
     float: left; }
+    header #logo img {
+      max-width: 100%;
+      max-height: 100%; }
   header .bar {
     width: 67%;
     display: inline-block;
