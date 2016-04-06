@@ -236,8 +236,16 @@ var Progress = React.createClass({
     render: function(){
         return(
             <div className="progress">
-                
-                <object  height="400" width="400" data={this.props.projects[this.props.page].status.img}> </object>
+                <div id="bar-1" className="bar-main-container white">
+                    <div className="wrap">
+                        <div className="bar-percentage" data-percentage="46"></div>
+                        <div className="bar-container">
+                            <div className="meter">
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }
