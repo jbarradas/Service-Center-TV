@@ -2,10 +2,11 @@ html,
 body,
 #main,
 #all {
-  width: 100%; }
+  width: 100%;
+  height: 100%; }
 
 header {
-  height: 70px;
+  height: 13%;
   background-color: #ccc;
   padding: 1%; }
   header #prjLogo,
@@ -25,19 +26,65 @@ header {
     width: 67%;
     display: inline-block;
     color: #fff; }
+    header .bar li {
+      display: inline-block;
+      width: 33%; }
   header #flag {
     width: 10%; }
 
+.mainGrid {
+  height: 87%; }
+
 .about {
-  background-color: #cf0; }
+  background-color: #cf0;
+  width: 30%;
+  height: 45%;
+  display: inline-block;
+  float: left;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; }
+  .about .title {
+    background-color: #1263C7;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 10px; }
+  .about .aboutContent {
+    background-color: #ccc; }
 
 .status {
-  background-color: #c6F; }
+  background-color: #c6F;
+  width: 70%;
+  height: 45%;
+  display: inline-block;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; }
+  .status .title {
+    background-color: orange;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 10px; }
+
+.team {
+  clear: both;
+  height: 55%;
+  width: 40%; }
+
+.teamContent {
+  max-height: 90%;
+  height: 90%; }
 
 .teamContent > div {
   overflow: hidden;
   display: inline-block;
   width: 33%;
+  height: 33%;
   text-align: center; }
+
+.teamContent h5 {
+  margin: 0; }
+
+img.profilePic {
+  max-height: 69%;
+  max-height: 67%; }
 
 /*# sourceMappingURL=styles-large.css.map */
