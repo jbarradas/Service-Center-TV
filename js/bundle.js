@@ -23,8 +23,7 @@ module.exports=[
             keydiscussionitms: ["Planning of industrialization and support must be defined"]
         },
         status:{
-            percent: "Ongoing Product",
-            img: "img/status/state-green.png"
+            percent: "Ongoing Product"
         }
     },
     {
@@ -53,8 +52,7 @@ module.exports=[
             keydiscussionitms: ["Number of pages migrated: 15975"]
         },
         status:{
-            percent: "DONE",
-            img: "../img/status/status10.svg"
+            percent: "90"
         }
     },
     {
@@ -83,8 +81,7 @@ module.exports=[
                                 ,"SEO in merchandise platform"]
         },
         status:{
-            percent: "19% Complete",
-            img: "img/status/state-yellow.png"
+            percent: "19% Complete"
         }
     },
     {
@@ -107,8 +104,7 @@ module.exports=[
             keydiscussionitms: ["Double-click issue"]
         },
         status:{
-            percent: "30% Complete",
-            img: "img/status/state-green.png"
+            percent: "30% Complete"
         }
     },
     {
@@ -132,8 +128,7 @@ module.exports=[
             keydiscussionitms: ["Possible development of a smartphone version"]
         },
         status:{
-            percent: "85% Complete",
-            img: "img/status/state-green.png"
+            percent: "85% Complete"
         }
     }
 
@@ -375,11 +370,21 @@ var KeyDiscussionItems = React.createClass({displayName: "KeyDiscussionItems",
 // PRINT STATUS METER
 var Progress = React.createClass({displayName: "Progress",
     render: function(){
+        var percent = this.props.projects[this.props.page].status.percent;
         return(
             React.createElement("div", {className: "progress"}, 
-                
-                React.createElement("object", {height: "400", width: "400", data: this.props.projects[this.props.page].status.img}, " ")
+                React.createElement("div", {id: "bar-1", className: "bar-main-container white"}, 
+                    React.createElement("div", {className: "wrap"}, 
+                        React.createElement("div", {id: "bar-percentage", className: "bar-percentage", "data-percentage": percent}), 
+                        React.createElement("div", {className: "bar-container"}, 
+                            React.createElement("div", {id: "meter", className: "meter"}, 
+                                React.createElement("span", {id: "spanMeter"})
+                            )
+                        )
+                    )
+                )
             )
+            
         );
     }
 });
