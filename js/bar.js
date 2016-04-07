@@ -9,7 +9,6 @@ function move() {
   switch(maxWidth){
     case '10':
       bar.className += " percent10";
-      value.style.color = "Red";
       break;
     case '20':
     bar.className += " percent20";
