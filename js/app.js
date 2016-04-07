@@ -234,11 +234,21 @@ var KeyDiscussionItems = React.createClass({
 // PRINT STATUS METER
 var Progress = React.createClass({
     render: function(){
+        var percent = this.props.projects[this.props.page].status.percent;
         return(
             <div className="progress">
-                
-                <object  height="400" width="400" data={this.props.projects[this.props.page].status.img}> </object>
+                <div id="bar-1" className="bar-main-container white">
+                    <div className="wrap">
+                        <div id="bar-percentage" className="bar-percentage" data-percentage={percent}></div>
+                        <div className="bar-container">
+                            <div id="meter" className="meter">
+                                <span id="spanMeter"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+            
         );
     }
 });
@@ -313,3 +323,4 @@ ReactDOM.render(
     </IntlProvider>,
     document.getElementById('main')
 );
+

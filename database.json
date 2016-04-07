@@ -22,8 +22,7 @@
             keydiscussionitms: ["Planning of industrialization and support must be defined"]
         },
         status:{
-            percent: "Ongoing Product",
-            img: "img/status/state-green.png"
+            percent: "Ongoing Product"
         }
     },
     {
@@ -52,8 +51,7 @@
             keydiscussionitms: ["Number of pages migrated: 15975"]
         },
         status:{
-            percent: "DONE",
-            img: "../img/status/status10.svg"
+            percent: "10"
         }
     },
     {
@@ -82,8 +80,7 @@
                                 ,"SEO in merchandise platform"]
         },
         status:{
-            percent: "19% Complete",
-            img: "img/status/state-yellow.png"
+            percent: "19% Complete"
         }
     },
     {
@@ -106,8 +103,7 @@
             keydiscussionitms: ["Double-click issue"]
         },
         status:{
-            percent: "30% Complete",
-            img: "img/status/state-green.png"
+            percent: "30% Complete"
         }
     },
     {
@@ -131,8 +127,7 @@
             keydiscussionitms: ["Possible development of a smartphone version"]
         },
         status:{
-            percent: "85% Complete",
-            img: "img/status/state-green.png"
+            percent: "85% Complete"
         }
     }
 
