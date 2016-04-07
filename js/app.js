@@ -49,7 +49,9 @@ var ProjectLogo = React.createClass({
 var GFIlogo = React.createClass({
     render: function() {
         return (
-            <img id="logo" src={this.props.imageSrc} key={this.props.imageSrc} />
+            <div id="logo">
+                <img src={this.props.imageSrc} key={this.props.imageSrc} />
+            </div>
         );
     }
 });
@@ -186,9 +188,10 @@ var Team = React.createClass({
                 </div>
                 <div className="teamContent">
                     {this.props.projects[this.props.page].team.map(function(item){
-                        return <div key={item[0]} >
-                                    <img className="profilePic" src={item[1]} />
-                                    <h5 className="profileName"> {item[0]} </h5>
+                        return <div key={item[0]+item[1]} >
+                                    <img className="profilePic" src={item[2]} />
+                                    <h5 className="profileFirstName"> {item[0]} </h5>
+                                    <h5 className="profileLastName"> {item[1]} </h5>
                                 </div>;
                     })}
                 </div>
@@ -234,7 +237,7 @@ var Progress = React.createClass({
         return(
             <div className="progress">
                 
-                <img src={this.props.projects[this.props.page].status.img} />
+                <object  height="400" width="400" data={this.props.projects[this.props.page].status.img}> </object>
             </div>
         );
     }
