@@ -265,11 +265,12 @@ header {
 			-webkit-box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);
 			-moz-box-shadow   : inset 0 -1px 1px rgba(255,255,255,0.3);
 			box-shadow        : inset 0 -1px 1px rgba(255,255,255,0.3);
+
 		}
 		.meter > span {
 			display: block;
 			height: 100%;
-			width: 100%;
+			
 			-webkit-border-top-right-radius: 8px;
 			-webkit-border-bottom-right-radius: 8px;
 			-moz-border-radius-topright: 8px;
@@ -392,3 +393,4 @@ header {
 .yellow  { background: #EFC32F; }
 .red     { background: #E44C41; }
 .white   { background: #fff; }
+
