@@ -20,11 +20,13 @@ header {
     margin: 0 auto;
     display: block;
     text-align: center;
-    background-color: blue;
-    padding: 8px 75px;
+    background-color: #3d4f59;
+    padding: 1%;
     color: #fff;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px; }
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px; }
+  header time span:last-child {
+    margin-left: 85px; }
   header #logo {
     max-width: 20%;
     max-height: 80%;
@@ -46,7 +48,7 @@ header {
     width: 10%; }
 
 .mainGrid {
-  height: 87%; }
+  height: 75%; }
 
 .about {
   background-color: #cf0;

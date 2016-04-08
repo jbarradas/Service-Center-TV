@@ -109,7 +109,7 @@ header {
   overflow: hidden; }
 
 .statusContent {
-  padding: 5% 5% 0;
+  padding: 5% 5% 2%;
   color: #584C4C;
   height: 100%; }
 
@@ -118,7 +118,7 @@ header {
 
 .bar-main-container {
   background-color: #AAAFB7;
-  margin: 10px auto;
+  margin: 10px auto 0;
   height: 50px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
