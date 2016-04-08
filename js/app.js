@@ -24,8 +24,8 @@ var Header = React.createClass({
     render: function() {
         return (
             <header>
-                <ProjectLogo projects={DataBase} page={this.props.page}/>
                 <GFIlogo imageSrc="img/gfi.svg" />
+                <ProjectLogo projects={DataBase} page={this.props.page}/>
                 <time>
                     <Dates />
                     <Time />
@@ -40,7 +40,9 @@ var Header = React.createClass({
 var ProjectLogo = React.createClass({
     render: function() {
         return (
-            <img id="prjLogo" src={this.props.projects[this.props.page].logo} />
+            <div id="prjLogo">
+                <img src={this.props.projects[this.props.page].logo} />
+            </div>
         );
     }
 });
@@ -74,6 +76,7 @@ var Time = React.createClass({
         
         return (
             <FormattedTime 
+                id="timer"
                 value={new Date()}
                 hour="numeric"
                 minute="numeric"
@@ -89,6 +92,7 @@ var Dates = React.createClass({
         
         return (
             <FormattedDate
+                id="dater"
                 value={new Date()}
                 weekday="long"
                 day="numeric"
@@ -233,13 +237,41 @@ var KeyDiscussionItems = React.createClass({
 
 // PRINT STATUS METER
 var Progress = React.createClass({
+
+    fillWidth: function () {
+        var getBar = document.getElementById('spanMeter');
+        var getBox = document.getElementById('bar-percentage');
+        var maxWidth = this.props.projects[this.props.page].status.percent;
+        var initialWidth = 0;
+        var id = setInterval(fillValues, 35);
+
+        getBar.className = "percent" + maxWidth;
+
+        function fillValues() {
+            if (initialWidth >= maxWidth) {
+              clearInterval(id);
+            } else {
+              initialWidth++; 
+              getBar.style.width = initialWidth + '%'; 
+              getBox.innerHTML = initialWidth + '%';
+            }
+        }
+    },
+
+    componentDidMount: function () {
+        this.fillWidth();
+    },
+
+    componentDidUpdate: function () {
+        this.fillWidth(); 
+    },
+
     render: function(){
-        var percent = this.props.projects[this.props.page].status.percent;
         return(
             <div className="progress">
-                <div id="bar-1" className="bar-main-container white">
+                <div id="bar-1" className="bar-main-container">
                     <div className="wrap">
-                        <div id="bar-percentage" className="bar-percentage" data-percentage={percent}></div>
+                        <div id="bar-percentage" className="bar-percentage"></div>
                         <div className="bar-container">
                             <div id="meter" className="meter">
                                 <span id="spanMeter"></span>
@@ -258,6 +290,7 @@ var Progress = React.createClass({
 /*----------------------------*
 *                             *
 *     FULL PAGE SECTION       *
+
 *                             *
 *----------------------------*/
 
@@ -291,9 +324,9 @@ var All = React.createClass({
     },
 
     componentDidMount: function () {
-        // setInterval(function() {
+         setInterval(function() {
             this.setState({page: this.getPages()});
-       // }.bind(this), 500);
+        }.bind(this), 5000);
     },
 
     componentDidUpdate: function () {

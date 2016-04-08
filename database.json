@@ -5,7 +5,7 @@
         logo: "img/ProjectLogo/company_hub.png",
         costumer: "GFI Informatique",
         country: ["img/flags/fr.svg","FR"],
-        team: [["Vitor", "","img/FotosPerfil/VitorPereira.png"],
+        team: [["Vitor", "Pereira","img/FotosPerfil/VitorPereira.png"],
                 ["Pedro", "Conde","img/FotosPerfil/PedroConde.png"],
                 ["Rui", "Almeida","img/FotosPerfil/RuiAlmeida.png"],
                 ["Tiago", "Flores","img/FotosPerfil/TiagoFlores.png"],
@@ -22,7 +22,7 @@
             keydiscussionitms: ["Planning of industrialization and support must be defined"]
         },
         status:{
-            percent: "Ongoing Product"
+            percent: "10"
         }
     },
     {
@@ -51,7 +51,7 @@
             keydiscussionitms: ["Number of pages migrated: 15975"]
         },
         status:{
-            percent: "60"
+            percent: "30"
         }
     },
     {
@@ -60,7 +60,7 @@
         logo: "img/ProjectLogo/toyota.png",
         costumer: "Toyota",
         country: ["img/flags/be.svg","BE"],
-        team: [["Laura", "","img/FotosPerfil/LauraCosta.png"],
+        team: [["Laura", "Costa","img/FotosPerfil/LauraCosta.png"],
                 ["Ricardo", "Jafe","img/FotosPerfil/RicardoJafe.png"],
                 ["Liliana", "Gouveia","img/FotosPerfil/LilianaGouveia.png"],
                 ["Rute", "Henriques","img/FotosPerfil/RuteHenriques.png"],
@@ -80,7 +80,7 @@
                                 ,"SEO in merchandise platform"]
         },
         status:{
-            percent: "19% Complete"
+            percent: "50"
         }
     },
     {
@@ -103,7 +103,7 @@
             keydiscussionitms: ["Double-click issue"]
         },
         status:{
-            percent: "30% Complete"
+            percent: "70"
         }
     },
     {
@@ -127,7 +127,7 @@
             keydiscussionitms: ["Possible development of a smartphone version"]
         },
         status:{
-            percent: "85% Complete"
+            percent: "90"
         }
     }
 
