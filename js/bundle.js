@@ -6,7 +6,7 @@ module.exports=[
         logo: "img/ProjectLogo/company_hub.png",
         costumer: "GFI Informatique",
         country: ["img/flags/fr.svg","FR"],
-        team: [["Vitor", "","img/FotosPerfil/VitorPereira.png"],
+        team: [["Vitor", "Pereira","img/FotosPerfil/VitorPereira.png"],
                 ["Pedro", "Conde","img/FotosPerfil/PedroConde.png"],
                 ["Rui", "Almeida","img/FotosPerfil/RuiAlmeida.png"],
                 ["Tiago", "Flores","img/FotosPerfil/TiagoFlores.png"],
@@ -23,7 +23,7 @@ module.exports=[
             keydiscussionitms: ["Planning of industrialization and support must be defined"]
         },
         status:{
-            percent: "Ongoing Product"
+            percent: "10"
         }
     },
     {
@@ -52,7 +52,7 @@ module.exports=[
             keydiscussionitms: ["Number of pages migrated: 15975"]
         },
         status:{
-            percent: "60"
+            percent: "30"
         }
     },
     {
@@ -61,7 +61,7 @@ module.exports=[
         logo: "img/ProjectLogo/toyota.png",
         costumer: "Toyota",
         country: ["img/flags/be.svg","BE"],
-        team: [["Laura", "","img/FotosPerfil/LauraCosta.png"],
+        team: [["Laura", "Costa","img/FotosPerfil/LauraCosta.png"],
                 ["Ricardo", "Jafe","img/FotosPerfil/RicardoJafe.png"],
                 ["Liliana", "Gouveia","img/FotosPerfil/LilianaGouveia.png"],
                 ["Rute", "Henriques","img/FotosPerfil/RuteHenriques.png"],
@@ -81,7 +81,7 @@ module.exports=[
                                 ,"SEO in merchandise platform"]
         },
         status:{
-            percent: "19% Complete"
+            percent: "50"
         }
     },
     {
@@ -104,7 +104,7 @@ module.exports=[
             keydiscussionitms: ["Double-click issue"]
         },
         status:{
-            percent: "30% Complete"
+            percent: "70"
         }
     },
     {
@@ -128,7 +128,7 @@ module.exports=[
             keydiscussionitms: ["Possible development of a smartphone version"]
         },
         status:{
-            percent: "85% Complete"
+            percent: "90"
         }
     }
 
@@ -160,8 +160,8 @@ var Header = React.createClass({displayName: "Header",
     render: function() {
         return (
             React.createElement("header", null, 
-                React.createElement(ProjectLogo, {projects: DataBase, page: this.props.page}), 
                 React.createElement(GFIlogo, {imageSrc: "img/gfi.svg"}), 
+                React.createElement(ProjectLogo, {projects: DataBase, page: this.props.page}), 
                 React.createElement("time", null, 
                     React.createElement(Dates, null), 
                     React.createElement(Time, null)
@@ -176,7 +176,9 @@ var Header = React.createClass({displayName: "Header",
 var ProjectLogo = React.createClass({displayName: "ProjectLogo",
     render: function() {
         return (
-            React.createElement("img", {id: "prjLogo", src: this.props.projects[this.props.page].logo})
+            React.createElement("div", {id: "prjLogo"}, 
+                React.createElement("img", {src: this.props.projects[this.props.page].logo})
+            )
         );
     }
 });
@@ -210,6 +212,7 @@ var Time = React.createClass({displayName: "Time",
         
         return (
             React.createElement(FormattedTime, {
+                id: "timer", 
                 value: new Date(), 
                 hour: "numeric", 
                 minute: "numeric", 
@@ -225,6 +228,7 @@ var Dates = React.createClass({displayName: "Dates",
         
         return (
             React.createElement(FormattedDate, {
+                id: "dater", 
                 value: new Date(), 
                 weekday: "long", 
                 day: "numeric", 
@@ -369,13 +373,41 @@ var KeyDiscussionItems = React.createClass({displayName: "KeyDiscussionItems",
 
 // PRINT STATUS METER
 var Progress = React.createClass({displayName: "Progress",
+
+    fillWidth: function () {
+        var getBar = document.getElementById('spanMeter');
+        var getBox = document.getElementById('bar-percentage');
+        var maxWidth = this.props.projects[this.props.page].status.percent;
+        var initialWidth = 0;
+        var id = setInterval(fillValues, 35);
+
+        getBar.className = "percent" + maxWidth;
+
+        function fillValues() {
+            if (initialWidth >= maxWidth) {
+              clearInterval(id);
+            } else {
+              initialWidth++; 
+              getBar.style.width = initialWidth + '%'; 
+              getBox.innerHTML = initialWidth + '%';
+            }
+        }
+    },
+
+    componentDidMount: function () {
+        this.fillWidth();
+    },
+
+    componentDidUpdate: function () {
+        this.fillWidth(); 
+    },
+
     render: function(){
-        var percent = this.props.projects[this.props.page].status.percent;
         return(
             React.createElement("div", {className: "progress"}, 
-                React.createElement("div", {id: "bar-1", className: "bar-main-container white"}, 
+                React.createElement("div", {id: "bar-1", className: "bar-main-container"}, 
                     React.createElement("div", {className: "wrap"}, 
-                        React.createElement("div", {id: "bar-percentage", className: "bar-percentage", "data-percentage": percent}), 
+                        React.createElement("div", {id: "bar-percentage", className: "bar-percentage"}), 
                         React.createElement("div", {className: "bar-container"}, 
                             React.createElement("div", {id: "meter", className: "meter"}, 
                                 React.createElement("span", {id: "spanMeter"})
@@ -394,6 +426,7 @@ var Progress = React.createClass({displayName: "Progress",
 /*----------------------------*
 *                             *
 *     FULL PAGE SECTION       *
+
 *                             *
 *----------------------------*/
 
@@ -427,9 +460,9 @@ var All = React.createClass({displayName: "All",
     },
 
     componentDidMount: function () {
-        // setInterval(function() {
+         setInterval(function() {
             this.setState({page: this.getPages()});
-       // }.bind(this), 500);
+        }.bind(this), 5000);
     },
 
     componentDidUpdate: function () {
