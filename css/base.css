@@ -6,7 +6,9 @@
  *    without disabling user zoom.
  */
 
- * {
+ *,
+ *:before,
+ *:after {
     box-sizing: border-box;
  }
 
