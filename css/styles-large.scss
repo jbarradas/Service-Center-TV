@@ -54,28 +54,44 @@ header {
 	}
 
 	.bar {
+		height: 20%;
 		color: #fff;
 		clear: both;
-		background-color: #5f94f5;
+		background-color: #3D4F59;
+		font-size: 23px;
+
+		ul {
+			height: 100%;
+			width: 100%;
+			display: table;
+			padding: 0 15px;
+		}
 
 		li {
-			display: inline-block;
 			width: 33%;
+			display: table-cell;
+			vertical-align: middle;
+		}
+
+		li:last-child {
+			padding-left: 20%;
 		}
 	}
 
 	#flag {
 		width: 10%;
+		display: none;
 	}
 }
 
 .mainGrid {
-	height: 75%
+	height: 75%;
+	padding: 15px 20px;
 }
 
 .about {
 	background-color: #cf0;
-    width: 30%;
+    width: 40%;
     height: 45%;
     display: inline-block;
     float: left;
@@ -83,21 +99,42 @@ header {
     border-top-right-radius: 5px;
 
 	.title {
+		color: #fff;
 	    background-color: #1263C7;
 	    border-top-left-radius: 5px;
 	    border-top-right-radius: 5px;
-	    padding: 10px;
+	    padding: 1%;
+	    height: 13%;
+	    font-size: 3vmin;
 	}
 
 	.aboutContent {
 		background-color: #ccc;
+		height: 87%;
+		padding: 15px;
+
+		ul {
+			margin-bottom: 20px;
+		}
+
+		label {
+			font-weight: bold;
+    		margin-bottom: 10px;
+    		display: block;
+		}
+
+		li {
+			list-style: disc;
+			margin-left: 25px;
+		}
 	}
 }
 
 .status {
 	background-color: #c6F;
-	width: 70%;
+	width: 57%;
 	height: 45%;
+	float: right;
 	display: inline-block;
 	border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -106,7 +143,27 @@ header {
 	    background-color: orange;
 	    border-top-left-radius: 5px;
 	    border-top-right-radius: 5px;
-	    padding: 10px;
+	    padding: 1%;
+	    font-size: 3vmin;
+	}
+
+	.statusContent {
+		padding: 15px;
+
+		ul {
+			margin-bottom: 20px;
+		}
+
+		label {
+			font-weight: bold;
+    		margin-bottom: 10px;
+    		display: block;
+		}
+
+		li {
+			list-style: disc;
+			margin-left: 25px;
+		}
 	}
 }
 

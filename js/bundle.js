@@ -435,7 +435,7 @@ var All = React.createClass({displayName: "All",
 
     getPages: function () {
         if (this.state.page < this.props.db.length-1) {
-            return (this.state.page)+1;
+            return (this.state.page)+3;
         } else {
             return 0;
         }
