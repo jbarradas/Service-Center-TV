@@ -4,7 +4,7 @@
         name: "Company Hub",
         logo: "img/ProjectLogo/company_hub.png",
         costumer: "GFI Informatique",
-        country: ["img/flags/fr.svg","FR"],
+        country: ["img/flags/fr.svg","France"],
         team: [["Vitor", "Pereira","img/FotosPerfil/VitorPereira.png"],
                 ["Pedro", "Conde","img/FotosPerfil/PedroConde.png"],
                 ["Rui", "Almeida","img/FotosPerfil/RuiAlmeida.png"],
@@ -22,7 +22,7 @@
             keydiscussionitms: ["Planning of industrialization and support must be defined"]
         },
         status:{
-            percent: "10"
+            percent: "80"
         }
     },
     {
@@ -30,7 +30,7 @@
         name: "MOCCA+",
         logo: "img/ProjectLogo/crédit_agricole.png",
         costumer: "Crédit Agricole",
-        country: ["img/flags/fr.svg","FR"],
+        country: ["img/flags/fr.svg","France"],
         team: [ ["Jorge", "Graça","img/FotosPerfil/JorgeGraça.png"],
                 ["António", "Pereira","img/FotosPerfil/AntónioPereira.png"],
                 ["Monique", "Pimentel","img/FotosPerfil/MoniquePimentel.png"],
@@ -51,7 +51,7 @@
             keydiscussionitms: ["Number of pages migrated: 15975"]
         },
         status:{
-            percent: "30"
+            percent: "60"
         }
     },
     {
@@ -59,7 +59,7 @@
         name: "Toyota One",
         logo: "img/ProjectLogo/toyota.png",
         costumer: "Toyota",
-        country: ["img/flags/be.svg","BE"],
+        country: ["img/flags/be.svg","Belgium"],
         team: [["Laura", "Costa","img/FotosPerfil/LauraCosta.png"],
                 ["Ricardo", "Jafe","img/FotosPerfil/RicardoJafe.png"],
                 ["Liliana", "Gouveia","img/FotosPerfil/LilianaGouveia.png"],
@@ -88,7 +88,7 @@
         name: "Pégase 3",
         logo: "img/ProjectLogo/pégase3.png",
         costumer: "GFI Informatique",
-        country: ["img/flags/fr.svg","FR"],
+        country: ["img/flags/fr.svg","France"],
         team: [["Luís", "Gouveia","img/FotosPerfil/LuísGouveia.png"],
                 ["Jorge", "Gonçalves","img/FotosPerfil/JorgeGonçalves.png"],
                 ["César", "Lourenço","img/FotosPerfil/CésarLourenço.png"],
@@ -103,7 +103,7 @@
             keydiscussionitms: ["Double-click issue"]
         },
         status:{
-            percent: "70"
+            percent: "20"
         }
     },
     {
@@ -111,7 +111,7 @@
         name: "Connect Élu",
         logo: "img/ProjectLogo/Connect_élu.png",
         costumer: "GFI Informatique",
-        country: ["img/flags/fr.svg","FR"],
+        country: ["img/flags/fr.svg","France"],
         team: [["Vitor", "Pereira","img/FotosPerfil/VitorPereira.png"],
                 ["Ricardo", "Frango","img/FotosPerfil/RicardoFrango.png"],
                 ["Tiago", "Flores","img/FotosPerfil/TiagoFlores.png"],
