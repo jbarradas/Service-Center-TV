@@ -12,6 +12,18 @@
 <body>
 	<div id="main"></div>
 	<script src="js/bundle.js"></script>
-	<script src="js/bar.js"></script>
+	<script>
+		window.onresize = function () {
+			var bundle = require('js/bundle.js');
+	        var getBar = document.getElementById('spanMeter');
+			if (window.innerWidth < 1024) {
+	            getBar.style.height = "100%";
+	            getBar.style.width = bundle.initialValue;
+			} else {
+				getBar.style.width = "100%";
+	            getBar.style.height = bundle.initialValue;
+			}
+		}
+	</script>
 </body>
 </html>
