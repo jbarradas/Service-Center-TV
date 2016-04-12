@@ -10,7 +10,7 @@ var onresize = function()
    var width = window.innerWidth
    || document.documentElement.clientWidth
    || document.body.clientWidth;
-   console.log(width);
+   console.log("Screen width is: " + width);
 }
 
 /*----------------------------*
@@ -108,9 +108,9 @@ var ProjectBar = React.createClass({
         return (
             <div className="bar">
                 <ul>
-                    <li>Project: {this.props.projects[this.props.page].name} </li>
-                    <li>Costumer: {this.props.projects[this.props.page].costumer} </li>
-                    <li> <img id="flag" src={this.props.projects[this.props.page].country[0]} /> {this.props.projects[this.props.page].country[1]} </li>
+                    <li>Project: {this.props.projects[this.props.page].name}</li>
+                    <li>Costumer: {this.props.projects[this.props.page].costumer}</li>
+                    <li>Country: {this.props.projects[this.props.page].country[1]}</li>
                 </ul>
             </div>
         );
@@ -244,25 +244,25 @@ var Progress = React.createClass({
         var maxValue = this.props.projects[this.props.page].status.percent;
         var initialValue = 0;
         var id = setInterval(fillValues, 35);
-        var w = window.innerWidth
-            || document.documentElement.clientWidth
-            || document.body.clientWidth;
-
-        console.log(w);
 
         getBar.className = "percent" + maxValue;
 
         function fillValues() {
+            var w = window.innerWidth
+            || document.documentElement.clientWidth
+            || document.body.clientWidth;
+
             if (initialValue >= maxValue) {
               clearInterval(id);
             } else {
-                  initialValue++; 
-                  module.exports = initialValue;
+                  initialValue++;
                   getBox.innerHTML = initialValue + '%';
                 if (w < 1024) {
+                  getBar.style.height = "100%";
                   getBar.style.width = initialValue + '%'; 
                 } else {
-                  getBar.style.height = initialValue + '%'; 
+                  getBar.style.width = "100%"; 
+                  getBar.style.height = initialValue + '%';
                 }
             }
         }
@@ -333,7 +333,7 @@ var All = React.createClass({
     },
 
     componentDidMount: function () {
-         setInterval(function() {
+        setInterval(function() {
             this.setState({page: this.getPages()});
         }.bind(this), 5000);
     },
