@@ -175,8 +175,8 @@ var Status = React.createClass({
                 <div className="statusContent">
                     <IssueRisks projects={DataBase} page={this.props.page} />
                     <KeyDiscussionItems projects={DataBase} page={this.props.page} />
-                    <Progress projects={DataBase} page={this.props.page} />
                 </div>
+                    <Progress projects={DataBase} page={this.props.page} />
             </section>
         );
     }
@@ -241,19 +241,29 @@ var Progress = React.createClass({
     fillWidth: function () {
         var getBar = document.getElementById('spanMeter');
         var getBox = document.getElementById('bar-percentage');
-        var maxWidth = this.props.projects[this.props.page].status.percent;
-        var initialWidth = 0;
+        var maxValue = this.props.projects[this.props.page].status.percent;
+        var initialValue = 0;
         var id = setInterval(fillValues, 35);
+        var w = window.innerWidth
+            || document.documentElement.clientWidth
+            || document.body.clientWidth;
 
-        getBar.className = "percent" + maxWidth;
+        console.log(w);
+
+        getBar.className = "percent" + maxValue;
 
         function fillValues() {
-            if (initialWidth >= maxWidth) {
+            if (initialValue >= maxValue) {
               clearInterval(id);
             } else {
-              initialWidth++; 
-              getBar.style.width = initialWidth + '%'; 
-              getBox.innerHTML = initialWidth + '%';
+                  initialValue++; 
+                  module.exports = initialValue;
+                  getBox.innerHTML = initialValue + '%';
+                if (w < 1024) {
+                  getBar.style.width = initialValue + '%'; 
+                } else {
+                  getBar.style.height = initialValue + '%'; 
+                }
             }
         }
     },
@@ -285,7 +295,6 @@ var Progress = React.createClass({
     }
 });
 
-// <h5>{this.props.projects[this.props.page].status.percent}</h5> 
 
 /*----------------------------*
 *                             *
@@ -299,7 +308,7 @@ var All = React.createClass({
 
     getPages: function () {
         if (this.state.page < this.props.db.length-1) {
-            return (this.state.page)+3;
+            return (this.state.page)+1;
         } else {
             return 0;
         }
