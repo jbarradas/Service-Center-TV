@@ -34,15 +34,16 @@ header {
       max-width: 100%;
       max-height: 100%; }
   header time {
-    width: 40%;
+    width: 50%;
     margin: 0 auto;
     display: block;
     text-align: center;
     background-color: #3d4f59;
     padding: 1%;
-    color: #fff;
     border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px; }
+    border-bottom-right-radius: 20px;
+    font-size: 25px;
+    color: #ED9436; }
   header time span:last-child {
     margin-left: 85px; }
   header #logo {
@@ -59,7 +60,7 @@ header {
     height: 20%;
     color: #fff;
     clear: both;
-    background-color: #3D4F59;
+    background-color: #464646;
     font-size: 23px; }
     header .bar ul {
       height: 100%;
@@ -71,17 +72,17 @@ header {
       display: table-cell;
       vertical-align: middle; }
     header .bar li:last-child {
-      padding-left: 20%; }
+      padding-left: 14%; }
   header #flag {
     width: 10%;
     display: none; }
 
 .mainGrid {
   height: 75%;
-  padding: 15px 20px; }
+  padding: 15px 0px 15px 20px;
+  background-color: #F3F3F3; }
 
 .about {
-  background-color: #cf0;
   width: 40%;
   height: 45%;
   display: inline-block;
@@ -90,16 +91,21 @@ header {
   border-top-right-radius: 5px; }
   .about .title {
     color: #fff;
-    background-color: #1263C7;
+    background-color: #2A373D;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     padding: 5px;
-    height: 13%;
-    font-size: 3vmin; }
+    height: 15%;
+    font-size: 3vmin;
+    font-weight: bold; }
   .about .aboutContent {
-    background-color: #ccc;
-    height: 87%;
-    padding: 15px; }
+    color: #5E5E5E;
+    border: 5px solid #F7941E;
+    height: 84%;
+    padding: 15px;
+    font-size: 2vmin;
+    background-color: #F3F3F3;
+    margin-top: 1%; }
     .about .aboutContent ul {
       margin-bottom: 20px; }
     .about .aboutContent label {
@@ -112,42 +118,45 @@ header {
 
 .status {
   width: 57%;
-  height: 100%;
+  height: 99.4%;
   float: right;
   display: inline-block;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px; }
   .status .title {
-    background-color: orange;
+    color: #fff;
+    background-color: #2A373D;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     padding: 5px;
     font-size: 3vmin;
-    height: 6%;
-    width: 70%;
+    height: 6.75%;
+    width: 75%;
     display: inline-block;
-    float: left; }
-  .status .statusContent {
-    height: 94%;
-    width: 70%;
     float: left;
-    font-size: 1.5em;
-    display: inline-block; }
-    .status .statusContent .issues {
-      background-color: #2a373d;
-      color: #fff;
-      padding-bottom: 11%; }
-    .status .statusContent .keyItems {
-      padding-top: 13%;
-      background-color: #ff8720; }
+    font-weight: bold; }
+  .status .statusContent {
+    color: #5E5E5E;
+    height: 93.25%;
+    width: 75%;
+    float: left;
+    font-size: 2vmin;
+    display: inline-block;
+    background-color: #F3F3F3;
+    border: 5px solid #F7941E;
+    margin-top: 0.7%;
+    padding: 10px 30px; }
     .status .statusContent .issues,
     .status .statusContent .keyItems {
       width: 100%;
       display: inline-block;
       height: 49%;
       float: left;
-      margin-top: 1%;
       padding: 20px; }
+    .status .statusContent .keyItems {
+      margin-top: 2%; }
+    .status .statusContent .issues {
+      border-bottom: 3px solid #f7941e; }
     .status .statusContent ul {
       margin-bottom: 20px; }
     .status .statusContent label {
@@ -160,17 +169,25 @@ header {
 
 .team {
   float: left;
-  height: 55%;
-  width: 40%; }
+  height: 52%;
+  width: 40%;
+  margin-top: 1%; }
   .team .title {
-    height: 10.64%;
-    background-color: pink;
+    height: 12.74%;
+    color: #fff;
+    background-color: #2A373D;
     font-size: 3vmin;
-    padding: 5px; }
+    padding: 5px;
+    font-weight: bold;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px; }
 
 .teamContent {
-  max-height: 90%;
-  height: 90%; }
+  height: 87.26%;
+  padding: 1.5%;
+  border: 5px solid #F7941E;
+  background-color: #F3F3F3;
+  margin-top: 1%; }
 
 .teamContent > div {
   overflow: hidden;
@@ -180,11 +197,11 @@ header {
   text-align: center; }
 
 .teamContent h5 {
-  margin: 0; }
+  margin: 0;
+  font-size: 1.5vmin; }
 
 img.profilePic {
-  max-height: 69%;
-  max-height: 67%; }
+  max-height: 60%; }
 
 .progress {
   height: 100%;
@@ -204,7 +221,7 @@ img.profilePic {
   border-radius: 4px;
   font-family: sans-serif;
   font-weight: bolder;
-  font-size: 1.2em;
+  font-size: 2.2vmin;
   color: #FFF;
   box-shadow: 4px 4px 7px #888888; }
 
@@ -347,5 +364,32 @@ img.profilePic {
 .percent100 {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #27FF00), color-stop(1, #27FF00));
   background-image: -moz-linear-gradient(center bottom, #27ff00 37%, #27ff00 69%); }
+
+@media only screen and (min-width: 1280px) {
+  .teamContent > div {
+    width: 25%; }
+
+  header time {
+    font-size: 30px; } }
+@media only screen and (min-width: 1600px) {
+  header time {
+    font-size: 40px; }
+
+  .about {
+    height: 53%; }
+    .about .title {
+      height: 12.74%; }
+    .about .aboutContent {
+      height: 86%; }
+
+  .team {
+    height: 45%; }
+    .team .title {
+      height: 15%; }
+    .team .teamContent {
+      height: 85%; }
+    .team .teamContent > div {
+      width: 20%;
+      height: 50%; } }
 
 /*# sourceMappingURL=styles-large.css.map */
