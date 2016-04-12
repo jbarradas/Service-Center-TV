@@ -109,16 +109,20 @@ header {
   overflow: hidden; }
 
 .statusContent {
-  padding: 5% 5% 2%;
+  padding: 5% 5% 0;
   color: #584C4C;
-  height: 100%; }
+  height: 100%;
+  overflow: hidden; }
 
 .progress {
-  height: 100%; }
+  height: 100%;
+  width: 100%;
+  clear: both;
+  padding: 2%; }
 
 .bar-main-container {
   background-color: #AAAFB7;
-  margin: 10px auto 0;
+  margin: 0 auto;
   height: 50px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -283,12 +287,7 @@ header {
     margin-right: 20%; }
 
   .issues {
-    margin-right: 20%; }
-
-  .progress {
-    clear: both;
-    height: 100%;
-    width: 100%; } }
+    margin-right: 20%; } }
 @media only screen and (min-width: 481px) and (max-width: 600px) {
   .teamContent > div {
     overflow: hidden;

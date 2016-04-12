@@ -19,11 +19,11 @@
   "homepage": "https://github.com/jbarradas/Service-Center-TV#readme",
   "dependencies": {
     "intl": "^1.1.0",
-    "react": "^0.14.7",
-    "react-addons-css-transition-group": "^0.14.7",
-    "react-dom": "^0.14.7",
-    "react-intl": "^2.0.0-rc-1",
-    "react-responsive": "^1.1.1",
+    "react": "^15.0.1",
+    "react-addons-css-transition-group": "^0.14.8",
+    "react-dom": "^15.0.1",
+    "react-intl": "^2.0.1",
+    "react-responsive": "^1.1.2",
     "watchify": "^3.7.0"
   },
   "devDependencies": {
