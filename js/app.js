@@ -191,6 +191,7 @@ var Team = React.createClass({
                     <span className="but-icon"></span>TEAM
                 </div>
                 <div className="teamContent">
+                    <div className="container">
                     {this.props.projects[this.props.page].team.map(function(item){
                         return <div key={item[0]+item[1]} >
                                     <img className="profilePic" src={item[2]} />
@@ -198,6 +199,7 @@ var Team = React.createClass({
                                     <h5 className="profileLastName"> {item[1]} </h5>
                                 </div>;
                     })}
+                    </div>
                 </div>
             </section>
         );

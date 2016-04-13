@@ -145,12 +145,13 @@ header {
 		}
 	}
 
-	.teamContent > div {
+	.container > div {
 		overflow: hidden;
 		display: inline-block;
 		width: 33%;
 		text-align: center;
 	}
+
 
 
 	.aboutContent,
@@ -411,7 +412,7 @@ header {
 @media only screen 
   and (min-width: 0px) 
   and (max-width: 480px) {
-	.teamContent > div {
+	.container > div {
 		overflow: hidden;
 		display: inline-block;
 		width: 33%;
@@ -450,7 +451,7 @@ header {
 @media only screen 
   and (min-width: 481px) 
   and (max-width: 600px) {
-	.teamContent > div {
+	.container > div {
 		overflow: hidden;
 		display: inline-block;
 		width: 25%;
@@ -464,7 +465,7 @@ header {
 @media only screen 
   and (min-width: 601px) 
   and (max-width: 1023px) {
-	.teamContent > div {
+	.container > div {
 		overflow: hidden;
 		display: inline-block;
 		width: 20%;
