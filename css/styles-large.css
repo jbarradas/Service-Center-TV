@@ -190,7 +190,7 @@ header {
   margin-top: 1%;
   overflow: hidden; }
   .teamContent .container {
-    animation: slide infinite 4s ease-in;
+    animation: slide infinite 7s ease-in;
     width: 100%;
     height: 600%;
     display: inline-block;

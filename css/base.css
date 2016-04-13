@@ -443,3 +443,14 @@ ul {
        url('fonts/webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
        url('fonts/webfont.svg#svgWebFont') format('svg'); /* Legacy iOS */
 }
+
+.fade {
+  animation-name: fade;
+    animation-duration: 2000ms;
+}
+
+@keyframes fade {
+   0% {opacity: 1;}
+   50% {opacity: 0;}
+   100% {opacity: 1;}
+}
