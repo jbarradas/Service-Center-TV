@@ -327,6 +327,7 @@ var Team = React.createClass({displayName: "Team",
                     React.createElement("span", {className: "but-icon"}), "TEAM"
                 ), 
                 React.createElement("div", {className: "teamContent"}, 
+                    React.createElement("div", {className: "container"}, 
                     this.props.projects[this.props.page].team.map(function(item){
                         return React.createElement("div", {key: item[0]+item[1]}, 
                                     React.createElement("img", {className: "profilePic", src: item[2]}), 
@@ -334,6 +335,7 @@ var Team = React.createClass({displayName: "Team",
                                     React.createElement("h5", {className: "profileLastName"}, " ", item[1], " ")
                                 );
                     })
+                    )
                 )
             )
         );

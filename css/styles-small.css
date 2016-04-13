@@ -98,7 +98,7 @@ header {
   .team .teamContent .profileLastName {
     margin: 0; }
 
-.teamContent > div {
+.container > div {
   overflow: hidden;
   display: inline-block;
   width: 33%;
@@ -272,7 +272,7 @@ header {
   background-image: -moz-linear-gradient(center bottom, #27ff00 37%, #27ff00 69%); }
 
 @media only screen and (min-width: 0px) and (max-width: 480px) {
-  .teamContent > div {
+  .container > div {
     overflow: hidden;
     display: inline-block;
     width: 33%;
@@ -297,7 +297,7 @@ header {
     background-size: 70% !important;
     width: 35px; } }
 @media only screen and (min-width: 481px) and (max-width: 600px) {
-  .teamContent > div {
+  .container > div {
     overflow: hidden;
     display: inline-block;
     width: 25%;
@@ -306,7 +306,7 @@ header {
   .bar-main-container {
     width: 80%; } }
 @media only screen and (min-width: 601px) and (max-width: 1023px) {
-  .teamContent > div {
+  .container > div {
     overflow: hidden;
     display: inline-block;
     width: 20%;
