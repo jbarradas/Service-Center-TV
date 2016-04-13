@@ -187,21 +187,25 @@ header {
   padding: 1.5%;
   border: 5px solid #F7941E;
   background-color: #F3F3F3;
-  margin-top: 1%; }
-
-.teamContent > div {
-  overflow: hidden;
-  display: inline-block;
-  width: 33%;
-  height: 33%;
-  text-align: center; }
-
-.teamContent h5 {
-  margin: 0;
-  font-size: 1.5vmin; }
-
-img.profilePic {
-  max-height: 60%; }
+  margin-top: 1%;
+  overflow: hidden; }
+  .teamContent .container {
+    animation: slide infinite 4s ease-in;
+    width: 100%;
+    height: 600%;
+    display: inline-block;
+    padding: 3% 0; }
+    .teamContent .container div {
+      overflow: hidden;
+      display: inline-block;
+      width: 25%;
+      height: 8%;
+      text-align: center; }
+    .teamContent .container h5 {
+      margin: 0;
+      font-size: 1.5vmin; }
+    .teamContent .container img.profilePic {
+      max-height: 60%; }
 
 .progress {
   height: 100%;
@@ -365,12 +369,50 @@ img.profilePic {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #27FF00), color-stop(1, #27FF00));
   background-image: -moz-linear-gradient(center bottom, #27ff00 37%, #27ff00 69%); }
 
+@keyframes slide {
+  0% {
+    margin-top: 0px; }
+  25% {
+    margin-top: 0px; }
+  50% {
+    margin-top: -200px; }
+  75% {
+    margin-top: -200px; }
+  100% {
+    margin-top: 0px; } }
+@media only screen and (max-height: 768px) and (min-width: 1024px) {
+  .teamContent .container {
+    padding: 3.5% 0; }
+
+  @keyframes slide {
+    0% {
+      margin-top: 0px; }
+    25% {
+      margin-top: 0px; }
+    50% {
+      margin-top: -225px; }
+    75% {
+      margin-top: -225px; }
+    100% {
+      margin-top: 0px; } } }
 @media only screen and (min-width: 1280px) {
-  .teamContent > div {
+  .teamContent container > div {
     width: 25%; }
 
   header time {
-    font-size: 30px; } }
+    font-size: 30px; }
+
+  @keyframes slide {
+    0% {
+      margin-top: 0px; }
+    25% {
+      margin-top: 0px; }
+    50% {
+      margin-top: -275px; }
+    75% {
+      margin-top: -275px; }
+    100% {
+      margin-top: 0px; } } }
 @media only screen and (min-width: 1600px) {
   header time {
     font-size: 40px; }
@@ -387,9 +429,12 @@ img.profilePic {
     .team .title {
       height: 15%; }
     .team .teamContent {
-      height: 85%; }
-    .team .teamContent > div {
-      width: 20%;
-      height: 50%; } }
+      height: 84%; }
+      .team .teamContent .container {
+        height: 116%;
+        padding: 0; }
+        .team .teamContent .container div {
+          width: 20%;
+          height: 50%; } }
 
 /*# sourceMappingURL=styles-large.css.map */
