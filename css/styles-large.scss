@@ -1,20 +1,51 @@
 // (min-width:769px)
+@mixin radius($radius){
+	@include radius_top($radius);
+	@include radius_bottom($radius);
+}
+
+@mixin radius_top($radius){
+	-webkit-border-top-left-radius: $radius;
+	-moz-border-radius-topleft: $radius;
+	border-top-left-radius: $radius;
+
+	-webkit-border-top-right-radius: $radius;
+	-moz-border-radius-topright: $radius;
+	border-top-right-radius: $radius;
+}
+
+@mixin radius_bottom($radius){
+	-webkit-border-bottom-right-radius: $radius;
+	-moz-border-radius-bottomright: $radius;
+	border-bottom-right-radius: $radius;
+
+	-webkit-border-bottom-left-radius: $radius;
+	-moz-border-radius-bottomleft: $radius;
+	border-bottom-left-radius: $radius;
+}
+
+@mixin percentcolor ($color){
+	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, $color), color-stop(1, $color));
+	background-image: -moz-linear-gradient(center bottom, $color 37%,$color 69%);
+}
+
+@mixin dimensions ($w:100% , $h:100%){
+	width: $w;
+	height: $h;
+}
 
 html,
 body,
 #main,
-#all {
-	width: 100%;
-	height: 100%
-}
+#all {@include dimensions();}
 
 .title span {
+	@include dimensions(w, 100%);
 	display: block;
-	height: 100%;
 }
 
 .but-icon {
-	width: 20px;
+	@include dimensions(5%, h);
 	float: left;
 	margin-right: 1%;
 }
@@ -31,15 +62,17 @@ body,
 	background: url('../img/icon_team.png') center no-repeat;
 }
 
-header {
-	height: 25%;
 
+
+
+header {
+	@include dimensions(w, 25%);
 	#prjLogo {
+		@include dimensions(w, 80%);
 		float: right;
 		padding: 1%;
 		max-width: 20%;
-		height: 80%;
-
+		
 		img {
 			max-width: 100%;
 			max-height: 100%;
@@ -47,28 +80,25 @@ header {
 	}
 
 	time {
-		width: 50%;
+		@include dimensions(50%, h);
+		@include radius_bottom (20px);
 		margin: 0 auto;
 	    display: block;
 	    text-align: center;
 	    background-color: #3d4f59;
         padding: 1%;
-	    border-bottom-left-radius: 20px;
-	    border-bottom-right-radius: 20px;
 		font-size: 25px;
 		color: #ED9436;
 	}
 
-	time span:last-child {
-		margin-left: 85px;
-	}
+	time span:last-child {margin-left: 85px;}
 
 	#logo {
+		@include dimensions();
 		max-width: 20%;
 		max-height: 80%;
 		float: left;
 		display: inline-block;
-		height: 100%;
 		padding: 1%;
 
 		img {
@@ -85,66 +115,58 @@ header {
 		font-size: 23px;
 
 		ul {
-			height: 100%;
-			width: 100%;
+			@include dimensions();
 			display: table;
 			padding: 0 15px;
 		}
 
 		li {
-			width: 33%;
+			@include dimensions(33%, h);
 			display: table-cell;
 			vertical-align: middle;
 		}
 
-		li:last-child {
-			padding-left: 14%;
-		}
+		li:last-child {padding-left: 14%;}
 	}
 
 	#flag {
-		width: 10%;
+		@include dimensions(10%, h);
 		display: none;
 	}
 }
 
 .mainGrid {
-	height: 75%;
+	@include dimensions(w, 75%);
 	padding: 15px 0px 15px 20px;
 	background: linear-gradient(#F3F3F3,#F3F3F3, #2A373D);
 }
 
 .about {
-    width: 40%;
-    height: 45%;
+	@include dimensions(40%, 45%);
+	@include radius_top (5px);
     display: inline-block;
     float: left;
-	border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
 
 	.title {
+	    @include radius_top (5px);
+	    @include dimensions(w, 15%);
 		color: #fff;
 	    background-color: #2A373D;
-	    border-top-left-radius: 5px;
-	    border-top-right-radius: 5px;
 	    padding: 5px;
-	    height: 15%;
 	    font-size: 3vmin;
 	    font-weight: bold;
 	}
 
 	.aboutContent {
+	    @include dimensions(w , 84%);
 		color: #5E5E5E;
 	    border: 5px solid #F7941E;
-		height: 84%;
 		padding: 15px;
 		font-size: 2vmin;
 		background-color: #F3F3F3;
 		margin-top: 1%;
 
-		ul {
-			margin-bottom: 20px;
-		}
+		ul {margin-bottom: 20px;}
 
 		label {
 			font-weight: bold;
@@ -160,31 +182,26 @@ header {
 }
 
 .status {
-	width: 57%;
-	height: 99.4%;
+	@include dimensions(57%,99.4%);
+	@include radius_top (5px);
 	float: right;
 	display: inline-block;
-	border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
 
 	.title {
+	    @include radius_top (5px);
+	    @include dimensions(75%,6.75%);
 		color: #fff;
 	    background-color: #2A373D;
-	    border-top-left-radius: 5px;
-	    border-top-right-radius: 5px;
 	    padding: 5px;
 	    font-size: 3vmin;
-	    height: 6.75%;
-	    width: 75%;
 	    display: inline-block;
 	    float: left;
 	    font-weight: bold;
 	}
 
 	.statusContent {
+		@include dimensions(75%,93.25%);
 		color: #5E5E5E;
-		height: 93.25%;
-		width: 75%;
 		float: left;
 		font-size: 2vmin;
 		display: inline-block;
@@ -195,24 +212,17 @@ header {
 
 		.issues,
 		.keyItems {
-			width: 100%;
+			@include dimensions(100%,49%);
 			display: inline-block;
-			height: 49%;
 			float: left;
 			padding: 20px;
 		}
 
-		.keyItems {
-			margin-top: 2%;
-		}
+		.keyItems {margin-top: 2%;}
 
-		.issues {
-			border-bottom: 3px solid #f7941e;
-		}
+		.issues {border-bottom: 3px solid #f7941e;}
 
-		ul {
-			margin-bottom: 20px;
-		}
+		ul {margin-bottom: 20px;}
 
 		label {
 			font-weight: bold;
@@ -228,26 +238,24 @@ header {
 }
 
 .team {
+	@include dimensions(40%,52%);
 	float: left;
-    height: 52%;
-    width: 40%;
     margin-top: 1%;
 	
 
     .title {
-    	height: 12.74%;
+    	@include dimensions(w , 12.74%);
+    	@include radius_top (5px);
     	color: #fff;
 	    background-color: #2A373D;
     	font-size: 3vmin;
     	padding: 5px;
     	font-weight: bold;
-    	border-top-right-radius: 5px;
-    	border-top-left-radius: 5px;
     }
 }
 
 .teamContent {
-	height: 87.26%;
+	@include dimensions(w , 87.26%);
 	padding: 1.5%;
 	border: 5px solid #F7941E;
 	background-color: #F3F3F3;
@@ -255,18 +263,15 @@ header {
 	overflow: hidden;
 
 	.container{
-		
+		@include dimensions(100%,600%);
 		animation: slide infinite 7s ease-in;
-		width: 100%;
-		height: 600%;
 		display: inline-block;
 		padding: 3% 0;
 
 		div {
+			@include dimensions(25%,8%);
 			overflow: hidden;
 			display: inline-block;
-			width: 25%;
-			height: 8%;
 			text-align: center;
 		}
 
@@ -275,15 +280,12 @@ header {
 			font-size: 1.5vmin;
 		}
 
-		img.profilePic {
-			max-height: 60%;
-		}
+		img.profilePic {max-height: 60%;}
 	}
 }
 
 .progress {
-    height: 100%;
-	width: 16%;
+	@include dimensions(16%,100%);
     padding: 2%;
     margin: 0 auto;
     display: flex;
@@ -291,13 +293,10 @@ header {
 }
 
 .bar-main-container {
+	@include dimensions(91%,100%);
+	@include radius(4px);
 	background-color: #AAAFB7;
-	width: 91%;
-	height: 100%;
 	margin: 0 auto;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
 	font-family: sans-serif;
 	font-weight: bolder;
 	font-size: 2.2vmin;
@@ -306,62 +305,43 @@ header {
 }
 
 .wrap { 
+	@include dimensions();
 	padding: 8px;
-	height: 100%;
 }
 
 .bar-percentage {
+	@include radius(4px);
+	@include dimensions(70%,9%);
 	background: rgba(0,0,0,0.13);
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
 	padding: 20% 3%;
-	width: 70%;
-	height: 9%;
 	text-align: center;
 	margin: 0 auto;
 }
 
 .bar-container {
-	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px;
-	border-radius: 2px;
-	height: 88%;
+	@include radius(2px);
+	@include dimensions(70%,88%);
 	background: rgba(0,0,0,0.13);
-	width: 70%;
 	margin: 25% auto;
 }
 
 .meter { 
+	@include dimensions(100%,100%);
+	@include radius(4px);
 	display: flex;
-	align-items: flex-end;		
-	height: 100%;
-	width: 100%;
+	align-items: flex-end;	
 	background: #555;
 	padding: 2px;
-	border-radius: 4px;
 	-webkit-box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);
 	-moz-box-shadow   : inset 0 -1px 1px rgba(255,255,255,0.3);
 	box-shadow        : inset 0 -1px 1px rgba(255,255,255,0.3);
 
 
 	span {
+		@include dimensions(100%,100%);
+		@include radius(2px);
 		display: block;
-		height: 100%;
-		width: 100%;
-		
-		-webkit-border-top-right-radius: 2px;
-		-webkit-border-bottom-right-radius: 2px;
-		-moz-border-radius-topright: 2px;
-		-moz-border-radius-bottomright: 2px;
-		border-top-right-radius: 2px;
-		border-bottom-right-radius: 2px;
-		-webkit-border-top-left-radius: 2px;
-		-webkit-border-bottom-left-radius: 2px;
-		-moz-border-radius-topleft: 2px;
-		-moz-border-radius-bottomleft: 2px;
-		border-top-left-radius: 2px;
-		border-bottom-left-radius: 2px;
+
 		-webkit-box-shadow: 
 		  inset 0 2px 9px  rgba(255,255,255,0.3),
 		  inset 0 -2px 6px rgba(0,0,0,0.4);
@@ -397,253 +377,110 @@ header {
 		      transparent 75%,
 		      transparent
 		   );
+		@include radius(2px);		
 		z-index: 1;
 		-webkit-background-size: 50px 50px;
 		-moz-background-size: 50px 50px;
 		background-size: 50px 50px;
 		-webkit-animation: move 2s linear infinite;
 		-moz-animation: move 2s linear infinite;
-		-webkit-border-top-right-radius: 2px;
-		-webkit-border-bottom-right-radius: 2px;
-		-moz-border-radius-topright: 2px;
-		-moz-border-radius-bottomright: 2px;
-		border-top-right-radius: 2px;
-		border-bottom-right-radius: 2px;
-		-webkit-border-top-left-radius: 2px;
-		-webkit-border-bottom-left-radius: 2px;
-		-moz-border-radius-topleft: 2px;
-		-moz-border-radius-bottomleft: 2px;
-		border-top-left-radius: 2px;
-		border-bottom-left-radius: 2px;
 		overflow: hidden;
 	}
 }
 
 @-webkit-keyframes move {
-    0% {
-       background-position: 0 0;
-    }
-    100% {
-       background-position: 50px 50px;
-    }
+    0% {background-position: 0 0;}
+    100% {background-position: 50px 50px;}
 }
 
 @-moz-keyframes move {
-    0% {
-       background-position: 0 0;
-    }
-    100% {
-       background-position: 50px 50px;
-    }
+    0% {background-position: 0 0;}
+    100% {background-position: 50px 50px;}
 }
 
 @keyframes move {
-    0% {
-       background-position: 0 0;
-    }
-    100% {
-       background-position: 50px 50px;
-    }
+    0% {background-position: 0 0;}
+    100% {background-position: 50px 50px;}
 }
 
 /* BAR COLORS */
-
-.percent10 {
-	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #FF1100), color-stop(1, #FF1100));
-	background-image: -moz-linear-gradient(
-			  center bottom,
-			  rgb(255,17,0) 37%,
-			  rgb(255,17,0) 69%
-			 );
-}
-.percent20 {
-	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #FF5E00), color-stop(1, #FF5E00));
-	background-image: -moz-linear-gradient(
-			  center bottom,
-			  rgb(255,94,0) 37%,
-			  rgb(255,94,0) 69%
-			 );
-}
-.percent30 {
-	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #007EFF), color-stop(1, #007EFF));
-	background-image: -moz-linear-gradient(
-			  center bottom,
-			  rgb(0,126,255) 37%,
-			  rgb(0,126,255) 69%
-			 );
-}
-.percent40 {
-	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #0037FF), color-stop(1, #0037FF));
-	background-image: -moz-linear-gradient(
-			  center bottom,
-			  rgb(0,55,255) 37%,
-			  rgb(0,55,255) 69%
-			 );
-}
-.percent50 {
-	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #FFB000), color-stop(1, #FFB000));
-	background-image: -moz-linear-gradient(
-			  center bottom,
-			  rgb(255,176,0) 37%,
-			  rgb(255,176,0) 69%
-			 );
-}
-.percent60 {
-	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #FFEB00), color-stop(1, #FFEB00));
-	background-image: -moz-linear-gradient(
-			  center bottom,
-			  rgb(255,235,0) 37%,
-			  rgb(255,235,0) 69%
-			 );
-}
-.percent70 {
-	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #E4FF00), color-stop(1, #E4FF00));
-	background-image: -moz-linear-gradient(
-			  center bottom,
-			  rgb(228,255,0) 37%,
-			  rgb(228,255,0) 69%
-			 );
-}
-.percent80 {
-	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #B4FF00), color-stop(1, #B4FF00));
-	background-image: -moz-linear-gradient(
-			  center bottom,
-			  rgb(180,255,0) 37%,
-			  rgb(180,255,0) 69%
-			 );
-}
-.percent90 {
-	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #86FF00), color-stop(1, #86FF00));
-	background-image: -moz-linear-gradient(
-			  center bottom,
-			  rgb(134,255,0) 37%,
-			  rgb(134,255,0) 69%
-			 );
-}
-.percent100 {
-	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #27FF00), color-stop(1, #27FF00));
-	background-image: -moz-linear-gradient(
-			  center bottom,
-			  rgb(39,255,0) 37%,
-			  rgb(39,255,0) 69%
-			 );
-}
+.percent10 {@include percentcolor(#FF1100);}
+.percent20 {@include percentcolor(#FF5E00);}
+.percent30 {@include percentcolor(#007EFF);}
+.percent40 {@include percentcolor(#0037FF);}
+.percent50 {@include percentcolor(#FFB000);}
+.percent60 {@include percentcolor(#FFEB00);}
+.percent70 {@include percentcolor(#E4FF00);}
+.percent80 {@include percentcolor(#B4FF00);}
+.percent90 {@include percentcolor(#86FF00);}
+.percent100 {@include percentcolor(#27FF00);}
 
 @keyframes slide {
-	  0% {
-	    margin-top: 0px;
-	  }
-	  25% {
-	    margin-top: 0px;
-	  }
-	  50% {
-	    margin-top: -200px;
-	  }
-	  75% {
-	    margin-top:  -200px;
-	  }
-	  100% {
-	    margin-top:  0px;
-		  }
- 
+	  0% {margin-top: 0px;}
+	  25% {margin-top: 0px;}
+	  50% {margin-top: -200px;}
+	  75% {margin-top:  -200px;}
+	  100% {margin-top:  0px;} 
 	}
+
 @media only screen and (max-height: 768px) 
 					and (min-width: 1024px)	{
 
-	.teamContent .container{
-		padding: 3.5% 0;
-	}
+	.teamContent .container{padding: 3.5% 0;}
 	
 
 	@keyframes slide {
-	  0% {
-	    margin-top: 0px;
-	  }
-	  25% {
-	    margin-top: 0px;
-	  }
-	  50% {
-	    margin-top: -225px;
-	  }
-	  75% {
-	    margin-top:  -225px;
-	  }
-	  100% {
-	    margin-top:  0px;
-		  }
- 
-	}
+	  0% {margin-top: 0px;}
+	  25% {margin-top: 0px;}
+	  50% {margin-top: -225px;}
+	  75% {margin-top:  -225px;}
+	  100% {margin-top:  0px;}
+ 	}
 
 }
 
 @media only screen and (min-width: 1280px) {
 	.teamContent {
-		container > div{
-			width: 25%;	
-		}
+		container > div{@include dimensions(26% , h);}
 	}
 
-	header time {
-		font-size: 30px;
-	}
+	header time {font-size: 30px;}
 
 	@keyframes slide {
-	  0% {
-	    margin-top: 0px;
-	  }
-	  25% {
-	    margin-top: 0px;
-	  }
-	  50% {
-	    margin-top: -275px;
-	  }
-	  75% {
-	    margin-top:  -275px;
-	  }
-	  100% {
-	    margin-top:  0px;
-		  }
- 
+	  0% {margin-top: 0px;}
+	  25% {margin-top: 0px;}
+	  50% {margin-top: -275px;}
+	  75% {margin-top:  -275px;}
+	  100% {margin-top:  0px;}
 	}
 }
 
 @media only screen and (min-width: 1600px) {
 	
 
-	header time {
-		font-size: 40px;
-	}
+	header time {font-size: 40px;}
 
 	.about {
-		height: 53%;
+		@include dimensions(w , 53%);
 
-		.title {
-			height: 12.74%;
-		}
+		.title {@include dimensions(w , 12.74%);}
 
-		.aboutContent {
-			height: 86%;
-		}
+		.aboutContent {@include dimensions(w , 86%);}
 	}
 	
 	.team {
-		height: 45%;
+		@include dimensions(w , 45%);
 
-		.title {
-			height: 15%;
-		}
+		.title {@include dimensions(w , 15%);}
 
 		.teamContent {
-			height: 84%;
+			@include dimensions(w , 84%);
 
 			.container{
-				height: 116%;
+				@include dimensions(w , 116%);
 				padding: 0;
 
-				div{
-					width: 20%;
-					height: 50%;
-				}
+				div{@include dimensions(20%,50%);}
 			}
 		}
 	}
