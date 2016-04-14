@@ -1,10 +1,10 @@
 // (min-width:769px)
-@mixin radius($radius){
+@mixin radius($radius) {
 	@include radius_top($radius);
 	@include radius_bottom($radius);
 }
 
-@mixin radius_top($radius){
+@mixin radius_top($radius) {
 	-webkit-border-top-left-radius: $radius;
 	-moz-border-radius-topleft: $radius;
 	border-top-left-radius: $radius;
@@ -14,7 +14,7 @@
 	border-top-right-radius: $radius;
 }
 
-@mixin radius_bottom($radius){
+@mixin radius_bottom($radius) {
 	-webkit-border-bottom-right-radius: $radius;
 	-moz-border-radius-bottomright: $radius;
 	border-bottom-right-radius: $radius;
@@ -24,12 +24,12 @@
 	border-bottom-left-radius: $radius;
 }
 
-@mixin percentcolor ($color){
+@mixin percentcolor($color) {
 	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, $color), color-stop(1, $color));
 	background-image: -moz-linear-gradient(center bottom, $color 37%,$color 69%);
 }
 
-@mixin dimensions ($w:100% , $h:100%){
+@mixin dimensions($w:100% , $h:100%){
 	width: $w;
 	height: $h;
 }
@@ -37,7 +37,9 @@
 html,
 body,
 #main,
-#all {@include dimensions();}
+#all {
+	@include dimensions();
+}
 
 .title span {
 	@include dimensions(w, 100%);
@@ -67,6 +69,7 @@ body,
 
 header {
 	@include dimensions(w, 25%);
+
 	#prjLogo {
 		@include dimensions(w, 80%);
 		float: right;
@@ -87,7 +90,7 @@ header {
 	    text-align: center;
 	    background-color: #3d4f59;
         padding: 1%;
-		font-size: 25px;
+		font-size: 24px;
 		color: #ED9436;
 	}
 
@@ -126,7 +129,9 @@ header {
 			vertical-align: middle;
 		}
 
-		li:last-child {padding-left: 14%;}
+		li:last-child {
+			padding-left: 14%;
+		}
 	}
 
 	#flag {
@@ -166,7 +171,9 @@ header {
 		background-color: #F3F3F3;
 		margin-top: 1%;
 
-		ul {margin-bottom: 20px;}
+		ul {
+			margin-bottom: 20px;
+		}
 
 		label {
 			font-weight: bold;
@@ -218,11 +225,17 @@ header {
 			padding: 20px;
 		}
 
-		.keyItems {margin-top: 2%;}
+		.keyItems {
+			margin-top: 2%;
+		}
 
-		.issues {border-bottom: 3px solid #f7941e;}
+		.issues {
+			border-bottom: 3px solid #f7941e;
+		}
 
-		ul {margin-bottom: 20px;}
+		ul {
+			margin-bottom: 20px;
+		}
 
 		label {
 			font-weight: bold;
@@ -280,7 +293,10 @@ header {
 			font-size: 1.5vmin;
 		}
 
-		img.profilePic {max-height: 60%;}
+		img.profilePic {
+			@include radius(6px);
+			max-height: 60%;
+		}
 	}
 }
 
@@ -426,7 +442,9 @@ header {
 @media only screen and (max-height: 768px) 
 					and (min-width: 1024px)	{
 
-	.teamContent .container{padding: 3.5% 0;}
+	.teamContent .container{
+		padding: 3.5% 0;
+	}
 	
 
 	@keyframes slide {
@@ -441,10 +459,14 @@ header {
 
 @media only screen and (min-width: 1280px) {
 	.teamContent {
-		container > div{@include dimensions(26% , h);}
+		container > div{
+			@include dimensions(26% , h);
+		}
 	}
 
-	header time {font-size: 30px;}
+	header time {
+		font-size: 30px;
+	}
 
 	@keyframes slide {
 	  0% {margin-top: 0px;}
@@ -458,20 +480,28 @@ header {
 @media only screen and (min-width: 1600px) {
 	
 
-	header time {font-size: 40px;}
+	header time {
+		font-size: 40px;
+	}
 
 	.about {
 		@include dimensions(w , 53%);
 
-		.title {@include dimensions(w , 12.74%);}
+		.title {
+			@include dimensions(w , 12.74%);
+		}
 
-		.aboutContent {@include dimensions(w , 86%);}
+		.aboutContent {
+			@include dimensions(w , 86%);
+		}
 	}
 	
 	.team {
 		@include dimensions(w , 45%);
 
-		.title {@include dimensions(w , 15%);}
+		.title {
+			@include dimensions(w , 15%);
+		}
 
 		.teamContent {
 			@include dimensions(w , 84%);
@@ -480,7 +510,9 @@ header {
 				@include dimensions(w , 116%);
 				padding: 0;
 
-				div{@include dimensions(20%,50%);}
+				div{
+					@include dimensions(20%,50%);
+				}
 			}
 		}
 	}
